@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Galano Grotesque';
+    src: url('GalanoGrotesque-Bold.eot');
+    src: url('GalanoGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Bold.woff2') format('woff2'),
+        url('GalanoGrotesque-Bold.woff') format('woff'),
+        url('GalanoGrotesque-Bold.ttf') format('truetype'),
+        url('GalanoGrotesque-Bold.svg#GalanoGrotesque-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque';
+    src: url('GalanoGrotesque-Regular.eot');
+    src: url('GalanoGrotesque-Regular.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Regular.woff2') format('woff2'),
+        url('GalanoGrotesque-Regular.woff') format('woff'),
+        url('GalanoGrotesque-Regular.ttf') format('truetype'),
+        url('GalanoGrotesque-Regular.svg#GalanoGrotesque-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque';
+    src: url('GalanoGrotesque-Thin.eot');
+    src: url('GalanoGrotesque-Thin.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Thin.woff2') format('woff2'),
+        url('GalanoGrotesque-Thin.woff') format('woff'),
+        url('GalanoGrotesque-Thin.ttf') format('truetype'),
+        url('GalanoGrotesque-Thin.svg#GalanoGrotesque-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque';
+    src: url('GalanoGrotesque-Medium.eot');
+    src: url('GalanoGrotesque-Medium.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-Medium.woff2') format('woff2'),
+        url('GalanoGrotesque-Medium.woff') format('woff'),
+        url('GalanoGrotesque-Medium.ttf') format('truetype'),
+        url('GalanoGrotesque-Medium.svg#GalanoGrotesque-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Galano Grotesque';
+    src: url('GalanoGrotesque-ExtraBold.eot');
+    src: url('GalanoGrotesque-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('GalanoGrotesque-ExtraBold.woff2') format('woff2'),
+        url('GalanoGrotesque-ExtraBold.woff') format('woff'),
+        url('GalanoGrotesque-ExtraBold.ttf') format('truetype'),
+        url('GalanoGrotesque-ExtraBold.svg#GalanoGrotesque-ExtraBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
