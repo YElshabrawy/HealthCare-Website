@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="auth_up.css">
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign Up</h1>
+                <h3>Enter Family History</h3>
+                <button class="add-family margin">
+                    <img src="/images/i_family.svg" alt="" class="logo">
+                    <span>Add Member</span>
+                </button>
+                <div class="grid-container2">
+                    <div class="gt2-weight">
+                        <input type="text" placeholder="First Name" />
+                    </div>
+                    <div class="gt2-height">
+                        <input type="text" placeholder="Last Name" />
+                    </div>
+                    <div class="gt2-relation">
+                        <select id="relation" name="relation" class="tmp-dropdown">
+                            <option value="">Relationship</option>
+                            <option value="Father">Father</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Son">Son</option>
+                            <option value="Daughter">Daughter</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Husband">Husband</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Grandfather">Grandfather</option>
+                            <option value="Grandmother">Grandmother</option>
+                            <option value="Grandson">Grandson</option>
+                            <option value="Granddaughter">Granddaughter</option>
+                        </select>
+                    </div>
+
+                    <div class="gt2-history">
+                        <div class="gt2-h-rays">
+                            <p>
+                                Do you had any rays before?
+                            </p>
+                        </div>
+                        <div class="gt2-h-rays-a">
+                            <fieldset class="radio-container">
+                                <label>Yes</label>
+                                <input class="yes-radio" type="radio" name="radio" />
+                                <label>No</label>
+                                <input class="no-radio" type="radio" name="radio" checked="checked" />
+                            </fieldset>
+                        </div>
+                        <div id="rows-1" class="multi-g multi-g-rays">
+                            <div id="n1" class="row">
+                                <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
+                                <input type="text" placeholder="Ray Name" />
+                                <input type="date" placeholder="Date" />
+                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
+                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="gt2-h-medTest">
+                            <p>
+                                Do you had any medical tests before?
+                            </p>
+                        </div>
+                        <div class="gt2-h-medTest-a">
+                            <fieldset class="radio-container">
+                                <label>Yes</label>
+                                <input class="yes-radio" type="radio" name="radio2" />
+                                <label>No</label>
+                                <input class="no-radio" type="radio" name="radio2" checked="checked" />
+                            </fieldset>
+                        </div>
+                        <div id="rows-2" class="multi-g multi-g-medTest">
+                            <div id="n2" class="row">
+                                <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
+                                <input type="text" placeholder="Test Name" />
+                                <input type="date" placeholder="Date" />
+                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
+                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="gt2-h-surgery">
+                            <p>
+                                Did you make any surgries before?
+                            </p>
+                        </div>
+                        <div class="gt2-h-surgery-a">
+                            <fieldset class="radio-container">
+                                <label>Yes</label>
+                                <input class="yes-radio" type="radio" name="radio3" />
+                                <label>No</label>
+                                <input class="no-radio" type="radio" name="radio3" checked="checked" />
+                            </fieldset>
+                        </div>
+                        <div id="rows-3" class="multi-g multi-g-surgery">
+                            <div id="n3" class="row">
+                                <input type="text" placeholder="Surgery Type" />
+                                <input type="text" placeholder="Surgery Location" />
+                                <input type="date" placeholder="Date" />
+                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
+                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="gt2-h-chronic">
+                            <p>
+                                Do you have any chronic diseases?
+                            </p>
+                        </div>
+                        <div class="gt2-h-chronic-a">
+                            <fieldset class="radio-container">
+                                <label>Yes</label>
+                                <input class="yes-radio" type="radio" name="radio4" />
+                                <label>No</label>
+                                <input class="no-radio" type="radio" name="radio4" checked="checked" />
+                            </fieldset>
+                        </div>
+                        <div id="rows-4" class="multi-g multi-g-chronic">
+                            <div id="n4" class="row">
+                                <input type="text" placeholder="Disease Name" />
+                                <input type="date" placeholder="Date" />
+                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
+                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="gt2-h-allergy">
+                            <p>
+                                Do you suffer from any kind of allergy?
+                            </p>
+                        </div>
+                        <div class="gt2-h-allergy-a">
+                            <fieldset class="radio-container">
+                                <label>Yes</label>
+                                <input class="yes-radio" type="radio" name="radio5" />
+                                <label>No</label>
+                                <input class="no-radio" type="radio" name="radio5" checked="checked" />
+                            </fieldset>
+                        </div>
+                        <div id="rows-5" class="multi-g multi-g-allergy">
+                            <div id="n5" class="row ">
+                                <input type="text" placeholder="Allergy Name" />
+                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
+                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="gt2-h-medicine">
+                            <p>
+                                Do you take any medicines?
+                            </p>
+                        </div>
+                        <div class="gt2-h-medicine-a">
+                            <fieldset class="radio-container">
+                                <label>Yes</label>
+                                <input class="yes-radio" type="radio" name="radio6" />
+                                <label>No</label>
+                                <input class="no-radio" type="radio" name="radio6" checked="checked" />
+                            </fieldset>
+                        </div>
+                        <div id="rows-6" class="multi-g multi-g-medicine">
+                            <div id="n6" class="row ">
+                                <input type="text" placeholder="Medicine Name" />
+                                <input type="number" placeholder="Dose (/day)" />
+                                <input type="number" placeholder="Duration (hrs)" />
+                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
+                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button><a href="#">Final</a></button>
+                <div class="stage">
+                    <button class=""></button>
+                    <button class=""></button>
+                    <button class=""></button>
+                    <button class=""></button>
+                </div>
+                <div class="back-to-home">
+                    <a href="/index.html">
+                        <img src="/images/i_back.svg" alt="">
+                        <span>Back to Home Page</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
