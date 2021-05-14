@@ -28,15 +28,15 @@
 
 body {
   /* background: #f6f5f7; */
-  background: url(/images/main-bg.png) no-repeat;
+  background: url(/images/main-bg.png);
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: "Montserrat", sans-serif !important;
-  height: 96vh;
-  margin: -20px 0 50px;
+  /* height: 96vh; */
+  /* margin: -20px 0 50px; */
 }
 
 h1 {
@@ -106,12 +106,14 @@ button.ghost,
 form {
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
+  padding: 40px 50px;
+  /* height: 100%; */
   text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
 }
 
 input {
@@ -123,14 +125,15 @@ input {
 }
 
 .container {
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 968px;
   max-width: 100%;
   min-height: 680px;
+  margin-top: 3rem;
 }
 
 .form-container {
@@ -393,7 +396,8 @@ button > a {
     "address address"
     "gender dob"
     "phone job";
-  margin-top: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
 
 .fname {
@@ -430,4 +434,315 @@ button > a {
 
 .job {
   grid-area: job;
+}
+/*********************************************************
+    GRADE TEMP 2
+******************************************************* */
+.grid-container2 {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.2fr 1.8fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "gt2-weight gt2-height gt2-social-st"
+    "gt2-history gt2-history gt2-history";
+}
+
+.gt2-weight {
+  grid-area: gt2-weight;
+}
+
+.gt2-height {
+  grid-area: gt2-height;
+}
+
+.gt2-social-st {
+  grid-area: gt2-social-st;
+}
+
+.gt2-history {
+  align-items: center;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  gap: 0px 0px;
+  /* grid-template-areas:
+    "gt2-h-rays gt2-h-rays-a"
+    "gt2-h-medTest gt2-h-medTest-a"
+    "gt2-h-surgery gt2-h-surgery-a"
+    "gt2-h-chronic gt2-h-chronic-a"
+    "gt2-h-allergy gt2-h-allergy-a"
+    "gt2-h-medicine gt2-h-medicine-a"; */
+  grid-area: gt2-history;
+}
+
+.multi-g {
+  grid-column-end: span 2;
+  /* Hwa nafso grid */
+  align-items: center;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  gap: 0px 0px;
+}
+
+.multi-g > .row {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+
+.multi-g > .row > button {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  background: transparent;
+  border-color: #333;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.multi-g > .row .add-btn:hover {
+  background: #2ac3a2;
+}
+
+.multi-g > .row .remove-btn:hover {
+  background: #e82b44;
+}
+
+.multi-g > .row .add-btn {
+  margin-left: 6px;
+}
+
+.multi-g > .row a {
+  margin-right: 6px;
+}
+
+.show {
+  display: flex !important;
+}
+
+.logo {
+  width: 20px;
+}
+/* .gt2-h-rays {
+  grid-area: gt2-h-rays;
+}
+
+.gt2-h-rays-a {
+  grid-area: gt2-h-rays-a;
+}
+
+.gt2-h-medTest {
+  grid-area: gt2-h-medTest;
+}
+
+.gt2-h-medTest-a {
+  grid-area: gt2-h-medTest-a;
+}
+
+.gt2-h-surgery {
+  grid-area: gt2-h-surgery;
+}
+
+.gt2-h-surgery-a {
+  grid-area: gt2-h-surgery-a;
+}
+
+.gt2-h-chronic {
+  grid-area: gt2-h-chronic;
+}
+
+.gt2-h-chronic-a {
+  grid-area: gt2-h-chronic-a;
+}
+
+.gt2-h-allergy {
+  grid-area: gt2-h-allergy;
+}
+
+.gt2-h-allergy-a {
+  grid-area: gt2-h-allergy-a;
+}
+
+.gt2-h-medicine {
+  grid-area: gt2-h-medicine;
+}
+
+.gt2-h-medicine-a {
+  grid-area: gt2-h-medicine-a;
+} */
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gt2-history > div > p {
+  margin: 14px 0;
+  text-align: start;
+  /* text-decoration: underline; */
+
+  font-size: 17px;
+  background-image: var(--color-grad-main);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.radio-container > input {
+  width: 20px;
+}
+
+fieldset {
+  border: none;
+}
+
+.add-family {
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  background-color: #ffffff;
+  border-radius: 27px;
+  border: 3px solid #dcdcdc;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #666666;
+  font-weight: bold;
+  padding: 12px 40px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+
+.add-family:hover {
+  background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  background-color: #f6f6f6;
+}
+
+.add-family:active {
+  position: relative;
+  top: 1px;
+}
+
+.add-family span {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.margin {
+  margin-top: 1px;
+  margin-bottom: 80px;
+}
+
+.hide {
+  display: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 2.5fr 0.3fr 0.3fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "gt-3-CV gt-3-Major gt-3-Degree"
+    "gt-3-timeTable gt-3-timeTable gt-3-timeTable"
+    ". . ."
+    "gt3-price1 gt3-price2 gt3-price3";
+}
+
+.gt-3-timeTable {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". gt3-tt-sat gt3-tt-sun gt3-tt-mon gt3-tt-tues gt3-tt-wed gt3-tt-thurs gt3-tt-fri"
+    "gt3-tt-from1 . . . . . . ."
+    "gt3-tt-to1 . . . . . . ."
+    "gt3-tt-from2 . . . . . . ."
+    "gt3-tt-to2 . . . . . . .";
+  grid-area: gt-3-timeTable;
+}
+
+.gt3-tt-sat {
+  grid-area: gt3-tt-sat;
+}
+
+.gt3-tt-sun {
+  grid-area: gt3-tt-sun;
+}
+
+.gt3-tt-mon {
+  grid-area: gt3-tt-mon;
+}
+
+.gt3-tt-tues {
+  grid-area: gt3-tt-tues;
+}
+
+.gt3-tt-wed {
+  grid-area: gt3-tt-wed;
+}
+
+.gt3-tt-thurs {
+  grid-area: gt3-tt-thurs;
+}
+
+.gt3-tt-fri {
+  grid-area: gt3-tt-fri;
+}
+
+.gt3-tt-from1 {
+  grid-area: gt3-tt-from1;
+}
+
+.gt3-tt-to1 {
+  grid-area: gt3-tt-to1;
+}
+
+.gt3-tt-from2 {
+  grid-area: gt3-tt-from2;
+}
+
+.gt3-tt-to2 {
+  grid-area: gt3-tt-to2;
+}
+
+.gt-3-CV {
+  grid-area: gt-3-CV;
+  display: flex;
+  align-items: center;
+}
+
+.gt-3-CV > p {
+  transform: translateY(5px);
+  margin-left: 10px;
+}
+
+.gt-3-Major {
+  grid-area: gt-3-Major;
+}
+
+.gt-3-Degree {
+  grid-area: gt-3-Degree;
+}
+
+.gt3-price1 {
+  grid-area: gt3-price1;
+}
+
+.gt3-price2 {
+  grid-area: gt3-price2;
+}
+
+.gt3-price3 {
+  grid-area: gt3-price3;
 }
