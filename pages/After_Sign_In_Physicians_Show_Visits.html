@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthCare - Add Visit</title>
+    <title>HealthCare - Main</title>
     <link rel="stylesheet" href="../main.css">
     <script type = "text/javascript" src="Menu.js">  </script>  
 </head>
@@ -34,24 +34,66 @@
     <aside class="Menu">
   <ul> 
     <li><a  href="#"><button>My Profile</button></a></li>
-    <li><a  href="After_Sign_In_Physicians_Show_Visits.html">Show Visits</a></li>
-    <li><a  class="Active">Add Visit</a></li>
+    <li><a  class="Active">Show Visits</a></li>
+    <li><a  href="After_Sign_In_Physicians_Add_Visit.html">Add Visit</a></li>
     <li><a  href="#">Change Time Table</a></li>
     <li><a  >My Rating</a></li>
  </ul>
     </aside>
 
     <div class="BackGround_Image" >
-        <div class="Wrapper" >
-            <div class="Email_Forogt_Pass" >   
-                <input type="tel" placeholder="Enter Patient ID" class="Email_Forogt_Pass" required pattern="[0-9]"> 
-                </div>
-                <div class="Button" >
-                    <a type="button" href="#"> 
-                        <button type="button">Next</button></a>
-                </div>
-    
-        </div>
+        <div><button class="Search_Bar"></button>
+            <input type="search" class="Search_Bar">
+            <button class="Filter_Button">Filter</button>
+       </div>
+    <div class="Show_Visit">
+<ul>
+    <li class="Upper">
+<span>Patient Name:</span>
+<span>Patient ID:</span>
+<span>Visit_ID:</span>
+<span>Visit Date:</span>
+<span>Visit Time:</span>
+    </li>
+    <li class="Lower_2">
+        <ul style="display: flex;" >
+
+        </ul>
+        <span class="Lower">Complaint : </span>
+    </li>
+</ul>
+<ul>
+    <li class="Upper">
+<span>Patient Name:</span>
+<span>Patient ID:</span>
+<span>Visit_ID:</span>
+<span>Visit Date:</span>
+<span>Visit Time:</span>
+    </li>
+    <li class="Lower_2">
+        <ul style="display: flex;" >
+
+        </ul>
+        <span class="Lower">Complaint : </span>
+    </li>
+</ul>
+<ul>
+    <li class="Upper">
+<span>Patient Name:</span>
+<span>Patient ID:</span>
+<span>Visit_ID:</span>
+<span>Visit Date:</span>
+<span>Visit Time:</span>
+    </li>
+    <li class="Lower_2">
+        <ul style="display: flex;" >
+
+        </ul>
+        <span class="Lower">Complaint : </span>
+    </li>
+</ul>
+    </div>
+    <div class="Button">  <button class="See_More">See More</button></div>
     </div>
 
 </body>

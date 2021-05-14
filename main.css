@@ -538,7 +538,7 @@ button {
   border-radius: 75px;
   width: 224px;
   height: 75px;
-  border: 1px solid #DB2E43;
+  border: 1px solid #e6455a;
   background: var(--color-grad-main);
   color: #000;
   font-size: 16px;
@@ -598,7 +598,7 @@ btn.Resend_Code {
   width: 70px;
   height: 80px;
   margin-left: 25px;
-  border: 1px solid #DB2E43;
+  border: 1px solid #e6455a;
   background: var(--color-grad-main);
   color: #fff;
   font-size: 50px;
@@ -631,7 +631,7 @@ btn.Resend_Code {
 }
 .Menu ul .Active
 {
-  color:#DB2E43;
+  color:#e6455a;
   text-decoration: underline;
   font-size: 18px;
   font-weight: bold;
@@ -655,7 +655,7 @@ btn.Resend_Code {
 }
 .Menu ul li a:hover
 {
-color:#DB2E43;
+color:#e6455a;
 text-decoration: underline;
 font-size: 18px;
 font-weight: bold;
@@ -688,7 +688,7 @@ flex-grow: 1;
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
-  background-color: #DB2E43;
+  background-color: #e6455a;
   white-space: nowrap;
   text-align: left;
   padding-left: 15px;
@@ -714,7 +714,7 @@ input.Search_Bar
   width: 508px;
   font-size: large;
   border-radius: 38px;
-  border-color: #DB2E43;
+  border-color: #e6455a;
 }
 input.Search_Bar:focus {
   outline: none !important;
@@ -735,7 +735,7 @@ button.Filter_Button
   width: 126px;
   height: 51px;
   cursor: pointer;
-  color: #DB2E43;
+  color: #e6455a;
   font-weight: bold;
   background-color: transparent;
   border-radius: 0px;
@@ -783,4 +783,122 @@ button.Download_CV
   padding: 0px 0px;
   border-radius: 34px;
   align-self: center;
+}
+.List ol li.Book_Visit
+{
+  line-height: 151px;
+  list-style:none;
+  display: flex;
+  width: 1236px;
+  color: #000;
+  height: 151px;
+  border-radius: 119px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #e6455a;
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 50px;
+}
+div.Book_Visit
+{
+  width: 129px;
+  height: 129px;
+  border-radius:64.5px ;
+  background-color: #fff;
+  align-self:center;
+  padding-left: 10px;
+}
+.Show_Visit
+{
+  left: 0px;
+  bottom: 0px;
+  height: inherit;
+  width: 1236px;
+  padding-top: 2.5rem; 
+}
+.Show_Visit ul li.Upper
+{
+  line-height: 58.44px;
+  list-style:none;
+  display: flex;
+  width: 1236px;
+  color: #000;
+  height: 58.44px;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #e6455a;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.Show_Visit ul li.Lower
+{
+  line-height: 118px;
+  list-style:none;
+  display: block;
+  width: 1236px;
+  color: #000;
+  height: 118px;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color:#fff;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 50px;
+}
+.Show_Visit ul li span ,.Show_Visit ul li a
+{
+ padding-left: 15px;
+ padding-right: 15px;
+ padding-bottom: 15px;
+ vertical-align:text-bottom;
+ flex-grow: 1;
+}
+.Show_Visit ul li span.Lower
+{
+ display: flex;
+ padding: 0px 0px;
+ line-height: 59px;
+ flex-grow: 1;
+}
+button.Show_Presciption
+{
+  width: 203px;
+  height: 40px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  font-size: 12px;
+  background:#e6455a;
+  padding: 0px 0px;
+  margin-left: 20px;
+  border-radius: 38px;
+  align-self: center;
+}
+.Show_Visit ul li.Lower_2
+{
+  line-height: 58.44px;
+  list-style:none;
+  display: block;
+  width: 1236px;
+  color: #000;
+  height: 58.44px;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color:#fff;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 50px;
 }
