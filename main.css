@@ -506,3 +506,149 @@ nav {
     transform: rotate(-360deg);
   }
 }
+/**************************************************************
+**************************************************************/
+/* BackGround image for all the pages */
+.BackGround_Image {
+  height: 50rem;
+  width: 100%;
+  background: url(./images/main-bg.png) no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-left: 7rem;
+}
+.Wrapper {
+  margin-top: 2.5rem;
+  height: 50rem;
+  width: 90%;
+  background-color: rgba(65, 56, 56, 0.50);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  align-self: center;
+  align-content: center;
+  background-size: cover;
+  vertical-align:middle;
+  padding-top:15rem;
+}
+button {
+  border-radius: 75px;
+  width: 224px;
+  height: 75px;
+  border: 1px solid #DB2E43;
+  background: var(--color-grad-main);
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.Email_Forogt_Pass{
+  font-weight: bold;
+  text-align: center
+}
+.Button {
+  margin-top: 6rem;
+  text-align: center;
+}
+input.Email_Forogt_Pass
+{
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 50%;
+  font-size: large;
+}
+input.Email_Forogt_Pass {
+  border-radius: 20px;
+}
+input.Email_Forogt_Pass:focus {
+  outline: none !important;
+  border: 2px solid var(--color-main);
+}
+btn.Resend_Code {
+  color: #000;
+  font-size: 14px;
+  text-decoration:underline;
+  width: auto;
+  height: auto;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+.Menu-Btn {
+  border-radius: 23px;
+  width: 70px;
+  height: 80px;
+  margin-left: 25px;
+  border: 1px solid #DB2E43;
+  background: var(--color-grad-main);
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+.Menu-Btn:hover
+{
+  opacity: 0.5;
+}
+.Menu
+{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 95px;
+  padding: 0 5px;
+  height: 40.3rem;
+  background-color:rgba(65, 56, 56, 0.70);
+  border-radius: 13px;
+  z-index: 1000px;
+}
+.Menu ul
+{
+ padding-top: 15px;
+ overflow: hidden;
+ visibility: hidden;
+}
+.Menu ul li
+{
+ line-height: 80px;
+ list-style: none;
+}
+.Menu ul li a ,.Menu ul li span
+{
+ display: block;
+ height: 80px;
+ padding: 0 10px;
+ text-decoration: none;
+ text-transform: uppercase;
+ color: #fff;
+ font-size: 16px;
+ white-space: nowrap;
+ opacity: 0;
+}
+.Menu ul li a:hover
+{
+color:#DB2E43;
+text-decoration: underline;
+font-size: 18px;
+font-weight: bold;
+}
