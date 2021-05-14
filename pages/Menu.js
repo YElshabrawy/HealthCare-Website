@@ -21,7 +21,7 @@ function Menu_Action(){
     else
     {
         getSidebarUl.setAttribute("style","visibility: hidden;");
-        getSidebar.setAttribute("style","width: 95px;");
+        getSidebar.setAttribute("style","width: 0px;");
         if(getSidebarTitle!==null){
         getSidebarTitle.setAttribute("style","opacity: 0;");
         }

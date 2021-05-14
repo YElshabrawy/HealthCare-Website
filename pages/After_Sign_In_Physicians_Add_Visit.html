@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthCare - Main</title>
+    <title>HealthCare - Add Visit</title>
     <link rel="stylesheet" href="../main.css">
     <script type = "text/javascript" src="Menu.js">  </script>  
 </head>
@@ -33,16 +33,24 @@
 
     <aside class="Menu">
   <ul> 
-    <li><a href="#"><button>My Profile</button></a></li>
-    <li><a href="#">Book Visit</a></li>
-    <li><a href="#">Current Visit</a></li>
-    <li><a href="#">Show Visits</a></li>
-    <li><a href="#">Warnings</a></li>
+    <li><a  href="#"><button>My Profile</button></a></li>
+    <li><a  href="#">Show Visits</a></li>
+    <li><a  class="Active" href="#">Add Visit</a></li>
+    <li><a  href="#">Change Time Table</a></li>
+    <li><a  href="#">My Rating</a></li>
  </ul>
     </aside>
 
     <div class="BackGround_Image" >
         <div class="Wrapper" >
+            <div class="Email_Forogt_Pass" >   
+                <input type="tel" placeholder="Enter Patient ID" class="Email_Forogt_Pass" required pattern="[0-9]"> 
+                </div>
+                <div class="Button" >
+                    <a type="button" href="#"> 
+                        <button type="button">Next</button></a>
+                </div>
+    
         </div>
     </div>
 

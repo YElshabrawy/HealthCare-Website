@@ -510,7 +510,7 @@ nav {
 **************************************************************/
 /* BackGround image for all the pages */
 .BackGround_Image {
-  height: 50rem;
+  height: auto;
   width: 100%;
   background: url(./images/main-bg.png) no-repeat center;
   -webkit-background-size: cover;
@@ -518,6 +518,7 @@ nav {
   -o-background-size: cover;
   background-size: cover;
   padding-left: 7rem;
+  align-items: center;
 }
 .Wrapper {
   margin-top: 2.5rem;
@@ -615,9 +616,9 @@ btn.Resend_Code {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 95px;
+  width: 0px;
   padding: 0 5px;
-  height: 40.3rem;
+  height:35rem;
   background-color:rgba(65, 56, 56, 0.70);
   border-radius: 13px;
   z-index: 1000px;
@@ -627,6 +628,13 @@ btn.Resend_Code {
  padding-top: 15px;
  overflow: hidden;
  visibility: hidden;
+}
+.Menu ul .Active
+{
+  color:#DB2E43;
+  text-decoration: underline;
+  font-size: 18px;
+  font-weight: bold;
 }
 .Menu ul li
 {
@@ -651,4 +659,128 @@ color:#DB2E43;
 text-decoration: underline;
 font-size: 18px;
 font-weight: bold;
+}
+.List
+{
+  left: 0px;
+  bottom: 0px;
+  height: inherit;
+  width: 1236px;
+  padding-top: 2.5rem;
+}
+.List ol li span ,.List ol li a
+{
+padding-left: 15px;
+padding-right: 15px;
+padding-bottom: 15px;
+vertical-align:text-bottom;
+flex-grow: 1;
+}
+.List ol li
+{
+  line-height: 58.44px;
+  list-style:none;
+  display: flex;
+  width: 1236px;
+  color: #000;
+  height: 58.44px;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #DB2E43;
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 50px;
+}
+.List ol li:hover
+{
+opacity: 0.8;
+}
+.Search_Area
+{
+  align-items: center;
+  display: inline-block;
+}
+input.Search_Bar
+{
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  height: 51px;
+  width: 508px;
+  font-size: large;
+  border-radius: 38px;
+  border-color: #DB2E43;
+}
+input.Search_Bar:focus {
+  outline: none !important;
+  border: 2px solid var(--color-main);
+}
+button.Search_Bar
+{
+  width: 50px;
+  height: 51px;
+  cursor: pointer;
+  border: none;
+  border-radius: 0px;
+  padding: 0px 0px;
+  background: url(./images/Search_icon.png) no-repeat center;
+}
+button.Filter_Button
+{
+  width: 126px;
+  height: 51px;
+  cursor: pointer;
+  color: #DB2E43;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0px 0px;
+  background: none;
+}
+button.See_More
+{
+  width: 224px;
+  height: 75px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bolder;
+  font-size: 18px;
+  background-color: transparent;
+  border-radius: 75px;
+  padding: 0px 0px;
+  background: none;
+  align-self: center;
+}
+button.Remove_Btn
+{
+  width: 41px;
+  height: 41px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #fff;
+  background:white;
+  padding: 0px 0px;
+  border-radius: 20.5px;
+  align-self: center;
+}
+button.Download_CV
+{
+  width: 134px;
+  height: 34px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: #fff;
+  background:white;
+  padding: 0px 0px;
+  border-radius: 34px;
+  align-self: center;
 }
