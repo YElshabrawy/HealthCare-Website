@@ -510,19 +510,21 @@ nav {
 **************************************************************/
 /* BackGround image for all the pages */
 .BackGround_Image {
-  height: auto;
-  width: 100%;
+  height:100%;
   background: url(./images/main-bg.png) no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  align-content: center;
+  align-self: center;
+  align-items: center;
   padding-left: 7rem;
   align-items: center;
 }
 .Wrapper {
   margin-top: 2.5rem;
-  height: 50rem;
+  height: 100%;
   width: 90%;
   background-color: rgba(65, 56, 56, 0.50);
   -webkit-background-size: cover;
@@ -621,7 +623,7 @@ btn.Resend_Code {
   height:35rem;
   background-color:rgba(65, 56, 56, 0.70);
   border-radius: 13px;
-  z-index: 1000px;
+  z-index: 100%;
 }
 .Menu ul
 {
@@ -728,6 +730,8 @@ button.Search_Bar
   border: none;
   border-radius: 0px;
   padding: 0px 0px;
+  background-color: transparent;
+  margin-top: 0%;
   background: url(./images/Search_icon.png) no-repeat center;
 }
 button.Filter_Button
@@ -817,7 +821,7 @@ div.Book_Visit
   left: 0px;
   bottom: 0px;
   height: inherit;
-  width: 1236px;
+  width:90%;
   padding-top: 2.5rem; 
 }
 .Show_Visit ul li.Upper
@@ -970,4 +974,64 @@ line-height: 50px;
 {
   padding-top: 20px;
  flex-grow: 1;
+}
+.Table_Header
+{
+  line-height: 58.44px;
+  list-style:none;
+  width:90%;
+  color: #000;
+  height: 58.44px;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #e6455a;
+  text-align: center;
+  display: flex;
+  margin-top: 3%;
+  align-self:center ;
+  align-items: center;
+  margin-left: 3%;
+  margin-bottom: 5%;
+}
+.Table_Header  span
+{
+ flex-grow: 1;
+}
+.Table input
+{
+width: fit-content;
+height: 50px;
+border-radius:40px ;
+border-color: #e6455a;
+background-color: #fff;
+font-size:16px;
+font-weight: bold;
+text-align: center;
+margin-right: 4%;
+}
+.Table 
+{
+display: block;
+width: 90%;
+}
+.Table span
+{
+font-size: 18px;
+color: #000;
+font-weight: bold;
+align-items: center;
+margin-right: 1%;
+}
+.Table ul
+{
+display: flex;
+align-items: center;
+padding-top: 1%;
+padding-bottom: 1%;
+}
+placeholder {
+  color: #000;
+  opacity: 0.3; 
 }
