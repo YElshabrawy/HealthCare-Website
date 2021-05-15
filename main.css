@@ -614,8 +614,8 @@ btn.Resend_Code {
 .Menu
 {
   position: fixed;
-  left: 0;
-  bottom: 0;
+  left: 0px;
+  bottom: 0px;
   width: 0px;
   padding: 0 5px;
   height:35rem;
@@ -901,4 +901,73 @@ button.Show_Presciption
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 50px;
+}
+.Presciption
+{
+  width: 90%;
+  height: 125px;
+  border-radius: 75px;
+  background-color: #e6455a;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  align-self: center;
+  background-size: cover;
+  vertical-align:middle;
+}
+.Presciption ul
+{
+padding: 10px 10px;
+padding-top: 0px;
+display: flex;
+line-height: 50px;
+}
+.Presciption ul li
+{
+  padding: 0px 0px;
+  padding-top: 10px;
+  list-style:none;
+  display: block;
+  flex-grow: 1;
+
+}
+.Presciption ul li span
+{
+  padding: 0px 0px;
+  padding-top: 5px;
+  list-style:none;
+  display: block;
+  color: #000;
+  font-weight: bold;
+  font-size: 90%;
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px; 
+
+}
+.Medicine_List ul
+{
+  padding: 0px 0px;
+  padding-top: 0px;
+  list-style:none;
+  display: block;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;  
+}
+.Medicine_List ul li 
+{
+ display: flex;
+}
+.Medicine_List ul li span,.Medicine_List button
+{
+  padding-top: 20px;
+ flex-grow: 1;
 }
