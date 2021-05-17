@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Dashboard</title>
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="./main_patient.css">
+</head>
+<body>
+    <nav class="container nav-container">
+        <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
+        <div class="right">
+            <a href="#" class="notifications-btn active">
+                <img class="logo" src="/images/i_bell.svg" alt="">
+            </a>
+            <a href="#" class="messages-btn active">
+                <img class="logo" src="/images/i_msg.svg" alt="">
+            </a>
+            <div class="personai-info flex">
+                <a href="#" class="profile-pic">
+                    <img src="/images/default_pic.jpg" alt="">
+                </a>
+                <div class="username">
+                    <span class="fname">FName</span>
+                    <span class="lname">LName</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        <aside class="sidebar">
+            <ul>
+                <li class="active-sb sidebar-item flex">
+                    <img class="logo" src="/images/i_dashboard.svg" alt="">
+                    <a href="./dashboard.html">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_doctors.svg" alt="">
+                    <a href="./doctors.html">
+                        <span>Doctors</span>
+                    </a>
+                </li>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_calendar.svg" alt="">
+                    <a href="./appointments.html">
+                        <span>Appointment</span>
+                    </a>
+                </li>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_profile.svg" alt="">
+                    <a href="./profile.html">
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <main class="container main">
+            <div class="up-row">
+                <div class="good-morning-block">
+                    <h1><strong>Good Morning,</strong> <span class="lname">LName</span></h1>
+                    <h3>Presenting <span class="current-month">May</span>'s Data</h3>
+                    <div class="month-data flex">
+                        <div class="approved data-block">
+                            <h5>Total Appointments</h5>
+                            <p class="month-accepted-appointments-number">27</p>
+                            <a href="#" class="more-btn">More</a>
+                        </div>
+                        <div class="canceled data-block">
+                            <h5>Canceled Appointments</h5>
+                            <p class="month-canceled-appointments-number">3</p>
+                            <a href="#" class="more-btn">More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="req-data">
+                    <div class="row-one flex">
+                        <div class="approval data-block">
+                            <h5>Unseen Visits</h5>
+                            <p class="appointments-requests-number">19</p>
+                            <a href="#" class="more-btn">More</a>
+                        </div>
+                        <div class="upcoming data-block">
+                            <h5>Upcoming Appointments</h5>
+                            <p class="upcoming-appointments-number">8</p>
+                            <a href="#" class="more-btn">More</a>
+                        </div>
+                    </div>
+                    <div class="row-two">
+                        <div class="clinic data-block">
+                            <h5>Address Information</h5>
+                            <div class="address flex">
+                                <img class="logo" src="/images/i_adress.svg" alt="">
+                                <p class="clinic-adress">
+                                    9096 S. San Carlos Avenue <br>
+                                    Sanford, NC 27330
+                                </p>
+                            </div>
+                            <div class="number flex">
+                                <img class="logo" src="/images/i_phone.svg" alt="">
+                                <p class="clinic-phone">
+                                    +20123456789 - +20123456789
+                                </p>
+                            </div>
+                            <a href="#" class="more-btn">More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="down-row">
+                <div class="">
+                    <div class="data-block">
+                        <h5>Today's Appointments</h5>
+                        <div class="flex big-card">
+                            <p class="today-appointments-number">3</p>
+                            <div class="today-appointments-list">
+                                <div id="app1">
+                                    <div class="flex card">
+                                        <div class="title">
+                                            <h6 class="genre">Treatment</h6>
+                                            <h2 class="type">Consultation</h2>
+                                        </div>
+                                        <h4 class="time">09:00-10:00</h4>
+                                    </div>
+                                </div>
+                                <div id="app2">
+                                    <div class="flex card">
+                                        <div class="title">
+                                            <h6 class="genre">Treatment</h6>
+                                            <h2 class="type">Open Access</h2>
+                                        </div>
+                                        <h4 class="time">11:00-12:00</h4>
+                                    </div>
+                                </div>
+                                <div id="app3">
+                                    <div class="flex card">
+                                        <div class="title">
+                                            <h6 class="genre">Treatment</h6>
+                                            <h2 class="type">Scaling</h2>
+                                        </div>
+                                        <h4 class="time">13:00-15:00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="more-btn">More</a>
+        
+                    </div>
+                </div>
+                <div class="">
+                    <div class="data-block">
+                        <h5>Total Visits This Month</h5>
+                        <p class="patients-number-month">10</p>
+                        <h5>Total Visits All Time</h5>
+                        <p class="patients-number-total mb1">124</p>
+                        <a href="#" class="more-btn">More</a>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="data-block">
+                        <h5>Money Spent This Month</h5>
+                        <h1 class="mb">EGP <span class="salary-month">23,000</span></h1>
+                        <h5>Money Spent All Time</h5>
+                        <h1 class="mb2">EGP <span class="salary-all-time">432,000</span></h1>
+                        <a href="#" class="more-btn">More</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+</body>
+</html>

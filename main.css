@@ -524,15 +524,15 @@ nav {
   margin-top: 2.5rem;
   height: 50rem;
   width: 90%;
-  background-color: rgba(65, 56, 56, 0.50);
+  background-color: rgba(65, 56, 56, 0.5);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   align-self: center;
   align-content: center;
   background-size: cover;
-  vertical-align:middle;
-  padding-top:15rem;
+  vertical-align: middle;
+  padding-top: 15rem;
 }
 button {
   border-radius: 75px;
@@ -551,16 +551,15 @@ button {
   text-align: center;
   cursor: pointer;
 }
-.Email_Forogt_Pass{
+.Email_Forogt_Pass {
   font-weight: bold;
-  text-align: center
+  text-align: center;
 }
 .Button {
   margin-top: 6rem;
   text-align: center;
 }
-input.Email_Forogt_Pass
-{
+input.Email_Forogt_Pass {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -578,7 +577,7 @@ input.Email_Forogt_Pass:focus {
 btn.Resend_Code {
   color: #000;
   font-size: 14px;
-  text-decoration:underline;
+  text-decoration: underline;
   width: auto;
   height: auto;
   font-weight: bold;
@@ -607,79 +606,71 @@ btn.Resend_Code {
   transition: transform 80ms ease-in;
   cursor: pointer;
 }
-.Menu-Btn:hover
-{
+.Menu-Btn:hover {
   opacity: 0.5;
 }
-.Menu
-{
+.Menu {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 0px;
   padding: 0 5px;
-  height:35rem;
-  background-color:rgba(65, 56, 56, 0.70);
+  height: 35rem;
+  background-color: rgba(65, 56, 56, 0.7);
   border-radius: 13px;
   z-index: 1000px;
 }
-.Menu ul
-{
- padding-top: 15px;
- overflow: hidden;
- visibility: hidden;
+.Menu ul {
+  padding-top: 15px;
+  overflow: hidden;
+  visibility: hidden;
 }
-.Menu ul .Active
-{
-  color:#e6455a;
+.Menu ul .Active {
+  color: #e6455a;
   text-decoration: underline;
   font-size: 18px;
   font-weight: bold;
 }
-.Menu ul li
-{
- line-height: 80px;
- list-style: none;
+.Menu ul li {
+  line-height: 80px;
+  list-style: none;
 }
-.Menu ul li a ,.Menu ul li span
-{
- display: block;
- height: 80px;
- padding: 0 10px;
- text-decoration: none;
- text-transform: uppercase;
- color: #fff;
- font-size: 16px;
- white-space: nowrap;
- opacity: 0;
+.Menu ul li a,
+.Menu ul li span {
+  display: block;
+  height: 80px;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+  opacity: 0;
 }
-.Menu ul li a:hover
-{
-color:#e6455a;
-text-decoration: underline;
-font-size: 18px;
-font-weight: bold;
+.Menu ul li a:hover {
+  color: #e6455a;
+  text-decoration: underline;
+  font-size: 18px;
+  font-weight: bold;
 }
-.List
-{
+.List {
   left: 0px;
   bottom: 0px;
   height: inherit;
   width: 1236px;
   padding-top: 2.5rem;
 }
-.List ol li span ,.List ol li a
-{
-padding-left: 15px;
-padding-right: 15px;
-padding-bottom: 15px;
-vertical-align:text-bottom;
-flex-grow: 1;
+.List ol li span,
+.List ol li a {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  vertical-align: text-bottom;
+  flex-grow: 1;
 }
-.List ol li
-{
+.List ol li {
   line-height: 58.44px;
-  list-style:none;
+  list-style: none;
   display: flex;
   width: 1236px;
   color: #000;
@@ -695,17 +686,14 @@ flex-grow: 1;
   padding-right: 15px;
   margin-bottom: 50px;
 }
-.List ol li:hover
-{
-opacity: 0.8;
+.List ol li:hover {
+  opacity: 0.8;
 }
-.Search_Area
-{
+.Search_Area {
   align-items: center;
   display: inline-block;
 }
-input.Search_Bar
-{
+input.Search_Bar {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -720,8 +708,7 @@ input.Search_Bar:focus {
   outline: none !important;
   border: 2px solid var(--color-main);
 }
-button.Search_Bar
-{
+button.Search_Bar {
   width: 50px;
   height: 51px;
   cursor: pointer;
@@ -730,8 +717,7 @@ button.Search_Bar
   padding: 0px 0px;
   background: url(./images/Search_icon.png) no-repeat center;
 }
-button.Filter_Button
-{
+button.Filter_Button {
   width: 126px;
   height: 51px;
   cursor: pointer;
@@ -742,8 +728,7 @@ button.Filter_Button
   padding: 0px 0px;
   background: none;
 }
-button.See_More
-{
+button.See_More {
   width: 224px;
   height: 75px;
   cursor: pointer;
@@ -756,8 +741,7 @@ button.See_More
   background: none;
   align-self: center;
 }
-button.Remove_Btn
-{
+button.Remove_Btn {
   width: 41px;
   height: 41px;
   cursor: pointer;
@@ -765,13 +749,12 @@ button.Remove_Btn
   font-weight: bold;
   font-size: 20px;
   background-color: #fff;
-  background:white;
+  background: white;
   padding: 0px 0px;
   border-radius: 20.5px;
   align-self: center;
 }
-button.Download_CV
-{
+button.Download_CV {
   width: 134px;
   height: 34px;
   cursor: pointer;
@@ -779,15 +762,14 @@ button.Download_CV
   font-weight: bold;
   font-size: 12px;
   background-color: #fff;
-  background:white;
+  background: white;
   padding: 0px 0px;
   border-radius: 34px;
   align-self: center;
 }
-.List ol li.Book_Visit
-{
+.List ol li.Book_Visit {
   line-height: 151px;
-  list-style:none;
+  list-style: none;
   display: flex;
   width: 1236px;
   color: #000;
@@ -803,27 +785,24 @@ button.Download_CV
   padding-right: 15px;
   margin-bottom: 50px;
 }
-div.Book_Visit
-{
+div.Book_Visit {
   width: 129px;
   height: 129px;
-  border-radius:64.5px ;
+  border-radius: 64.5px;
   background-color: #fff;
-  align-self:center;
+  align-self: center;
   padding-left: 10px;
 }
-.Show_Visit
-{
+.Show_Visit {
   left: 0px;
   bottom: 0px;
   height: inherit;
   width: 1236px;
-  padding-top: 2.5rem; 
+  padding-top: 2.5rem;
 }
-.Show_Visit ul li.Upper
-{
+.Show_Visit ul li.Upper {
   line-height: 58.44px;
-  list-style:none;
+  list-style: none;
   display: flex;
   width: 1236px;
   color: #000;
@@ -837,10 +816,9 @@ div.Book_Visit
   padding-left: 15px;
   padding-right: 15px;
 }
-.Show_Visit ul li.Lower
-{
+.Show_Visit ul li.Lower {
   line-height: 118px;
-  list-style:none;
+  list-style: none;
   display: block;
   width: 1236px;
   color: #000;
@@ -849,45 +827,42 @@ div.Book_Visit
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
-  background-color:#fff;
+  background-color: #fff;
   text-align: left;
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 50px;
 }
-.Show_Visit ul li span ,.Show_Visit ul li a
-{
- padding-left: 15px;
- padding-right: 15px;
- padding-bottom: 15px;
- vertical-align:text-bottom;
- flex-grow: 1;
+.Show_Visit ul li span,
+.Show_Visit ul li a {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  vertical-align: text-bottom;
+  flex-grow: 1;
 }
-.Show_Visit ul li span.Lower
-{
- display: flex;
- padding: 0px 0px;
- line-height: 59px;
- flex-grow: 1;
+.Show_Visit ul li span.Lower {
+  display: flex;
+  padding: 0px 0px;
+  line-height: 59px;
+  flex-grow: 1;
 }
-button.Show_Presciption
-{
+button.Show_Presciption {
   width: 203px;
   height: 40px;
   cursor: pointer;
   color: #000;
   font-weight: bold;
   font-size: 12px;
-  background:#e6455a;
+  background: #e6455a;
   padding: 0px 0px;
   margin-left: 20px;
   border-radius: 38px;
   align-self: center;
 }
-.Show_Visit ul li.Lower_2
-{
+.Show_Visit ul li.Lower_2 {
   line-height: 58.44px;
-  list-style:none;
+  list-style: none;
   display: block;
   width: 1236px;
   color: #000;
@@ -896,9 +871,43 @@ button.Show_Presciption
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
-  background-color:#fff;
+  background-color: #fff;
   text-align: left;
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 50px;
+}
+
+.construction img {
+  filter: invert(82%) sepia(40%) saturate(7385%) hue-rotate(318deg)
+    brightness(100%) contrast(103%);
+  transform: scale(2);
+}
+
+.construction h1 {
+  font-size: 89px;
+  font-weight: 400;
+  background-image: var(--color-grad-main);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.construction p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.construction {
+  width: 80%;
+  margin: 90px auto;
+}
+
+.bg {
+  background: url(/images/main-bg.png) no-repeat;
+  background-size: cover;
 }

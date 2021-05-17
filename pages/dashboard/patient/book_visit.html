@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Book a  Visit</title>
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="./main_patient.css">
+</head>
+
+<body>
+    <nav class="container nav-container">
+        <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
+        <div class="right">
+            <a href="#" class="notifications-btn active">
+                <img class="logo" src="/images/i_bell.svg" alt="">
+            </a>
+            <a href="#" class="messages-btn active">
+                <img class="logo" src="/images/i_msg.svg" alt="">
+            </a>
+            <div class="personai-info flex">
+                <a href="#" class="profile-pic">
+                    <img src="/images/default_pic.jpg" alt="">
+                </a>
+                <div class="username">
+                    <span class="fname">FName</span>
+                    <span class="lname">LName</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <ul>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_dashboard.svg" alt="">
+                <a href="./dashboard.html">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active-sb sidebar-item flex">
+                <img class="logo" src="/images/i_doctors.svg" alt="">
+                <a href="./doctors.html">
+                    <span>Doctors</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_calendar.svg" alt="">
+                <a href="./appointments.html">
+                    <span>Appointment</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./profile.html">
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="container main">
+        <h2 class="title smb"><a href="./doctors.html">Doctors</a> > <a href="#"><span class="fname">Will</span>
+                <span class="lname">Smith</span></a> > Book a Visit</h2>
+        <div class="visit">
+            <div class="head flex">
+                <div class="l">
+                    <h1>Dr. <span class="fname">Will</span> <span class="lname">Smith</span></h1>
+                    <h3><span class="specialization">General Medicine</span> at <span class="location">Lorem,
+                            ipsum.</span></h3>
+                </div>
+                <div class="r">
+                    <h3>Booking a new Visit</h3>
+                    <h3>Date: <span class="date">16/5/2021</span></h3>
+                </div>
+            </div>
+            <div class="summary2 flex fullwidth">
+                <div class="l2">
+                    <div class="weight flex">
+                        <h2>Weight: </h2>
+                        <h4 class="weight">80 kg</h4>
+                    </div>
+                    <div class="height flex">
+                        <h2>Height: </h2>
+                        <h4 class="height">180 cm</h4>
+                    </div>
+                    <div class="ss flex">
+                        <h2>Social State: </h2>
+                        <h4 class="ss">Married</h4>
+                    </div>
+                    <div class="age flex">
+                        <h2>Age: </h2>
+                        <h4 class="age">25</h4>
+                    </div>
+                    <div class="gender flex">
+                        <h2>Gender: </h2>
+                        <h4 class="gender">Male</h4>
+                    </div>
+                    <div class="job flex">
+                        <h2>Job: </h2>
+                        <h4 class="job">Engineer</h4>
+                    </div>
+                    <div class="city flex">
+                        <h2>City: </h2>
+                        <h4 class="city">Giza</h4>
+                    </div>
+                </div>
+                <div class="r2">
+                    <div class="allergies">
+                        <h2>Allergies: </h2>
+                        <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                    </div>
+                    <div class="chronic">
+                        <h2>Chronic Diseases: </h2>
+                        <h4 class="chronic">Diabetes</h4>
+                    </div>
+                    <div class="medicine">
+                        <h2>Medicine: </h2>
+                        <h4 class="medicine">Panadol - Asprin</h4>
+                    </div>
+                    <div class="surgery">
+                        <h2>Surgerys: </h2>
+                        <h4 class="surgery">N/A</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="diagnosis">
+                <div class="flex">
+                    <div class="">
+                        <div class="Complaint-block">
+                            <h5>Complaint:</h5>
+                            <input type="text" name=Complaint-data"" id="Complaint-data" class="resizable">
+                        </div>
+                        <div class="Symptoms-block">
+                            <h5>Symptoms:</h5>
+                            <input type="text" name=Symptoms-data"" id="Symptoms-data" class="resizable">
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="sd-block">
+                            <h5>Start Date:</h5>
+                            <input type="date" name=sd-data"" id="sd-data" class="resizable">
+                        </div>
+                        <div class="notes-block">
+                            <h5>Notes:</h5>
+                            <input type="text" name=notes-data"" id="notes-data" class="resizable">
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="send-btn">Send</a>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

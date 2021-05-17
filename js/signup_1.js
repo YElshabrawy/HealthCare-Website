@@ -28,4 +28,4 @@ physician_btn.addEventListener('click',(e)=>{
 });
 
 // Store
-localStorage.setItem("userType", User);
+window.localStorage.setItem("userType", User);

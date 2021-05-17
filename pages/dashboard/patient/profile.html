@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Profile</title>
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="./main_patient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <nav class="container nav-container">
+        <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
+        <div class="right">
+            <a href="#" class="notifications-btn active">
+                <img class="logo" src="/images/i_bell.svg" alt="">
+            </a>
+            <a href="#" class="messages-btn active">
+                <img class="logo" src="/images/i_msg.svg" alt="">
+            </a>
+            <div class="personai-info flex">
+                <a href="#" class="profile-pic">
+                    <img src="/images/default_pic.jpg" alt="">
+                </a>
+                <div class="username">
+                    <span class="fname">FName</span>
+                    <span class="lname">LName</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <ul>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_dashboard.svg" alt="">
+                <a href="./dashboard.html">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class=" sidebar-item flex">
+                <img class="logo" src="/images/i_doctors.svg" alt="">
+                <a href="./doctors.html">
+                    <span>Doctors</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_calendar.svg" alt="">
+                <a href="./appointments.html">
+                    <span>Appointment</span>
+                </a>
+            </li>
+            <li class="active-sb sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./profile.html">
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="container main">
+        <div class="patient-profile-grid">
+            <div class="id-card center">
+                <div class="profile-pic big center smb">
+                    <img src="/images/default_pic.jpg" alt="" class="icon">
+                </div>
+                <h2 class="name center"><span class="fname">FName</span> <span class="lname">LName</span></h2>
+                <p class="smb mail center">example@gmail.com</p>
+                <div class="dealings center flex">
+                    <div>
+                        <h2 class="past-deals">12</h2>
+                        <p>Past</p>
+                    </div>
+                    <div>
+                        <h2 class="upcoming-deals">2</h2>
+                        <p>Upcoming</p>
+                    </div>
+                </div>
+                <a href="./new_visit.html" class="visit-btn">Edit Profile</a>
+            </div>
+            <div class="personal-info grid-3x3">
+                <div>
+                    <h6>Gender</h6>
+                    <h5 class="tst">Male</h5>
+                </div>
+                <div>
+                    <h6>Birthdate</h6>
+                    <h5 class="tst">23/07/2001</h5>
+                </div>
+                <div>
+                    <h6>Phone Number</h6>
+                    <h5 class="tst">+201123456789</h5>
+                </div>
+                <div>
+                    <h6>Country</h6>
+                    <h5 class="tst">Egypt</h5>
+                </div>
+                <div>
+                    <h6>City</h6>
+                    <h5 class="tst">Giza</h5>
+                </div>
+                <div>
+                    <h6>Register Date</h6>
+                    <h5 class="tst">12/4/2021</h5>
+                </div>
+                <div>
+                    <h6>Weight</h6>
+                    <h5 class="tst">80 kg</h5>
+                </div>
+                <div>
+                    <h6>Height</h6>
+                    <h5 class="tst">180 cm</h5>
+                </div>
+            </div>
+            <div class="notes">
+                <h4>About</h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui exercitationem fugit sapiente alias corporis nihil, assumenda tempora hic nostrum aspernatur, explicabo maxime! Expedita, sint quisquam recusandae reiciendis aliquid eveniet pariatur velit distinctio placeat non at est officiis rerum, iste veritatis.</p>
+            </div>
+            <div class="history patient-history">
+                <div class="my-history">
+                    <h2>My History</h2>
+                    <div class="flex jc">
+                        <div class="l3">
+                            <div class="allergies">
+                                <h2>Allergies: </h2>
+                                <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                            </div>
+                            <div class="chronic">
+                                <h2>Chronic Diseases: </h2>
+                                <h4 class="chronic">Diabetes</h4>
+                            </div>
+                        </div>
+                        <div class="r3">
+                            <div class="medicine">
+                                <h2>Medicine: </h2>
+                                <h4 class="medicine">Panadol - Asprin</h4>
+                            </div>
+                            <div class="surgery">
+                                <h2>Surgerys: </h2>
+                                <h4 class="surgery">N/A</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="fam-history">
+                    <h2 class="smb">Family History</h2>
+                    <div class="smb" id="m1">
+                        <h3>#1 <span class="fname">Mona</span> <span class="lname">Zaki</span> - <span
+                                class="rel">Daughter</span></h3>
+                        <div class="flex jc">
+                            <div class="l3">
+                                <div class="allergies">
+                                    <h2>Allergies: </h2>
+                                    <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                                </div>
+                                <div class="chronic">
+                                    <h2>Chronic Diseases: </h2>
+                                    <h4 class="chronic">Diabetes</h4>
+                                </div>
+                            </div>
+                            <div class="r3">
+                                <div class="medicine">
+                                    <h2>Medicine: </h2>
+                                    <h4 class="medicine">Panadol - Asprin</h4>
+                                </div>
+                                <div class="surgery">
+                                    <h2>Surgerys: </h2>
+                                    <h4 class="surgery">N/A</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="smb" id="m2">
+                        <h3>#2 <span class="fname">Mona</span> <span class="lname">Zaki</span> - <span
+                                class="rel">Daughter</span></h3>
+                        <div class="flex jc">
+                            <div class="l3">
+                                <div class="allergies">
+                                    <h2>Allergies: </h2>
+                                    <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                                </div>
+                                <div class="chronic">
+                                    <h2>Chronic Diseases: </h2>
+                                    <h4 class="chronic">Diabetes</h4>
+                                </div>
+                            </div>
+                            <div class="r3">
+                                <div class="medicine">
+                                    <h2>Medicine: </h2>
+                                    <h4 class="medicine">Panadol - Asprin</h4>
+                                </div>
+                                <div class="surgery">
+                                    <h2>Surgerys: </h2>
+                                    <h4 class="surgery">N/A</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="smb" id="m3">
+                        <h3>#3 <span class="fname">Mona</span> <span class="lname">Zaki</span> - <span
+                                class="rel">Daughter</span></h3>
+                        <div class="flex jc">
+                            <div class="l3">
+                                <div class="allergies">
+                                    <h2>Allergies: </h2>
+                                    <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                                </div>
+                                <div class="chronic">
+                                    <h2>Chronic Diseases: </h2>
+                                    <h4 class="chronic">Diabetes</h4>
+                                </div>
+                            </div>
+                            <div class="r3">
+                                <div class="medicine">
+                                    <h2>Medicine: </h2>
+                                    <h4 class="medicine">Panadol - Asprin</h4>
+                                </div>
+                                <div class="surgery">
+                                    <h2>Surgerys: </h2>
+                                    <h4 class="surgery">N/A</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

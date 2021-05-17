@@ -35,6 +35,7 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: "Montserrat", sans-serif !important;
+
   /* height: 96vh; */
   /* margin: -20px 0 50px; */
 }
@@ -451,6 +452,22 @@ button > a {
     "gt2-history gt2-history gt2-history";
 }
 
+.grid-container2_fam {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.2fr;
+  grid-template-rows: 0.2fr 1.8fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "gt2-weight gt2-height gt2-social-st gt2-delete"
+    "gt2-history gt2-history gt2-history gt2-history";
+}
+
+.gt2-delete {
+  grid-area: gt2-delete;
+}
 .gt2-weight {
   grid-area: gt2-weight;
 }
@@ -646,7 +663,41 @@ fieldset {
   display: none;
 }
 
-.grid-container {
+.delete-btn {
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 27px;
+}
+
+.delete-btn img:hover {
+  filter: invert(51%) sepia(70%) saturate(3754%) hue-rotate(329deg)
+    brightness(107%) contrast(116%);
+
+  animation: spin 0.6s forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes straightUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* .grid-container3 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.3fr 2.5fr 0.3fr 0.3fr;
@@ -745,4 +796,80 @@ fieldset {
 
 .gt3-price3 {
   grid-area: gt3-price3;
+} */
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.jc {
+  justify-content: space-between;
+}
+.container2 {
+  width: 80%;
+}
+
+.r1-CV p {
+  transform: translateY(5px);
+  margin-left: 10px;
+}
+
+.r1-Degree {
+  flex-grow: 1.1;
+}
+
+.r1-CV {
+  flex-grow: 1;
+}
+
+.r1-Major {
+  flex-grow: 1;
+}
+
+li {
+  list-style: none;
+}
+
+.tt-from-to {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px repeat(7, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.tt-days-grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 40px repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.visit-time p {
+  white-space: nowrap;
+  transform: translateY(5px);
+  margin-right: 8px;
+}
+
+.visit-time input {
+  width: 200px;
+}
+
+.tt-days {
+  background: var(--color-grad-main);
+  border-radius: 35px;
+}
+
+.tt-days p {
+  margin: 5px 0;
+  color: white;
+  font-weight: bold;
 }

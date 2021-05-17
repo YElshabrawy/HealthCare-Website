@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Patients</title>
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="./main_physician.css">
+</head>
+
+<body>
+    <nav class="container nav-container">
+        <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
+        <div class="right">
+            <a href="#" class="notifications-btn active">
+                <img class="logo" src="/images/i_bell.svg" alt="">
+            </a>
+            <a href="#" class="messages-btn active">
+                <img class="logo" src="/images/i_msg.svg" alt="">
+            </a>
+            <div class="personai-info flex">
+                <a href="#" class="profile-pic">
+                    <img src="/images/default_pic.jpg" alt="">
+                </a>
+                <div class="username">
+                    <span class="fname">FName</span>
+                    <span class="lname">LName</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <ul>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_dashboard.svg" alt="">
+                <a href="./dashboard.html">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active-sb sidebar-item flex">
+                <img class="logo" src="/images/i_patient2.svg" alt="">
+                <a href="./patients.html">
+                    <span>Patients</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_calendar.svg" alt="">
+                <a href="./appointments.html">
+                    <span>Appointment</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./profile.html">
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="container main">
+        <div class="data-titles patient-grid">
+            <input type="checkbox" name="select-all" id="select-all">
+            <h3 id="long">Basic Info</h3>
+            <h3>Phone Number</h3>
+            <h3>City</h3>
+            <h3>Next Appointment</h3>
+            <h3>Last Appointment</h3>
+            <h3>Register Date</h3>
+        </div>
+        <div class="patients-list">
+            <div class="patient" id="p1">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p2">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p3">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p4">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p5">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p6">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p7">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p8">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p9">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="#">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p10">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+            <div class="patient" id="p11">
+                <input type="checkbox" name="p1" id="p1">
+                <img class="logo" src="/images/default_pic.jpg" alt="">
+                <div class="personal-info">
+                    <h1>Youssef Elshabrawy</h1>
+                    <p>example.example@gmail.com</p>
+                </div>
+                <h2 class="phone">+201234567890</h2>
+                <h2 class="city">Cairo</h2>
+                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
+                <h2 class="last-app">Jul 11, 2021</h2>
+                <h2 class="reg-date">Dec 21, 2020</h2>
+                <a href="./patient_profile.html">
+                    <img class="icon" src="/images/i_three-dots.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

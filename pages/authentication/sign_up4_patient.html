@@ -18,8 +18,9 @@
                     <img src="/images/i_family.svg" alt="" class="logo">
                     <span>Add Member</span>
                 </button>
-                <div class="grid-container2">
-                    <div class="gt2-weight">
+                <div class="members">
+                        <div id="m1" class="grid-container2_fam hide">
+                        <div class="gt2-weight">
                         <input type="text" placeholder="First Name" />
                     </div>
                     <div class="gt2-height">
@@ -42,19 +43,21 @@
                             <option value="Granddaughter">Granddaughter</option>
                         </select>
                     </div>
-
+                    <a class="gt2-delete delete-btn">
+                        <img class="logo" src="/images/i_delete.svg" alt="">
+                    </a>
                     <div class="gt2-history">
                         <div class="gt2-h-rays">
                             <p>
-                                Do you had any rays before?
+                                Do he/she had any rays before?
                             </p>
                         </div>
                         <div class="gt2-h-rays-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio" />
+                                <input class="yes-radio" type="radio" name="radio1-1" />
                                 <label>No</label>
-                                <input class="no-radio" type="radio" name="radio" checked="checked" />
+                                <input class="no-radio" type="radio" name="radio1-1" checked="checked" />
                             </fieldset>
                         </div>
                         <div id="rows-1" class="multi-g multi-g-rays">
@@ -68,15 +71,15 @@
                         </div>
                         <div class="gt2-h-medTest">
                             <p>
-                                Do you had any medical tests before?
+                                Do he/she had any medical tests before?
                             </p>
                         </div>
                         <div class="gt2-h-medTest-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio2" />
+                                <input class="yes-radio" type="radio" name="radio2-1" />
                                 <label>No</label>
-                                <input class="no-radio" type="radio" name="radio2" checked="checked" />
+                                <input class="no-radio" type="radio" name="radio2-1" checked="checked" />
                             </fieldset>
                         </div>
                         <div id="rows-2" class="multi-g multi-g-medTest">
@@ -90,15 +93,15 @@
                         </div>
                         <div class="gt2-h-surgery">
                             <p>
-                                Did you make any surgries before?
+                                Did he/she make any surgries before?
                             </p>
                         </div>
                         <div class="gt2-h-surgery-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio3" />
+                                <input class="yes-radio" type="radio" name="radio3-1" />
                                 <label>No</label>
-                                <input class="no-radio" type="radio" name="radio3" checked="checked" />
+                                <input class="no-radio" type="radio" name="radio3-1" checked="checked" />
                             </fieldset>
                         </div>
                         <div id="rows-3" class="multi-g multi-g-surgery">
@@ -112,15 +115,15 @@
                         </div>
                         <div class="gt2-h-chronic">
                             <p>
-                                Do you have any chronic diseases?
+                                Do he/she has any chronic diseases?
                             </p>
                         </div>
                         <div class="gt2-h-chronic-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio4" />
+                                <input class="yes-radio" type="radio" name="radio4-1" />
                                 <label>No</label>
-                                <input class="no-radio" type="radio" name="radio4" checked="checked" />
+                                <input class="no-radio" type="radio" name="radio4-1" checked="checked" />
                             </fieldset>
                         </div>
                         <div id="rows-4" class="multi-g multi-g-chronic">
@@ -133,15 +136,15 @@
                         </div>
                         <div class="gt2-h-allergy">
                             <p>
-                                Do you suffer from any kind of allergy?
+                                Do he/she suffers from any kind of allergy?
                             </p>
                         </div>
                         <div class="gt2-h-allergy-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio5" />
+                                <input class="yes-radio" type="radio" name="radio5-1" />
                                 <label>No</label>
-                                <input class="no-radio" type="radio" name="radio5" checked="checked" />
+                                <input class="no-radio" type="radio" name="radio5-1" checked="checked" />
                             </fieldset>
                         </div>
                         <div id="rows-5" class="multi-g multi-g-allergy">
@@ -153,15 +156,15 @@
                         </div>
                         <div class="gt2-h-medicine">
                             <p>
-                                Do you take any medicines?
+                                Do he/she takes any medicines?
                             </p>
                         </div>
                         <div class="gt2-h-medicine-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio6" />
+                                <input class="yes-radio" type="radio" name="radio6-1" />
                                 <label>No</label>
-                                <input class="no-radio" type="radio" name="radio6" checked="checked" />
+                                <input class="no-radio" type="radio" name="radio6-1" checked="checked" />
                             </fieldset>
                         </div>
                         <div id="rows-6" class="multi-g multi-g-medicine">
@@ -174,8 +177,8 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
-
 
                 <button><a href="#">Final</a></button>
                 <div class="stage">
@@ -194,4 +197,5 @@
         </div>
     </div>
 </body>
+<script src="/js/signup_3_patient.js"></script>
 </html>

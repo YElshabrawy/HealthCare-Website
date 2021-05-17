@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////
 //                        Go to Page 3                         //
 /////////////////////////////////////////////////////////////////
-let User = localStorage.getItem("userType");
+let User = window.localStorage.getItem("userType");
 const page2NextBtn = document.querySelector("#p2_next");
 
 page2NextBtn.addEventListener('click',(e)=>{
@@ -9,10 +9,9 @@ page2NextBtn.addEventListener('click',(e)=>{
     if(User == 1){
         // Patient
         window.location.href = 'sign_up3_patient.html';
-        console.log("mareed");
     }else{
         //doctor
-        console.log("dactor");
+        window.location.href = 'sign_up3_physician.html';
     }
 })
 console.log(User);

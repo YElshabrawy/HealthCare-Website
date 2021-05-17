@@ -13,58 +13,101 @@
         <div class="form-container sign-in-container">
             <form action="#">
                 <h1>Sign Up</h1>
-                <div class="grid-container">
-                    <div class="gt-3-CV">
-                        <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                        <p>Upload your CV</p>
+                <div class="container2">
+                    <div class="row1 jc flex">
+                        <div class="r1-CV flex">
+                            <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
+                            <p>Upload your CV</p>
+                        </div>
+                        <div class="r1-Major">
+                            <select class="tmp-dropdown" name="major" id="major">
+                                <option value="">Major</option>
+                                <option value="Eyes">Eyes</option>
+                                <option value="Dentist">Dentist</option>
+                                <option value="Nose&Ears">Nose&Ears</option>
+                            </select>
+                        </div>
+                        <div class="r1-Degree">
+                            <select class="tmp-dropdown" name="degree" id="degree">
+                                <option value="">Academic Degree</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Assistant">Assistant</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="gt-3-Major">
-                        <select class="tmp-dropdown" name="major" id="major">
-                            <option value="">Major</option>
-                            <option value="Eyes">Eyes</option>
-                            <option value="Dentist">Dentist</option>
-                            <option value="Nose&Ears">Nose&Ears</option>
-                        </select>
+                    <div class="tt-days">
+                        <ul class="tt-days-grid">
+                            <div class=""></div>
+                            <li><p>Sun</p></li>
+                            <li><p>Mon</p></li>
+                            <li><p>Tue</p></li>
+                            <li><p>Wed</p></li>
+                            <li><p>Thurs</p></li>
+                            <li><p>Fri</p></li>
+                            <li><p>Sat</p></li>
+                        </ul>
                     </div>
-                    <div class="gt-3-Degree">
-                        <select class="tmp-dropdown" name="degree" id="degree">
-                            <option value="">Academic Degree</option>
-                            <option value="Doctor">Doctor</option>
-                            <option value="Professor">Professor</option>
-                            <option value="Assistant">Assistant</option>
-                        </select>
-                    </div>
+                    <div class="tt-from-to">
+                        <p>From</p>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <p>To</p>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
 
-                    <div class="gt-3-timeTable">
-                            <div class="gt3-tt-sat"><p>
-                                Text
-                            </p></div>
-                            <div class="gt3-tt-sun"><p>
-                                Text
-                            </p></div>
-                            <div class="gt3-tt-mon"><p>
-                                Text
-                            </p></div>
-                            <div class="gt3-tt-tues"><p>
-                                Text
-                            </p></div>
-                            <div class="gt3-tt-wed"><p>
-                                Text
-                            </p></div>
-                            <div class="gt3-tt-thurs"><p>
-                                Text
-                            </p></div>
-                            <div class="gt3-tt-fri"><p>
-                                Text
-                            </p></div>
-                        <div class="gt3-tt-from1"></div>
-                        <div class="gt3-tt-to1"></div>
-                        <div class="gt3-tt-from2"></div>
-                        <div class="gt3-tt-to2"></div>
                     </div>
-                    <div class="gt3-price1"></div>
-                    <div class="gt3-price2"></div>
-                    <div class="gt3-price3"></div>
+                    <br>
+                    <div class="tt-from-to">
+                        <p>From</p>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <p>To</p>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input max="23" min="0" type="number" /></div>
+
+                    </div>
+                    <div class="visit-time flex">
+                        <p>Estimated Time of the visit</p>
+                        <input type="number" placeholder="Minutes">
+                    </div>
+                    <div class="visit-price jc flex">
+                        <input min="0" type="number" placeholder="Visit price (EGP)">
+                        <input min="0" type="number" placeholder="Revisit price (EGP)">
+                        <input min="0" type="number" placeholder="Consultation price (EGP)">
+                    </div>
+                </div>
+                <button><a href="#">Finish</a></button>
+                <div class="stage">
+                    <button class=""></button>
+                    <button class=""></button>
+                    <button class=""></button>
+                </div>
+                <div class="back-to-home">
+                    <a href="/index.html">
+                        <img src="/images/i_back.svg" alt="">
+                        <span>Back to Home Page</span>
+                    </a>
                 </div>
             </form>
         </div>
