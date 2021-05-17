@@ -510,19 +510,21 @@ nav {
 **************************************************************/
 /* BackGround image for all the pages */
 .BackGround_Image {
-  height: auto;
-  width: 100%;
+  height: 100%;
   background: url(./images/main-bg.png) no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  align-content: center;
+  align-self: center;
+  align-items: center;
   padding-left: 7rem;
   align-items: center;
 }
 .Wrapper {
   margin-top: 2.5rem;
-  height: 50rem;
+  height: 55rem;
   width: 90%;
   background-color: rgba(65, 56, 56, 0.5);
   -webkit-background-size: cover;
@@ -584,13 +586,12 @@ btn.Resend_Code {
   padding: 12px 45px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  transition: transform 80ms ease-in;
   border: none;
-  background-color: inherit;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  display: inline-block;
+  align-self: center;
+  margin-left: 24%;
 }
 .Menu-Btn {
   border-radius: 23px;
@@ -611,14 +612,14 @@ btn.Resend_Code {
 }
 .Menu {
   position: fixed;
-  left: 0;
-  bottom: 0;
+  left: 0px;
+  bottom: 0px;
   width: 0px;
   padding: 0 5px;
   height: 35rem;
   background-color: rgba(65, 56, 56, 0.7);
   border-radius: 13px;
-  z-index: 1000px;
+  z-index: 100%;
 }
 .Menu ul {
   padding-top: 15px;
@@ -715,6 +716,8 @@ button.Search_Bar {
   border: none;
   border-radius: 0px;
   padding: 0px 0px;
+  background-color: transparent;
+  margin-top: 0%;
   background: url(./images/Search_icon.png) no-repeat center;
 }
 button.Filter_Button {
@@ -798,6 +801,7 @@ div.Book_Visit {
   bottom: 0px;
   height: inherit;
   width: 1236px;
+  /* width:90%; */
   padding-top: 2.5rem;
 }
 .Show_Visit ul li.Upper {
@@ -910,4 +914,119 @@ button.Show_Presciption {
 .bg {
   background: url(/images/main-bg.png) no-repeat;
   background-size: cover;
+}
+.Presciption {
+  width: 90%;
+  height: 125px;
+  border-radius: 75px;
+  background-color: #e6455a;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  align-self: center;
+  background-size: cover;
+  vertical-align: middle;
+}
+.Presciption ul {
+  padding: 10px 10px;
+  padding-top: 0px;
+  display: flex;
+  line-height: 50px;
+}
+.Presciption ul li {
+  padding: 0px 0px;
+  padding-top: 10px;
+  list-style: none;
+  display: block;
+  flex-grow: 1;
+}
+.Presciption ul li span {
+  padding: 0px 0px;
+  padding-top: 5px;
+  list-style: none;
+  display: block;
+  color: #000;
+  font-weight: bold;
+  font-size: 90%;
+  text-transform: uppercase;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.Medicine_List ul {
+  padding: 0px 0px;
+  padding-top: 0px;
+  list-style: none;
+  display: block;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.Medicine_List ul li {
+  display: flex;
+}
+.Medicine_List ul li span,
+.Medicine_List button {
+  padding-top: 20px;
+  flex-grow: 1;
+}
+.Table_Header {
+  line-height: 58.44px;
+  list-style: none;
+  width: 90%;
+  color: #000;
+  height: 58.44px;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #e6455a;
+  text-align: center;
+  display: flex;
+  margin-top: 3%;
+  align-self: center;
+  align-items: center;
+  margin-left: 3%;
+  margin-bottom: 5%;
+}
+.Table_Header span {
+  flex-grow: 1;
+}
+.Table input {
+  width: fit-content;
+  height: 50px;
+  border-radius: 40px;
+  border-color: #e6455a;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 4%;
+}
+.Table {
+  display: block;
+  width: 90%;
+}
+.Table span {
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  align-items: center;
+  margin-right: 1%;
+}
+.Table ul {
+  display: flex;
+  align-items: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+placeholder {
+  color: #000;
+  opacity: 0.3;
 }
