@@ -556,3 +556,17 @@ input:focus {
   color: #bababa;
   font-size: 18px;
 }
+
+.view-profile-btn {
+  color: #1a283b;
+  font-weight: 600;
+  background-color: transparent;
+  border: 0.5px solid #bababa;
+  border-radius: 30px;
+  padding: 10px 65px;
+  justify-content: center;
+}
+
+.mb100 {
+  margin-bottom: 100px;
+}
