@@ -10,7 +10,7 @@ function Sidebar_Action(){
         getSidebarUl.setAttribute("style","visibility: visible;");
         getSidebar.setAttribute("style","width: 301px;");
         if(getSidebarTitle!==null){
-        getSidebarTitle.setAttribute("style","opacity: 0.5;");
+        getSidebarTitle.setAttribute("style","opacity: 1;");
         }
         let arrayLength = getSidebarLinks.length;
         for (let i = 0; i < arrayLength;i++){
