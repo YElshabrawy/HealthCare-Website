@@ -1,77 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthCare - Reset Password</title>
-    <link rel="stylesheet" href="../main.css">
-    <script type="text/javascript">
-    let Flag=true;
-    function Check()
-    {
-        let Input_1=document.getElementById("P1").value;
-        let Input_2=document.getElementById("P2").value;
-        let Btn=document.getElementById("Reset_Btn");
-        if((Input_1==="")||(Input_2==="")||(Input_1!==Input_2))
-        {
-            Flag=true;
-        }
-        else if(Input_1===Input_2)
-        {
-            Flag=false;
-        }
-    }
-    function go()
-    {
-    let Btn=document.getElementById("Reset_Btn");
-    if(Flag===false)
-    {
-       Btn.setAttribute("href","href:#;") 
-    }
-    }
-    </script>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a class="nav-logo" href="#"><img src="../images/nav-logo.svg" alt="HealthCare"></a>
-
-        <div class="nav_elements">
-            <ul>
-                <li><a class="not-active" href="../index.html">Home</a></li>
-                <li><a class="not-active" href="../pages/about.html">About</a></li>
-                <li><a class="not-active" href="../pages/find_a_doctor.html">Find a Doctor</a></li>
-                <li><a class="not-active" href="../pages/careers.html">Careers</a></li>
-                <li><a class="not-active" href="../pages/contact_us.html">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="sign_up">
-            <a class="bold-text" href="#">Sign In</a>
-            <a id="sign-up-btn" class="btn-main" href="#">Sign Up</a>
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HealthCare - Reset Password</title>
+        <link rel="stylesheet" href="../main.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav>
+            <a class="nav-logo" href="#"><img src="../images/nav-logo.svg" alt="HealthCare"></a>
+            
+            <div class="nav_elements">
+                <ul>
+                    <li><a class="not-active" href="../index.html">Home</a></li>
+                    <li><a class="not-active" href="../pages/about.html">About</a></li>
+                    <li><a class="not-active" href="../pages/find_a_doctor.html">Find a Doctor</a></li>
+                    <li><a class="not-active" href="../pages/careers.html">Careers</a></li>
+                    <li><a class="not-active" href="../pages/contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="sign_up">
+                <a class="bold-text" href="#">Sign In</a>
+                <a id="sign-up-btn" class="btn-main" href="#">Sign Up</a>
+            </div>
+            
+        </nav>
         
-    </nav>
-
-    <div class="BackGround_Image" >
- 
-        <div class="Wrapper" >
-            <div class="Email_Forogt_Pass" >   
-            <input type="password" id="P1" placeholder="Enter New Password" class="Email_Forogt_Pass" required>
-            <br>
-            <br>
-            <br>
-            <input type="password" id="P2" placeholder="Confirm New Password" class="Email_Forogt_Pass" required>
+        <div class="BackGround_Image" >
+            
+            <div class="Wrapper" >
+                <div class="Email_Forogt_Pass" >   
+                    <input type="password" id="P1" placeholder="Enter New Password" class="Email_Forogt_Pass" required>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="password" id="P2" placeholder="Confirm New Password" class="Email_Forogt_Pass" required>
+                </div>
+                <div class="Button" >
+                    <button>
+                        <a class="reset" href="#" id="Link" >Reset</a>
+                    </button>
+                </div>
+                
             </div>
-            <div class="Button" >
-                    <div  type="button" >
-                    <button onclick="Check()" >
-                        <a  id="Reset_Btn"onclick=go() aria-disabled="true">Reset</a></button></div>
-            </div>
-
         </div>
-    </div>
-
-</body>
-</html>
+    </body>
+    <script type = "text/javascript"
+    src="Reset_Pass_3.js"></script>
+    </html>

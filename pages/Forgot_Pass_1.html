@@ -33,10 +33,11 @@
  
         <div class="Wrapper" >
             <div class="Email_Forogt_Pass" >   
-            <input type="email" placeholder="Email" class="Email_Forogt_Pass" required>
+            <input type="email" id="InEmail" placeholder="Email" class="Email_Forogt_Pass" required maxlength="320"
+            oninput="this.value = this.value.replace(/[^0-9.a-z.A-Z @ .]/g,'').replace(/(\..*)\./g, '$1')"/>
             </div>
             <div class="Button" >
-                <a type="button" href="Forgot_Pass_2.html"> 
+                <a id="Next"> 
                     <button type="button">Next</button></a>
             </div>
 
@@ -44,4 +45,6 @@
     </div>
 
 </body>
+<script type = "text/javascript"
+src="Reset_Pass_1.js"></script>
 </html>

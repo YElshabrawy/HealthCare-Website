@@ -135,7 +135,12 @@ nav {
   padding: 40px 30px;
   /* background-color: lightblue; */
 }
-
+.sidebar ul
+{
+  padding-top: 15px;
+  overflow: hidden;
+  visibility: hidden;
+}
 .sidebar-item {
   margin-bottom: 20px;
 }
@@ -285,4 +290,21 @@ btn-primary:hover {
 
 a:hover {
   text-decoration: none;
+}
+.Menu-Btn {
+  border-radius: 23px;
+  width: 70px;
+  height: 80px;
+  margin-right: 2%;
+  border: 1px solid #e6455a;
+  background: var(--color-grad-main);
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+.Menu-Btn:hover {
+  opacity: 0.5;
 }
