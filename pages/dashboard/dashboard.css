@@ -135,8 +135,7 @@ nav {
   padding: 40px 30px;
   /* background-color: lightblue; */
 }
-.sidebar ul
-{
+.sidebar ul {
   padding-top: 15px;
   overflow: hidden;
   visibility: hidden;
@@ -307,4 +306,8 @@ a:hover {
 }
 .Menu-Btn:hover {
   opacity: 0.5;
+}
+
+.no-eff {
+  color: unset;
 }

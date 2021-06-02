@@ -174,9 +174,14 @@ h2 {
   font-size: 18px;
 }
 
-.patient > img {
+.patient > img,
+.patient > .no-eff > img {
   width: 42px;
   border-radius: 50%;
+}
+
+.patient > .no-eff {
+  margin-left: 32px;
 }
 
 .patient > a > img {
