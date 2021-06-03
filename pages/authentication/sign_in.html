@@ -20,10 +20,11 @@
                     <a id="s-tw" href="#" class="social"><img src="/images/i_twitter.svg" alt=""></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" name="e_mail" placeholder="Email" />
-                <input type="password" name="pass" placeholder="Password" />
-                <a id="forgot-pw" href="#">Forgot your password?</a>
-                <button type="submit">Sign In</button>
+                <input type="email" required placeholder="Email"required maxlength="320"
+                oninput="this.value =this.value.replace(/[^0-9.a-z.A-Z @ .]/g,'').replace(/(\@.*)\@/g, '$1').replace(/(\-.*)\-/g, '$1')"/>
+                <input type="password" required placeholder="Password" />
+                <a id="forgot-pw" href="../Forgot_Pass_1.html">Forgot your password?</a>
+                <button>Sign In</button>
                 <div class="back-to-home">
                     <a href="/index.html">
                         <img src="/images/i_back.svg" alt="">

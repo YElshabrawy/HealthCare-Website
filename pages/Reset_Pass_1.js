@@ -1,29 +1,29 @@
 const link=document.querySelector("#Next");
 link.addEventListener('click',Check);
-DotFlag=true;
-Flag=true;
+DotFlag=false;
+Flag=false;
 function Check()
 {
     var P1=document.querySelector("#InEmail");
     Input_1=P1.value;
     if((Input_1===""))
     {
-        return window.location.href="";
     }
     for (let i = 0; i < Input_1.length;i++){
         if (Input_1[i]==="@")  
         {
-        Flag==false;
+        Flag==true;
         }
         else if(Input_1[i]===".")
         {
-            DotFlag==false;
+            DotFlag==true;
         }
         }
 
-        if(Flag===DotFlag===true)
-        return window.location.href="Forgot_Pass_2.html";
-        else
-        return window.location.href="";
+        if(Flag&&DotFlag){
+            DotFlag=false;
+            Flag=false;  
+            return window.location.href="Forgot_Pass_2.html";
+        }
 }
   
