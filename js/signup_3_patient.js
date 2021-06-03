@@ -48,7 +48,7 @@ document.querySelectorAll("form").forEach((q)=>{
             case '1':
                 row = `<div id = "c1" class="row show">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="text" placeholder="Ray Name" />
+                                <input type="file" placeholder="Ray Name" />
                                 <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                         </div>`;

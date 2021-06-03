@@ -7,6 +7,41 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="auth_up.css">
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <script>
+    function Add() {
+       let location=document.querySelector(".Time_Table");
+        row = `
+        <br>
+        <div class="tt-from-to">
+        <p>From</p>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <p>To</p>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        <div class=""><input max="23" min="0" type="number" /></div>
+        </div>`;
+        location.insertAdjacentHTML("beforeend", row);   
+}
+    function Remove(){
+    var All_slots=document.querySelectorAll(".tt-from-to");  
+    const MainDiv=document.querySelector(".Time_Table");  
+    if(All_slots.length>2)
+    {
+    MainDiv.removeChild(MainDiv.lastElementChild);
+    MainDiv.removeChild(MainDiv.lastElementChild);
+    }
+    }
+    </script>
 </head>
 <body>
     <div class="container" id="container">
@@ -16,8 +51,9 @@
                 <div class="container2">
                     <div class="row1 jc flex">
                         <div class="r1-CV flex">
-                            <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                            <p>Upload your CV</p>
+                            <label for="file_input">   <img class="logo"  src="/images/i_upload.svg" alt=""></label>
+                            <p>Upload CV</p>
+                            <input type="file" accept=".pdf" id="file_input" name="filename">
                         </div>
                         <div class="r1-Major">
                             <select class="tmp-dropdown" name="major" id="major">
@@ -48,6 +84,7 @@
                             <li><p>Sat</p></li>
                         </ul>
                     </div>
+                    <div class="Time_Table">
                     <div class="tt-from-to">
                         <p>From</p>
                         <div class=""><input max="23" min="0" type="number" /></div>
@@ -87,9 +124,12 @@
                         <div class=""><input max="23" min="0" type="number" /></div>
 
                     </div>
+                    </div>
                     <div class="visit-time flex">
                         <p>Estimated Time of the visit</p>
-                        <input type="number" placeholder="Minutes">
+                        <input min="0" type="number" placeholder="Minutes">
+                        <button class="Add_Slot" onclick="Add()">Add Slot</a></button>
+                        <button class="Remove_Slot" onclick="Remove()">Delete Slot</a></button>
                     </div>
                     <div class="visit-price jc flex">
                         <input min="0" type="number" placeholder="Visit price (EGP)">
@@ -113,4 +153,5 @@
         </div>
     </div>
 </body>
+<!-- <script type = "text/javascript" src="/js/signup_3_physician.js"></script> -->
 </html>
