@@ -11,14 +11,14 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="../../PHPF/SignUp/signUp3Patient.php" method ="GET">
                 <h1>Sign Up</h1>
                 <div class="grid-container2">
                     <div class="gt2-weight">
-                        <input type="number" placeholder="Weight (kg)" />
+                        <input type="number" name="Weight" placeholder="Weight (kg)" />
                     </div>
                     <div class="gt2-height">
-                        <input type="number" placeholder="Height (cm)" />
+                        <input type="number"name="Height"  placeholder="Height (cm)" />
                     </div>
                     <div class="gt2-social-st">
                         <select id="social-st" name="social-st" class="tmp-dropdown">
@@ -46,7 +46,8 @@
                         <div id="rows-1" class="multi-g multi-g-rays">
                             <div id = "n1" class="row">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="file" id="Ray_Name"  placeholder="Ray Name" />
+                                <input type="text" placeholder="Ray Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -67,7 +68,8 @@
                         <div id="rows-2" class="multi-g multi-g-medTest">
                             <div id="n2" class="row">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="file" id="Test_Name"  placeholder="Test Name" />
+                                <input type="text" placeholder="Test Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -89,6 +91,7 @@
                             <div id="n3" class="row">
                                 <input type="text" placeholder="Surgery Type" />
                                 <input type="text" placeholder="Surgery Location" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -108,7 +111,8 @@
                         </div>
                         <div id="rows-4" class="multi-g multi-g-chronic">
                             <div id="n4" class="row">
-                                <input type="file" id="Disease_Name"  placeholder="Disease Name" />
+                                <input type="text" placeholder="Disease Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -148,7 +152,9 @@
                         </div>
                         <div id="rows-6" class="multi-g multi-g-medicine">
                             <div id="n6" class="row ">
-                                <input type="text" placeholder="Medicine Name" />
+                                <input type="text"  placeholder="Medicine Name" />
+                                <input type="number" placeholder="Dose (/day)" />
+                                <input type="number" placeholder="Duration (hrs)" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -172,5 +178,5 @@
         </div>
     </div>
 </body>
-<script src="/js/signup_3_patient.js"></script>
+<script src="../../js/signup_3_patient.js"></script>
 </html>

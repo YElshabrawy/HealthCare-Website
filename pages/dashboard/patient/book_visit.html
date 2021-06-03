@@ -128,27 +128,29 @@
                     </div>
                 </div>
             </div>
+            <form action="../../../PHPF/Patient/Booking_Visits.php" method="GET">
             <div class="diagnosis">
                 <div class="flex">
                     <div class="">
                         <div class="Complaint-block">
                             <h5>Complaint:</h5>
-                            <input type="text" name=Complaint-data"" id="Complaint-data" class="resizable">
+                            <input type="text" name="Complaint-data" id="Complaint-data" class="resizable">
                         </div>
                         <div class="visit-date-block">
                             <h5>Visit Date:</h5>
-                            <input type="date" name=vst-data"" id="vst-data" class="resizable">
+                            <input type="date" name="vst-data" id="vst-data" class="resizable">
                         </div>
                     </div>
                     <div class="">
                         <div class="notes-block">
                             <h5>Visit Time:</h5>
-                            <input type="time" name=Visit_Time"" id="Visit_Time" class="resizable">
+                            <input type="time" name="Visit_Time" id="Visit_Time" class="resizable">
                         </div>
                     </div>
                 </div>
-                <a href="#" class="send-btn">Send</a>
+                <button type="submit" class="send-btn">Send</button>
             </div>
+        </form>
 
         </div>
     </main>

@@ -48,7 +48,8 @@ document.querySelectorAll("form").forEach((q)=>{
             case '1':
                 row = `<div id = "c1" class="row show">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="file" placeholder="Ray Name" />
+                                <input type="text" placeholder="Ray Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                         </div>`;
                 break;
@@ -56,6 +57,7 @@ document.querySelectorAll("form").forEach((q)=>{
                 row = `<div id = "c2" class="row show">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
                                 <input type="text" placeholder="Test Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                         </div>`;
                 break;
@@ -63,12 +65,14 @@ document.querySelectorAll("form").forEach((q)=>{
                 row = `<div id = "c3" class="row show">
                                 <input type="text" placeholder="Surgery Type" />
                                     <input type="text" placeholder="Surgery Location" />
+                                    <input type="date" placeholder="Date" />
                                     <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                         </div>`;
                 break;
             case '4':
                 row = `<div id = "c4" class="row show">
                                 <input type="text" placeholder="Disease Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                         </div>`;
                 break; 
@@ -81,6 +85,8 @@ document.querySelectorAll("form").forEach((q)=>{
             case '6':
                 row = `<div id = "c6" class="row show">
                                 <input type="text" placeholder="Medicine Name" />
+                                <input type="number" placeholder="Dose (/day)" />
+                                <input type="number" placeholder="Duration (hrs)" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                         </div>`;
                 break; 
@@ -187,6 +193,7 @@ addFamilyBtn.addEventListener('click', (e)=>{
                             <div id="n1" class="row">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
                                 <input type="text" placeholder="Ray Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -208,6 +215,7 @@ addFamilyBtn.addEventListener('click', (e)=>{
                             <div id="n2" class="row">
                                 <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
                                 <input type="text" placeholder="Test Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -228,7 +236,8 @@ addFamilyBtn.addEventListener('click', (e)=>{
                         <div id="rows-3" class="multi-g multi-g-surgery">
                             <div id="n3" class="row">
                                 <input type="text" placeholder="Surgery Type" />
-                                <input type="text" placeholder="Surgery Location" />       
+                                <input type="text" placeholder="Surgery Location" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -249,6 +258,7 @@ addFamilyBtn.addEventListener('click', (e)=>{
                         <div id="rows-4" class="multi-g multi-g-chronic">
                             <div id="n4" class="row">
                                 <input type="text" placeholder="Disease Name" />
+                                <input type="date" placeholder="Date" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -289,6 +299,8 @@ addFamilyBtn.addEventListener('click', (e)=>{
                         <div id="rows-6" class="multi-g multi-g-medicine">
                             <div id="n6" class="row ">
                                 <input type="text" placeholder="Medicine Name" />
+                                <input type="number" placeholder="Dose (/day)" />
+                                <input type="number" placeholder="Duration (hrs)" />
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>

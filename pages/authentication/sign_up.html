@@ -14,7 +14,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="../../PHPF/SignUp/sign_upCall.php" method="GET">
                 <h1>Sign Up</h1>
                 <div class="user-type">
                     <button id="patient" class="">
@@ -32,13 +32,12 @@
                 <span>or use your data</span>
                 <div class="inputs">
                     <div class="left">
-                        <input type="username" placeholder="Username"required/>
-                        <input type="email" placeholder="Email" required maxlength="320" required
-                        oninput="this.value =this.value.replace(/[^0-9.a-z.A-Z @ . -]/g,'').replace(/(\@.*)\@/g, '$1').replace(/(\-.*)\-/g, '$1')"/>
+                        <input type="username" name="user" placeholder="Username" />
+                        <input type="email" name="E_mail" placeholder="Email" />
                     </div>
                     <div class="right">
-                        <input type="password" placeholder="Password" required/>
-                        <input type="password" placeholder="Confirm Password"required />
+                        <input type="password" name="pass" placeholder="Password" />
+                        <input type="password" placeholder="Confirm Password" />
                     </div>
                 </div>
                 <a id="forgot-pw" href="./sign_in.html">Already have account?</a>

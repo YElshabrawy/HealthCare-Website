@@ -495,7 +495,7 @@ input:focus {
   background-color: transparent;
   border: 0.5px solid #bababa;
   border-radius: 30px;
-  padding: 5% 7%;
+  padding: 10px 65px;
   justify-content: center;
 }
 

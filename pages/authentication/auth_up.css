@@ -822,12 +822,7 @@ fieldset {
 .r1-CV {
   flex-grow: 1;
 }
-.r1-CV input{
-display:none;
-}
-.r1-CV label{
- cursor: pointer;
-}
+
 .r1-Major {
   flex-grow: 1;
 }
@@ -878,16 +873,17 @@ ul {
   color: white;
   font-weight: bold;
 }
+
 .Add_Slot{
-cursor: pointer;
-width:fit-content;
-margin: 2% 2%;
-}
-.Remove_Slot{
-cursor: pointer; 
-width:fit-content;
-margin: 2% 2%;
-}
-.Time_Table{
-  display: block;
-}
+  cursor: pointer;
+  width:fit-content;
+  margin: 2% 2%;
+  }
+  .Remove_Slot{
+  cursor: pointer; 
+  width:fit-content;
+  margin: 2% 2%;
+  }
+  .Time_Table{
+    display: block;
+  }

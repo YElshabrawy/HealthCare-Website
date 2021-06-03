@@ -1,0 +1,26 @@
+<?php
+include_once '../connectDataBase.php';
+$userType = 1;
+$AccID = 55;
+#$status = $_GET['social-st'];
+$Country = $_GET['country'];
+$City = $_GET['ci'];
+$Address = $_GET['add'];
+$FName = $_GET['fn'];
+$MName= ' ';
+$LName = $_GET['ln'];
+$PhoneNum = $_GET['phone'];
+$Job = $_GET['J'];
+$Gender = $_GET['gender'];
+$Date_Birth = $_GET['d'];
+echo "nice";
+signUp2($Country,$City,$Address,$FName,$MName,$LName,$PhoneNum,$Job,$Gender,$Date_Birth,$AccID);
+
+if($userType == 1)
+{
+    header("Location:../../pages/authentication/sign_up3_patient.html");
+}
+else if($userType == 2)
+{
+    header("Location:../../pages/authentication/sign_up3_physician.html");   
+}

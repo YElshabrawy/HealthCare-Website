@@ -8,6 +8,7 @@ function Check()
     Input_2=P2.value;
     if((Input_1==="")||(Input_2==="")||(Input_1!==Input_2))
     {
+        window.location.href="";
     }
     else if(Input_1===Input_2)
     {

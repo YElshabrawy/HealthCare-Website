@@ -14,12 +14,12 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="../../PHPF/SignUp/signUp2.php" method="GET">
                 <h1>Sign Up</h1>
                 <div class="grid-container">
-                    <div class="fname"><input type="text" placeholder="First Name" required/></div>
-                    <div class="lname"><input type="text" placeholder="Last Name"required /></div>
-                    <div class="cntr"><select id="country" name="country" required class="tmp-dropdown form-control">
+                    <div class="fname"><input type="text" name="fn" placeholder="First Name" /></div>
+                    <div class="lname"><input type="text" name="ln" placeholder="Last Name" /></div>
+                    <div class="cntr"><select id="country" name="country" class="tmp-dropdown form-control">
                         <option value="">Country</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
@@ -266,18 +266,18 @@
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
                     </select></div>
-                    <div class="city"><input type="text" placeholder="City" required/></div>
-                    <div class="address"><input type="text" placeholder="Address" required/></div>
+                    <div class="city"><input type="text" name="ci" placeholder="City" /></div>
+                    <div class="address"><input type="text" name="add" placeholder="Address" /></div>
                     <div class="gender">
-                        <select id="gender" name="gender" class="tmp-dropdown" required>
+                        <select id="gender" name="gender" class="tmp-dropdown">
                             <option value="">Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
-                    <div class="dob"><input type="date" placeholder="Date of Birth"required></div>
-                    <div class="phone"><input id="phone" name="phone" type="tel" placeholder="Phone"required /></div>
-                    <div class="job"><input type="text" placeholder="Job" required/></div>
+                    <div class="dob"><input type="date" name="d" placeholder="Date of Birth"></div>
+                    <div class="phone"><input id="phone" name="phone" type="tel" placeholder="Phone" /></div>
+                    <div class="job"><input type="text" name="J" placeholder="Job" /></div>
                 </div>
                 <button type="submit">Next</button>
                 <div class="stage">
