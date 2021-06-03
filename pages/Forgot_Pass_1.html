@@ -34,11 +34,12 @@
         <div class="Wrapper" >
             <div class="Email_Forogt_Pass" >   
             <input type="email" id="InEmail" placeholder="Email" class="Email_Forogt_Pass" required maxlength="320"
-            oninput="this.value = this.value.replace(/[^0-9.a-z.A-Z @ .]/g,'').replace(/(\..*)\./g, '$1')"/>
+            oninput="this.value = this.value.replace(/[^0-9.a-z.A-Z @ .]/g,'').replace(/(\@.*)\@/g, '$1').replace(/(\-.*)\-/g, '$1')"/>
             </div>
             <div class="Button" >
                 <a id="Next"> 
-                    <button type="button">Next</button></a>
+                    <button type="button">Next</button>
+                </a>
             </div>
 
         </div>

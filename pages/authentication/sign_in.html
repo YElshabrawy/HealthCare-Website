@@ -20,7 +20,8 @@
                     <a id="s-tw" href="#" class="social"><img src="/images/i_twitter.svg" alt=""></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
+                <input type="email" placeholder="Email"required maxlength="320"
+                oninput="this.value =this.value.replace(/[^0-9.a-z.A-Z @ .]/g,'').replace(/(\@.*)\@/g, '$1').replace(/(\-.*)\-/g, '$1')"/>
                 <input type="password" placeholder="Password" />
                 <a id="forgot-pw" href="../Forgot_Pass_1.html">Forgot your password?</a>
                 <button>Sign In</button>
