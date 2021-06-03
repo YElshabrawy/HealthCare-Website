@@ -53,10 +53,10 @@
                         <div class="r1-CV flex">
                             <label for="file_input">   <img class="logo"  src="/images/i_upload.svg" alt=""></label>
                             <p>Upload CV</p>
-                            <input type="file" accept=".pdf" id="file_input" name="filename">
+                            <input type="file" accept=".pdf" id="file_input" name="filename" required>
                         </div>
                         <div class="r1-Major">
-                            <select class="tmp-dropdown" name="major" id="major">
+                            <select class="tmp-dropdown" name="major" id="major" required>
                                 <option value="">Major</option>
                                 <option value="Eyes">Eyes</option>
                                 <option value="Dentist">Dentist</option>
@@ -64,7 +64,7 @@
                             </select>
                         </div>
                         <div class="r1-Degree">
-                            <select class="tmp-dropdown" name="degree" id="degree">
+                            <select class="tmp-dropdown" name="degree" id="degree"required>
                                 <option value="">Academic Degree</option>
                                 <option value="Doctor">Doctor</option>
                                 <option value="Professor">Professor</option>
@@ -127,14 +127,14 @@
                     </div>
                     <div class="visit-time flex">
                         <p>Estimated Time of the visit</p>
-                        <input min="0" type="number" placeholder="Minutes">
+                        <input min="0" type="number" placeholder="Minutes" required>
                         <button class="Add_Slot" onclick="Add()">Add Slot</a></button>
                         <button class="Remove_Slot" onclick="Remove()">Delete Slot</a></button>
                     </div>
                     <div class="visit-price jc flex">
-                        <input min="0" type="number" placeholder="Visit price (EGP)">
-                        <input min="0" type="number" placeholder="Revisit price (EGP)">
-                        <input min="0" type="number" placeholder="Consultation price (EGP)">
+                        <input min="0" type="number" placeholder="Visit price (EGP)"required>
+                        <input min="0" type="number" placeholder="Revisit price (EGP)"required>
+                        <input min="0" type="number" placeholder="Consultation price (EGP)"required>
                     </div>
                 </div>
                 <button type="submit">Finish</button>

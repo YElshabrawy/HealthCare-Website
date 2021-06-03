@@ -7,7 +7,7 @@ function Check()
     Input_1=P1.value;
     if((Input_1===""||(Input_1.length>11)||(Input_1.length<11)))
     {
-        window.location.href="";
+        
     }
     else
     {    

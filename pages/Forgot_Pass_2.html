@@ -43,8 +43,9 @@
     <div class="BackGround_Image" >
  
         <div class="Wrapper" >
+            <form action="">
             <div class="Email_Forogt_Pass" >   
-            <input type="tel" id="InCode" placeholder="--- --- ---"class="Email_Forogt_Pass" required  pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+            <input type="tel" name="InCode" id="InCode" placeholder="--- --- ---"class="Email_Forogt_Pass" required  pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
             oninput="this.value = this.value.replace(/[^0-9.-]/g,'');AddSpace();" minlength="11" maxlength="11" size="11"/>
             </div>
             <br>
@@ -52,13 +53,14 @@
                 Resend Code ?
             </btn>
             <div class="Button" >
-               <button type="button">
-                  <a id="Code"> 
+               <button type="submit">
+                  <a id="Code" > 
                     Verify Code  
                   </a>
                 </button>
 
             </div>
+        </form>
         </div>
     </div>
 
