@@ -12,7 +12,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="../../PHPF/SignIn/" method="GET">
+            <form action="../../PHPF/SignIn/SignIn.php" method="GET">
                 <h1>Sign in</h1>
                 <div class="social-container">
                     <a  id="s-fb" href="#" class="social"><img src="/images/i_facebook.svg" alt=""></a>
@@ -20,9 +20,9 @@
                     <a id="s-tw" href="#" class="social"><img src="/images/i_twitter.svg" alt=""></a>
                 </div>
                 <span>or use your account</span>
-                <input type="email" required placeholder="Email"required maxlength="320"
+                <input type="email" name="e_mail" required placeholder="Email"required maxlength="320"
                 oninput="this.value =this.value.replace(/[^0-9.a-z.A-Z @ .]/g,'').replace(/(\@.*)\@/g, '$1').replace(/(\-.*)\-/g, '$1')"/>
-                <input type="password" required placeholder="Password" />
+                <input name="pass" type="password" required placeholder="Password" />
                 <a id="forgot-pw" href="../Forgot_Pass_1.html">Forgot your password?</a>
                 <button>Sign In</button>
                 <div class="back-to-home">
