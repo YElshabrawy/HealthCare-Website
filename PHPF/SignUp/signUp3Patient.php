@@ -2,8 +2,8 @@
 include_once '../connectDataBase.php';
 session_start();
 
-$AccID = $_SESSION['AccID'];
-
+//$AccID = $_SESSION['AccID'];
+$AccID = 9;
 
 $Weight = $_GET['Weight'];
 $Height = $_GET['Height'];
@@ -19,4 +19,4 @@ foreach($_GET['ray_name']as $key => $value){
 }
 
 
-header("Location:../../pages/authentication/sign_up4_patient.html");
+//header("Location:../../pages/authentication/sign_up4_patient.html");
