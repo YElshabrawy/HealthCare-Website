@@ -11,7 +11,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="/PHPF/SignUp/signUp4Patient.php" method="GET">
                 <h1>Sign Up</h1>
                 <h3>Enter Family History</h3>
                 <button class="add-family margin">
@@ -19,15 +19,12 @@
                     <span>Add Member</span>
                 </button>
                 <div class="members">
-                        <div id="m1" class="grid-container2_fam hide">
-                        <div class="gt2-weight">
-                        <input type="text" placeholder="First Name" />
-                    </div>
-                    <div class="gt2-height">
-                        <input type="text" placeholder="Last Name" />
+                    <div id="m1" class="memb grid-container2_fam hide">
+                    <div class="gt2-weight" style="grid-column-end: 3;">
+                        <input type="text" placeholder="Name" name="m1-name"/>
                     </div>
                     <div class="gt2-relation">
-                        <select id="relation" name="relation" class="tmp-dropdown">
+                        <select id="relation" name="m1-relation" class="tmp-dropdown">
                             <option value="">Relationship</option>
                             <option value="Father">Father</option>
                             <option value="Mother">Mother</option>
@@ -47,12 +44,12 @@
                         <img class="logo" src="/images/i_delete.svg" alt="">
                     </a>
                     <div class="gt2-history">
-                        <div class="gt2-h-rays">
+                        <div class="gt2-h-chronic">
                             <p>
-                                Do he/she had any rays before?
+                                Do he/she has any psychological diseases?
                             </p>
                         </div>
-                        <div class="gt2-h-rays-a">
+                        <div class="gt2-h-chronic-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
                                 <input class="yes-radio" type="radio" name="radio1-1" />
@@ -60,20 +57,19 @@
                                 <input class="no-radio" type="radio" name="radio1-1" checked="checked" />
                             </fieldset>
                         </div>
-                        <div id="rows-1" class="multi-g multi-g-rays">
+                        <div id="rows-1" class="multi-g multi-g-chronic">
                             <div id="n1" class="row">
-                                <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="text" placeholder="Ray Name" />
+                                <input type="text" placeholder="Disease Name" name="m1-psychological[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
                         </div>
-                        <div class="gt2-h-medTest">
+                        <div class="gt2-h-chronic">
                             <p>
-                                Do he/she had any medical tests before?
+                                Do he/she has any ulcers?
                             </p>
                         </div>
-                        <div class="gt2-h-medTest-a">
+                        <div class="gt2-h-chronic-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
                                 <input class="yes-radio" type="radio" name="radio2-1" />
@@ -81,20 +77,19 @@
                                 <input class="no-radio" type="radio" name="radio2-1" checked="checked" />
                             </fieldset>
                         </div>
-                        <div id="rows-2" class="multi-g multi-g-medTest">
+                        <div id="rows-2" class="multi-g multi-g-chronic">
                             <div id="n2" class="row">
-                                <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="text" placeholder="Test Name" />
+                                <input type="text" placeholder="Ulcer Name" name="m1-ulcher[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
                         </div>
-                        <div class="gt2-h-surgery">
+                        <div class="gt2-h-chronic">
                             <p>
-                                Did he/she make any surgries before?
+                                Do he/she has any allergy?
                             </p>
                         </div>
-                        <div class="gt2-h-surgery-a">
+                        <div class="gt2-h-chronic-a">
                             <fieldset class="radio-container">
                                 <label>Yes</label>
                                 <input class="yes-radio" type="radio" name="radio3-1" />
@@ -102,17 +97,16 @@
                                 <input class="no-radio" type="radio" name="radio3-1" checked="checked" />
                             </fieldset>
                         </div>
-                        <div id="rows-3" class="multi-g multi-g-surgery">
+                        <div id="rows-3" class="multi-g multi-g-chronic">
                             <div id="n3" class="row">
-                                <input type="text" placeholder="Surgery Type" />
-                                <input type="text" placeholder="Surgery Location" />
+                                <input type="text" placeholder="Allergy Name" name="m1-allergy[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
                         </div>
                         <div class="gt2-h-chronic">
                             <p>
-                                Do he/she has any chronic diseases?
+                                Do he/she has any genatic abnormality?
                             </p>
                         </div>
                         <div class="gt2-h-chronic-a">
@@ -125,56 +119,18 @@
                         </div>
                         <div id="rows-4" class="multi-g multi-g-chronic">
                             <div id="n4" class="row">
-                                <input type="text" placeholder="Disease Name" />
+                                <input type="text" placeholder="Abnormality Name" name="m1-abnormal[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
                         </div>
-                        <div class="gt2-h-allergy">
-                            <p>
-                                Do he/she suffers from any kind of allergy?
-                            </p>
-                        </div>
-                        <div class="gt2-h-allergy-a">
-                            <fieldset class="radio-container">
-                                <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio5-1" />
-                                <label>No</label>
-                                <input class="no-radio" type="radio" name="radio5-1" checked="checked" />
-                            </fieldset>
-                        </div>
-                        <div id="rows-5" class="multi-g multi-g-allergy">
-                            <div id="n5" class="row ">
-                                <input type="text" placeholder="Allergy Name" />
-                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
-                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
-                            </div>
-                        </div>
-                        <div class="gt2-h-medicine">
-                            <p>
-                                Do he/she takes any medicines?
-                            </p>
-                        </div>
-                        <div class="gt2-h-medicine-a">
-                            <fieldset class="radio-container">
-                                <label>Yes</label>
-                                <input class="yes-radio" type="radio" name="radio6-1" />
-                                <label>No</label>
-                                <input class="no-radio" type="radio" name="radio6-1" checked="checked" />
-                            </fieldset>
-                        </div>
-                        <div id="rows-6" class="multi-g multi-g-medicine">
-                            <div id="n6" class="row ">
-                                <input type="text" placeholder="Medicine Name" />
-                                <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
-                                <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
-                            </div>
-                        </div>
+                        
                     </div>
                     </div>
+                    <input style="display: none;" type="number" name="count" id="count" value="0">
                 </div>
 
-                <button type="submit">Final</button>
+                <button class="submit-btn" type="submit">Final</button>
                 <div class="stage">
                     <button class=""></button>
                     <button class=""></button>
@@ -191,5 +147,6 @@
         </div>
     </div>
 </body>
-<script src="/js/signup_3_patient.js"></script>
+<!-- <script src="/js/signup_3_patient.js"></script> -->
+<script src="/js/signup_4_patient.js"></script>
 </html>

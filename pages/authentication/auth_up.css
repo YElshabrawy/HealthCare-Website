@@ -826,11 +826,11 @@ fieldset {
 .r1-Major {
   flex-grow: 1;
 }
-.r1-CV input{
-  display:none;
+.r1-CV input {
+  display: none;
 }
-.r1-CV label{
-   cursor: pointer;
+.r1-CV label {
+  cursor: pointer;
 }
 li {
   list-style: none;
@@ -879,16 +879,25 @@ ul {
   font-weight: bold;
 }
 
-.Add_Slot{
+.Add_Slot {
   cursor: pointer;
-  width:fit-content;
+  width: fit-content;
   margin: 2% 2%;
-  }
-  .Remove_Slot{
-  cursor: pointer; 
-  width:fit-content;
+}
+.Remove_Slot {
+  cursor: pointer;
+  width: fit-content;
   margin: 2% 2%;
-  }
-  .Time_Table{
-    display: block;
-  }
+}
+.Time_Table {
+  display: block;
+}
+
+.disp-none {
+  display: none;
+}
+
+.expand2 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}

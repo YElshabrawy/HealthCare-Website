@@ -45,8 +45,13 @@
                         </div>
                         <div id="rows-1" class="multi-g multi-g-rays">
                             <div id = "n1" class="row">
-                                <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="text" placeholder="Ray Name" />
+                                <div class="upload-btn">
+                                    <label for="file">
+                                        <img class="logo" src="/images/i_upload.svg" alt="">
+                                    </label>
+                                    <input class="disp-none" accept=".pdf" type="file" name="ray_file[]" id="file">
+                                </div>
+                                <input type="text" placeholder="Ray Name" name="ray_name[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -66,8 +71,13 @@
                         </div>
                         <div id="rows-2" class="multi-g multi-g-medTest">
                             <div id="n2" class="row">
-                                <a href="#"><img class="logo" src="/images/i_upload.svg" alt=""></a>
-                                <input type="text" placeholder="Test Name" />
+                                <div class="upload-btn">
+                                    <label for="file">
+                                        <img class="logo" src="/images/i_upload.svg" alt="">
+                                    </label>
+                                    <input class="disp-none" accept=".pdf" type="file" name="medical_test_file[]" id="file">
+                                </div>
+                                <input type="text" placeholder="Test Name" name="medical_test_name[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -87,8 +97,8 @@
                         </div>
                         <div id="rows-3" class="multi-g multi-g-surgery">
                             <div id="n3" class="row">
-                                <input type="text" placeholder="Surgery Type" />
-                                <input type="text" placeholder="Surgery Location" />
+                                <input type="text" placeholder="Surgery Type" name="surgery_type[]"/>
+                                <input type="text" placeholder="Surgery Location" name="surgery_location[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -108,7 +118,7 @@
                         </div>
                         <div id="rows-4" class="multi-g multi-g-chronic">
                             <div id="n4" class="row">
-                                <input type="text" placeholder="Disease Name" />
+                                <input type="text" placeholder="Disease Name" name="disease_name[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -128,7 +138,7 @@
                         </div>
                         <div id="rows-5" class="multi-g multi-g-allergy">
                             <div id="n5" class="row ">
-                                <input type="text" placeholder="Allergy Name" />
+                                <input type="text" placeholder="Allergy Name" name="allergy_name[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
@@ -148,7 +158,7 @@
                         </div>
                         <div id="rows-6" class="multi-g multi-g-medicine">
                             <div id="n6" class="row ">
-                                <input type="text"  placeholder="Medicine Name" />
+                                <input type="text"  placeholder="Medicine Name" name="medicine_name[]"/>
                                 <button class="remove-btn"><img class="logo" src="/images/i_remove.svg" alt=""></button>
                                 <button class="add-btn"><img class="logo" src="/images/i_add.svg" alt=""></button>
                             </div>
