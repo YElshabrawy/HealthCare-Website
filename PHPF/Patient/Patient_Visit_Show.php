@@ -1,7 +1,7 @@
 <?php
-include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-
-$ID // PatientID
+include_once '../connectDataBase.php';
+session_start();
+$ID = $_SESSION['signInID'];// PatientID
 
 $VisitID;
 $Dates;
@@ -15,7 +15,7 @@ $Diagnoses;
 
 
 
-$result = patientVisitShow($ID)
+$result = patientVisitShow($ID);
 if($result)
 {
     while($row = mysqli_fetch_assoc($result))

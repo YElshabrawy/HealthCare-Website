@@ -1,8 +1,9 @@
 <?php
 include_once '../connectDataBase.php';
+session_start();
 
 $PhysicianID = 5;
-$PatientID = 9;
+$PatientID = $_SESSION['signInID'];
 
 
 $Date = $_GET['vst-data'];

@@ -30,8 +30,33 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname">FName</span>
-                    <span class="lname">LName</span>
+                <?php 
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                   // $ID = $_SESSION['SignInID'];
+                    $ID = 1;
+                    $result = ShowPatientProfile($ID);
+                    if($result)
+                    {
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $FName = $row['FName'];
+                            $LName= $row['LName'];
+                            $email = $row['EmailAddress'];
+                            $sex = $row['Gender'];
+                            $Country = $row['Country'];
+                            $city = $row['City'];
+                            $mobile = $row['MobilePhone'];
+                            $date = $row['DateOfBirth'];
+                            $Weight = $row['Weights'];
+                            $Height = $row['Height'];
+                            
+                        } 
+                    }
+                    else{
+                        echo "Error";
+                    }  ?>
+                <span class="fname"><?php echo $FName; ?></span>
+                    <span class="lname"><?php echo $LName; ?></span>
                 </div>
             </div>
         </div>
@@ -71,8 +96,8 @@
                 <div class="profile-pic big center smb">
                     <img src="/images/default_pic.jpg" alt="" class="icon">
                 </div>
-                <h2 class="name center"><span class="fname">FName</span> <span class="lname">LName</span></h2>
-                <p class="smb mail center">example@gmail.com</p>
+                <h2 class="name center"><span class="fname"><?php echo $FName; ?></span> <span class="lname"><?php echo $LName; ?></span></h2>
+                <p class="smb mail center"><?php echo $email; ?></p>
                 <div class="dealings center flex">
                     <div>
                         <h2 class="past-deals">12</h2>
@@ -83,28 +108,28 @@
                         <p>Upcoming</p>
                     </div>
                 </div>
-                <a href="../edit_profile.html" class="view-profile-btn" >Edit Profile</a>
+                <a href="../edit_profile.html" class="visit-btn">Edit Profile</a>
             </div>
             <div class="personal-info grid-3x3">
                 <div>
                     <h6>Gender</h6>
-                    <h5 class="tst">Male</h5>
+                    <h5 class="tst"><?php echo $sex; ?></h5>
                 </div>
                 <div>
                     <h6>Birthdate</h6>
-                    <h5 class="tst">23/07/2001</h5>
+                    <h5 class="tst"><?php echo $date; ?></h5>
                 </div>
                 <div>
                     <h6>Phone Number</h6>
-                    <h5 class="tst">+201123456789</h5>
+                    <h5 class="tst"><?php echo $mobile; ?></h5>
                 </div>
                 <div>
                     <h6>Country</h6>
-                    <h5 class="tst">Egypt</h5>
+                    <h5 class="tst"><?php echo $Country; ?></h5>
                 </div>
                 <div>
                     <h6>City</h6>
-                    <h5 class="tst">Giza</h5>
+                    <h5 class="tst"><?php echo $city; ?></h5>
                 </div>
                 <div>
                     <h6>Register Date</h6>
@@ -112,11 +137,11 @@
                 </div>
                 <div>
                     <h6>Weight</h6>
-                    <h5 class="tst">80 kg</h5>
+                    <h5 class="tst"><?php echo $Weight; ?> kg</h5>
                 </div>
                 <div>
                     <h6>Height</h6>
-                    <h5 class="tst">180 cm</h5>
+                    <h5 class="tst"><?php echo $Height; ?> cm</h5>
                 </div>
             </div>
             <div class="notes">
@@ -130,21 +155,74 @@
                         <div class="l3">
                             <div class="allergies">
                                 <h2>Allergies: </h2>
-                                <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                                <h4 class="allergies">
+                                <?php 
+                                    clearStoredResults();
+                                    $result2 = patientHistory($ID);
+                                    if($result2)
+                                    {
+                                        while($row2 = mysqli_fetch_assoc($result2)){
+                                            if($row2['HistoryType'] == 1)
+                                            {
+                                                echo $row2['DName'] . " - ";
+                                            }
+                                            }
+                                        }
+                                ?>
+                                </h4>
                             </div>
                             <div class="chronic">
                                 <h2>Chronic Diseases: </h2>
-                                <h4 class="chronic">Diabetes</h4>
+                                <h4 class="chronic">
+                                    <?php
+                                        if($result2)
+                                        {
+                                            while($row2 = mysqli_fetch_assoc($result2)){
+                                                if($row2['HistoryType'] == 2)
+                                                {
+                                                    echo $row2['DName'] . " - ";
+                                                }
+                                                }
+                                            
+                                        }
+                                    ?>
+                                     </h4>
                             </div>
                         </div>
                         <div class="r3">
                             <div class="medicine">
                                 <h2>Medicine: </h2>
-                                <h4 class="medicine">Panadol - Asprin</h4>
+                                <h4 class="medicine">
+                                <?php
+                                        if($result2)
+                                        {
+                                            while($row2 = mysqli_fetch_assoc($result2)){
+                                                if($row2['HistoryType'] == 3)
+                                                {
+                                                    echo $row2['DName'] . " - ";
+                                                }
+                                                }
+                                            
+                                        }
+                                    ?>
+                                </h4>
                             </div>
                             <div class="surgery">
                                 <h2>Surgerys: </h2>
-                                <h4 class="surgery">N/A</h4>
+                                <h4 class="surgery">
+                                <?php
+                                        if($result2)
+                                        {
+                                            while($row2 = mysqli_fetch_assoc($result2)){
+                                                if($row2['HistoryType'] == 4)
+                                                {
+                                                    echo $row2['DName'] . " - ";
+                                                }
+                                                }
+                                            
+                                        }
+                                    ?>
+                                </h4>
                             </div>
                         </div>
                     </div>
@@ -152,9 +230,21 @@
                 </div>
                 <div class="fam-history">
                     <h2 class="smb">Family History</h2>
+                    
                     <div class="smb" id="m1">
-                        <h3>#1 <span class="fname">Mona</span> <span class="lname">Zaki</span> - <span
-                                class="rel">Daughter</span></h3>
+                        <h3>#1 <span class="fname">
+                            <?php 
+                                clearStoredResults();
+                                $result3 = patientFHistory($ID);
+                                if($result3)
+                                {
+                                    while($row3 = mysqli_fetch_assoc($result3)){
+                                        echo $row3['PersonName'];
+                                    }}
+                                        
+                            ?>
+                    </span> <span class="lname"></span> - <span
+                                class="rel"></span></h3>
                         <div class="flex jc">
                             <div class="l3">
                                 <div class="allergies">

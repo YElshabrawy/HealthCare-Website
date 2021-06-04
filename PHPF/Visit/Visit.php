@@ -1,5 +1,7 @@
 <?php
 include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+$visitID;
+
 $ID; 
 $FName;
 $MName;
@@ -16,7 +18,7 @@ $HistoryType;
 $Surgeryname;
 $Complaints;
 
-$result = ViewPatientSummary('1');
+$result = ViewPatientSummary(1);
 if($result)
 {
     while($row = mysqli_fetch_assoc($result)){

@@ -11,7 +11,7 @@ $conn = new mysqli("localhost", "root", "", "healthCare");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 function signUp1(
     $Email ,
     $Pass ,
@@ -25,7 +25,7 @@ function signUp1(
     echo $sql ;
     $sql_query = $sql;
     if(mysqli_query($GLOBALS['conn'],$sql_query)) {
-    echo 'done';
+    //echo 'done';
     return true;
     }
     else
@@ -132,6 +132,7 @@ function signUp(
 
 function signIn($email , $password){
     $sql = "CALL SignIn('$email','$password');";
+    echo $sql;
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';
@@ -144,7 +145,24 @@ function signIn($email , $password){
     }
 }
 function GET_USER_TYPE($PID){
-    $sql = "CALL GET_USER_TYPE('$PID');";
+    $sql = "CALL GETUSERTYPE('$PID');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
+function clearStoredResults()
+ { //global GLOBALS['conn']; 
+    do{ if ($res = $GLOBALS['conn']->store_result()) { $res->free(); } } 
+    while ($GLOBALS['conn']->more_results() && $GLOBALS['conn']->next_result()); }
+
+function ShowPhysicianInfo(){
+    $sql = "CALL ShowPhysicianInfo();";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';
@@ -157,7 +175,19 @@ function GET_USER_TYPE($PID){
     }
 }
 
-
+function ShowPatientProfile($ID){
+    $sql = "CALL ShowPatientProfile('$ID');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        //echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
 
 function ViewPatientSummary($VisitID)
 {
@@ -1026,7 +1056,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function patientHistory($ID){
                 $sql = "CALL patientHistory('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    //echo 'done';
                     return $result;
                 }
                 else
@@ -1038,7 +1068,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function patientFHistory($ID){
                 $sql = "CALL patientFHistory('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    //echo 'done';
                     return $result;
                 }
                 else

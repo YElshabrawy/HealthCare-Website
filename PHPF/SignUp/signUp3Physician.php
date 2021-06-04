@@ -23,6 +23,11 @@ $ConsultationPrice = $_GET['CP'];
 
 updatePhysicianInfoGeneral($PID ,$Major ,$ACDegree ,$CV ,00 );
 updatePhysicianInfoTimeTb($PID ,$VPrice,$ConsultationPrice ,$RevesitPrice ,$ESTime );
-UpdateTimeTable($PID ,$Dayss ,$From ,$To );
+
+// foreach($_GET['ray_name']as $key => $value){
+//     if($value != ""){
+//         UpdateTimeTable($PID ,$Dayss ,$From ,$To );
+//     }
+// }
 
 header("Location:../../pages/authentication/sign_in.html");
