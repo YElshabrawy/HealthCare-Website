@@ -1,7 +1,8 @@
 <?php
-include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+include_once '../connectDataBase.php';
+session_start();
 
-$pID = 55;
+$pID = $_SESSION['signInID'];
 
 
 $mobile = $_GET['phone'];

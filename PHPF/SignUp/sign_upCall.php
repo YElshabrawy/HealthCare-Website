@@ -1,10 +1,21 @@
 <?php
  include_once ('../connectDataBase.php');
+ session_start();
 $email = $_GET['E_mail'];
 $pass = $_GET['pass'];
 $UserName = $_GET['user'];
 $userType = 1;
+$ID;
 signUp1($email,$pass,$UserName,$userType);
+$result2 = signIn($email, $pass);
+if($result2)
+{
+    while($row = mysqli_fetch_assoc($result2)){
+        $ID = $row['ID'];
+    }
+}
+$_SESSION['AccID'] = $ID;
+
 if($userType == 1)
 {
     header("Location:../../pages/authentication/sign_up2.html");

@@ -1,7 +1,9 @@
 <?php
 include_once '../connectDataBase.php';
+session_start();
+
 $userType = 1;
-$AccID = 55;
+$AccID = $_SESSION['AccID'];
 #$status = $_GET['social-st'];
 $Country = $_GET['country'];
 $City = $_GET['ci'];
