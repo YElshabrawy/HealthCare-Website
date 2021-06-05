@@ -86,4 +86,4 @@ for($i = 1; $i <= $slots; $i++){
 //     }
 // }
 
-header("Location:../../pages/authentication/sign_in.html");
+// header("Location:../../pages/authentication/sign_in.html");

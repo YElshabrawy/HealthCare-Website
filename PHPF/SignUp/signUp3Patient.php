@@ -8,7 +8,7 @@ $AccID = $_SESSION['AccID'];
 $Weight = $_GET['Weight'];
 $Height = $_GET['Height'];
 $status = $_GET['social-st'];
-//echo $Height;
+echo $Height;
 Insert_Patient_WH($Weight ,$Height ,$AccID );
 signUp3($status , $AccID );
 clearStoredResults();

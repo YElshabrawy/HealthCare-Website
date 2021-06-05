@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 06:05 PM
+-- Generation Time: Jun 05, 2021 at 11:23 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -30,13 +30,19 @@ WHERE account.ID = ID$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CancelledVisitN` (IN `P_ID` INT)  SELECT COUNT(V.VisitID)
 FROM Visit AS V 
-WHERE V.PhysicianID = P_ID AND V.Status = 3$$
+WHERE V.PhysicianID = P_ID AND V.Status = 4$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DoneAppointmentN` (IN `P_ID` INT)  SELECT COUNT(V.VisitID)
 FROM Visit AS V 
 WHERE V.PhysicianID = P_ID AND V.Status = 5$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetActvIng` (IN `Cod` INT)  SELECT A.ActiveIngredient FROM actvingred As A WHERE  A.mCode = Cod$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetMCode` (IN `VID` INT)  SELECT CODE From patient_prescription  WHERE VID = patient_prescription.VisitID$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetMedicine` (IN `st` VARCHAR(100), IN `Name` VARCHAR(50), IN ` N` VARCHAR(256))  Select Code From pharmacy_therapy WHERE MName = Name AND st = pharmacy_therapy.Strength$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetNotTaken` (IN `Cod` INT)  SElECT N.NotTakenBy From nottaken AS N  WHERE Cod = N.mCode$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetPhysicianInfo` (IN `ID` INT)  SELECT * 
 FROM account,physician 
@@ -95,6 +101,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Insert_Patient_WH` (IN `Weight` FLO
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `medecineNames` ()  SELECT MName, Code
 From pharmacy_therapy$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MedicineForm` ()  Select DISTINCT pharmacy_therapy.Form FROM pharmacy_therapy$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MedicineName` ()  Select DISTINCT pharmacy_therapy.MName FROM pharmacy_therapy$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MedicineStrength` ()  Select DISTINCT pharmacy_therapy.Strength FROM pharmacy_therapy$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `patientAccountDetails` (IN `pID` INT)  Select *
 	FROM (Account AS A Join Patient AS P ON P.ID = A.ID)
@@ -201,7 +213,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `patientSurgeries` (IN `pID` INT)  S
 	FROM Surgery AS S
 	WHERE pID = S.PatientID$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `patientVisitShow` (IN `PatID` INT)  SELECT V.VisitID,  V.Dates As VisitDate, A.FName,A.MName,A.LName, P.major, V.Complaints, V.Diagnoses
+CREATE DEFINER=`root`@`localhost` PROCEDURE `patientVisitShow` (IN `PatID` INT)  SELECT *
 	FROM Account as A, Physician as P, Visit as V
 	WHERE V.PatientID = PatID AND V.Status = 5 AND V.PhysicianID = P.ID AND P.ID = A.ID
 	ORDER BY V.Dates DESC$$
@@ -246,6 +258,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `physicianAShow` ()  SELECT P.ID, A.
 	WHERE stat = 1 AND P.ID = A.ID /*AND V.PhysicianID = P.ID*/
 	ORDER BY P.Rate ASC, P.Consultant DESC$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PhysicianCancelVisit` (IN `VID` INT)  UPDATE visit, patient
+SET STATUS = 4, patient.WarningsNumber = patient.WarningsNumber + 1
+WHERE visit.VisitID = VID AND patient.ID = visit.PatientID$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `physicianCV` (IN `PID` INT)  SELECT CV
 	FROM physician 
 	WHERE ID = PID$$
@@ -260,6 +276,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `PhysiciannumberOFVisits` (IN `pID` 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `physicianRequests` ()  SELECT P.ID, A.FName,A.MName,A.LName, P.major, P.Consultant
 	FROM Account as A, physician as P
 	WHERE stat = 0 AND P.ID = A.ID$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PhysicianShowPatients` (IN `PID` INT)  SELECT V.StartTime, V.Dates,A.FName,A.LName,A.EmailAddress,A.MobilePhone,A.City, A.ID, V.VisitID
+FROM Account as A, patient as P, Visit as V
+WHERE V.PhysicianID = PID AND V.Status = 1 AND V.PatientID = P.ID AND P.ID = A.ID$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `PhysicianTimeTableReserved` (IN `PID` INT, IN `startTime` TIME)  SELECT PID, V.Dates, V.StartTime
 	FROM Visit As V
@@ -285,7 +305,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ShowPatientProfile` (IN `PID` INT) 
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ShowPhysicianInfo` ()  SELECT * FROM physician ,account WHERE account.ID = physician.ID$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ShowPhysicianLastName` (IN `P_ID` INT)  SELECT LName
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ShowPhysicianLastName` (IN `P_ID` INT)  SELECT *
 FROM Account AS A
 WHERE A.ID = P_ID$$
 
@@ -330,6 +350,8 @@ WHERE ID = PID$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateTimeTable` (IN `Physician_ID` INT, IN `D` VARCHAR(15), IN `Start_Time` TIME, IN `End_Time` TIME)  Update Time_Table set  StartTime = Start_Time ,EndTime = End_Time
 WHERE PhysicianID = Physician_ID AND Dayss = D$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateToDone` (IN `VID` INT)  UPDATE visit SET visit.Status = 5 WHERE visit.VisitID = VID$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateVisitNote` (IN `VID` INT, IN `Note` VARCHAR(256))  UPDATE visit SET visit.Notes =  Note WHERE visit.VisitID = VID$$
 
@@ -4610,7 +4632,34 @@ INSERT INTO `illness` (`IllnessNumber`, `ThingsWorsenIllness`, `Duration`, `Desc
 (10, 'Bannanas', 3, ' ', '2021-12-31', 1, '0'),
 (11, 'Bannanas', 3, ' ', '2021-12-31', 1, '0'),
 (12, 'Bannanas', 3, ' ', '2021-12-31', 1, '0'),
-(13, 'Bannanas', 3, ' ', '2021-12-31', 1, '0');
+(13, 'Bannanas', 3, ' ', '2021-12-31', 1, '0'),
+(14, '', 0, '', '0000-00-00', 1, '0'),
+(15, '', 0, ' ', '0000-00-00', 1, '0'),
+(16, '', 0, ' ', '0000-00-00', 1, '0'),
+(17, '', 0, ' ', '0000-00-00', 1, '0'),
+(18, '', 0, ' ', '0000-00-00', 1, '0'),
+(19, '', 0, ' ', '0000-00-00', 1, '0'),
+(20, '', 0, ' ', '0000-00-00', 1, '0'),
+(21, 'tst', 12, ' ', '2021-06-09', 1, '0'),
+(24, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(25, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(26, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(27, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(28, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(29, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(30, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(31, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(32, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(33, 'vidi', 12, ' ', '2021-06-15', 7, '0'),
+(34, 'TT', 12, ' ', '2021-06-15', 8, '0'),
+(35, 'TT', 12, ' ', '2021-06-15', 8, '0'),
+(36, 'TT', 12, ' ', '2021-06-15', 8, '0'),
+(37, '12', 12, ' ', '2021-06-07', 11, '12'),
+(38, '12', 12, ' ', '2021-06-07', 11, '12'),
+(39, 'chocolate', 0, ' ', '2021-06-07', 11, '0'),
+(40, 'chocolate', 0, ' ', '2021-06-14', 17, '0'),
+(41, 'dgfg', 4, ' ', '2021-06-21', 14, '0'),
+(59, 'tmm', 12, ' ', '2021-06-14', 10, '0');
 
 -- --------------------------------------------------------
 
@@ -4926,7 +4975,7 @@ INSERT INTO `patient` (`ID`, `SocialStatus`, `Weights`, `Height`, `WarningsNumbe
 (3, 'Divorced', 68, 175, 1),
 (4, 'Married', 73, 172, 2),
 (8, 'Married', 73, 175, 0),
-(9, 'Married', 1, 1, 1),
+(9, 'Married', 1, 1, 24),
 (13, 'Single', 12, 10, 0),
 (14, 'Married', 12, 10, 0),
 (15, 'Married', 12, 10, 0),
@@ -4955,7 +5004,13 @@ CREATE TABLE `patient_prescription` (
 --
 
 INSERT INTO `patient_prescription` (`Code`, `Dose`, `Duration`, `VisitID`) VALUES
-(44, '100g', 3, 1);
+(44, '100g', 3, 1),
+(44, 'TT', 0, 7),
+(44, 'HG', 0, 8),
+(44, 'tmm', 12, 10),
+(44, '12', 12, 11),
+(44, 'dfgdfgdf', 4, 14),
+(44, 'ma3la2a', 0, 17);
 
 -- --------------------------------------------------------
 
@@ -5223,17 +5278,17 @@ INSERT INTO `visit` (`VisitID`, `Status`, `Notes`, `Diagnoses`, `Complaints`, `D
 (1, 5, 'CBC', 'Eye infection', 'My eyes hurt a lot, and always red ', '2021-05-28', '12:00:00', 1, NULL),
 (2, 5, 'You shall participate in team work a lot', 'Autism', 'I feel lonely, despite being surrounded by a lot of people most of the time', '2021-05-28', '12:30:00', 8, 11),
 (3, 1, 'You Should have an x-ray on your heart, then revist me ', 'Suspicion of a coronary artery blockage', 'My Heart aches whenever I exert an effort', '2021-06-18', '10:00:00', 2, 15),
-(7, 1, NULL, NULL, 'I have stomach', '2021-06-29', '14:35:00', 9, 5),
-(8, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-29', '14:35:00', 9, 5),
-(9, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-29', '14:35:00', 9, 5),
-(10, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
-(11, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
+(7, 1, 'vidi', NULL, 'I have stomach', '2021-06-29', '14:35:00', 9, 5),
+(8, 1, '12', NULL, 'I have stomach pain that hurts very much', '2021-06-29', '14:35:00', 9, 5),
+(9, 4, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-29', '14:35:00', 9, 5),
+(10, 5, 'tmm', NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
+(11, 1, 'bravo 3alek', NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
 (12, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
 (13, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
-(14, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
+(14, 5, 'dfgdfg', NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
 (15, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
 (16, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5),
-(17, 1, NULL, NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5);
+(17, 1, 'bravo 3alek', NULL, 'I have stomach pain that hurts very much', '2021-06-22', '14:40:00', 9, 5);
 
 --
 -- Indexes for dumped tables
@@ -5360,7 +5415,7 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `illness`
 --
 ALTER TABLE `illness`
-  MODIFY `IllnessNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IllnessNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `nottaken`

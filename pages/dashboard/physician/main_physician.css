@@ -575,3 +575,18 @@ input:focus {
 .mb100 {
   margin-bottom: 100px;
 }
+
+.tmp-dropdown {
+  width: 97%;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #eee;
+  font-weight: bold;
+  color: #6e6e6e;
+  line-height: inherit;
+}
+.tmp-dropdown:focus {
+  outline: none !important;
+  border: 2px solid var(--color-main);
+}

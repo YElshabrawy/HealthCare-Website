@@ -8,7 +8,7 @@
     <title>Home - New Visit</title>
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
     <link rel="stylesheet" href="../dashboard.css">
-    <link rel="stylesheet" href="./main_physician.css">
+    <link rel="stylesheet" href="./main_patient.css">
     <script type = "text/javascript" src="../Sidebar.js">  </script>  
 </head>
 
@@ -94,6 +94,7 @@
         <form action="../../../PHPF/Visit/InsertVisit.php" method="GET">
         <?php 
         $VID = $_GET['vidi'];
+        $code = 1;
         clearStoredResults();
         $result1=VisitInfo($VID);
         if($result1)
@@ -129,12 +130,18 @@
                 $LName= $row['LName'];
             } 
         }
+        clearStoredResults();
+        $result4 = GetMCode($VID);
+        if($result4){
+            while($row = mysqli_fetch_assoc($result3)){
+                $code = $row['Code'];
+            }
+        }
         else{echo "Error";}
 
         ?>
 
-            <h2 class="title"><a href="./patients.html">Patients</a> > <a href="#"><span class="fname">Youssef</span> <span class="lname">Elshabrawy</span></a> > Add a Visit</h2>
-            <div class="visit">
+            <div class="visit" style="grid-template-rows: 1fr 2fr;">
                 <div class="head flex">
                     <div class="l">
                         <h1>Dr.<span class="fname"><?php echo $FName; ?></span> <span class="lname"><?php echo $LName; ?></span></h1>
@@ -267,60 +274,17 @@
                         </p>
                     </div>
                 </div>
-                <div class="diagnosis">
-                    <div class="flex">
-                        <div class="">
-                            <div class="diagnosis-block">
-                                <h5>Symptoms:</h5>
-                                <input type="text" name="Symptoms-data" id="Symptoms-data" class="resizable"spellcheck="true">
-                            </div>
-                            <div class="medicine-block">
-                                <h5>Things That Worsen It:</h5>
-                                <input type="text" name="TTWI-data" id="TTWI-data" class="resizable"spellcheck="true">
-                            </div>
-                            <div class="medicine-block">
-                                <h5>End Date:</h5>
-                                <input type="date" name="ED-data" id="ED-data" class="resizable">
-                            </div>
-                        </div>
-                        <div class="">
-                             <div class="notes-block">
-                                <h5>Duration:</h5>
-                            <input type="number" min='0' name="Duration-data" id="Duration-data" class="resizable">
-                            <div class="dose-block">
-                                <h5>Start Date:</h5>
-                                <input type="date" name="SD-data" id="SD-data" class="resizable">
-                            </div>
-                            <div class="notes-block" style="visibility: hidden;">
-                                <h5><br></h5>
-                            <input type="text"name=""class="resizable">
-                        </div> 
-                        </div>
-                </div>   
-                    </div>
-                </div>
                 </div>
                 <div class="diagnosis">
                     <div class="flex">
                         <div class="">
                             <div class="diagnosis-block">
                                 <h5>Diagnosis:</h5>
-                                <input type="text" name="diagnosis-data" id="diagnosis-data" class="resizable"spellcheck="true">
+                                <h4><?php echo $Diagnosis?></h4>
                             </div>
                             <div class="medicine-block">
                                 <h5>Medicine:</h5>
-                                <!-- <input type="text" name=medicine-data"" id="medicine-data" class="resizable"> -->
-                                <select name="medicine-data" id="medicine-data" class="tmp-dropdown">
-                                    <option value=""></option>
-                                    <?php
-                                    clearStoredResults();
-                                    $result = MedicineName();
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        $data = $row['MName'];
-                                        echo "<option value=\"$data\">$data</option>";
-                                    }
-                                    ?>
-                                </select>
+                                <h4><?php echo $code ?></h4>
                             </div>
                             <div class="medicine-block">
                                 <h5>Time:</h5>

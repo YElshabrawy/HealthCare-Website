@@ -249,41 +249,14 @@ function ViewPatientSummary($VisitID)
 
 }
 
-function InsertPrescriptionInfo($VisitID, $Code, $Dose, $Duration)
+function InsertPrescriptionInfo($VisitID , $Code, $Dose, $Duration)
 {
-    $sql = "CALL PrescriptionInfo('$Code', '$Dose', '$Duration','$VisitID');";
-    echo $sql;
+    // $sql = "CALL PrescriptionInfo('$VisitID', '$Code', '$Dose', '$Duration');";
+    $sql = "INSERT INTO Patient_Prescription(VisitID,Code,Dose,Duration)
+    Values ('$VisitID','$Code','$Dose','$Duration');";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
-        return $result;
-    }
-    else
-    {
-        echo("Error description: " . $GLOBALS['conn'] -> error);
-        return false;
-    }
-}
-function VisitInfo($VisitID)
-{
-    $sql = "CALL VisitInfo('$VisitID');";
-    $sql_query = $sql;
-    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
-        return $result;
-    }
-    else
-    {
-        echo("Error description: " . $GLOBALS['conn'] -> error);
-        return false;
-    }
-}
-function UpdateVisitNote($VID, $Note)
-{
-    $sql = "CALL UpdateVisitNote('$VID', '$Note');";
-    $sql_query = $sql;
-    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
+        // echo 'done';
         return $result;
     }
     else
@@ -296,10 +269,9 @@ function UpdateVisitNote($VID, $Note)
 function InsertIllnessInfo($VisitID ,$IllnessName,$StartDate ,$Duration ,$Descrip ,$ThingsWorsenIllness)
 {
     $sql = "CALL IllnessInfo('$VisitID' ,'$IllnessName','$StartDate' ,'$Duration' ,'$Descrip' ,'$ThingsWorsenIllness');";
-    echo $sql;
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
+        // echo 'done';
         return $result;
     }
     else
@@ -470,6 +442,21 @@ function ShowCommingVisit($PhysicianID )
 
 }
 
+function VisitInfo($VisitID)
+{
+    $sql = "CALL VisitInfo('$VisitID');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        // echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
+
 function ShowDoneVisit($PhysicianID)
 {
     $sql = "CALL ShowDoneVisit('$PhysicianID');";
@@ -633,11 +620,13 @@ function InsertMedicalTest($ID,$Pic,$rep,$Descr, $Dat)
 }
 
 
-function insertPhysicianInfo($ID ,$Examination ,$Consultant ,$Revisit ,$major ,$title ,$CV ,$ClinicPhoneNumber ,$EstimatedTime )
+function insertPhysicianInfo($ID ,$Examination ,$Consultant ,$Revisit ,$Rate ,$major ,$title ,$CV ,$ClinicPhoneNumber ,$EstimatedTime )
 {
     $sql = "CALL insertPhysicianInfo('$ID' ,'$Examination' ,'$Consultant' ,'$Revisit' ,'$major' ,'$title' ,'$CV' ,'$ClinicPhoneNumber' ,'$EstimatedTime' );";
     echo $sql;
     $sql_query = $sql;
+    echo "hhh";
+    
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';
         return $result;
@@ -653,20 +642,6 @@ function insertPhysicianInfo($ID ,$Examination ,$Consultant ,$Revisit ,$major ,$
 function InsertRay($PID ,$Picture ,$report ,$Descrip ,$Dates )
 {
     $sql = "CALL InsertRay('$PID' ,'$Picture' ,'$report' ,'$Descrip' ,'$Dates');";
-    $sql_query = $sql;
-    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
-        return $result;
-    }
-    else
-    {
-        echo("Error description: " . $GLOBALS['conn'] -> error);
-        return false;
-    }
-}
-function GetMedicine($St,$name,$form )
-{
-    $sql = "CALL GetMedicine('$St' ,'$name' , '$form');";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';
@@ -1119,7 +1094,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function patientVisitShow($ID){
                 $sql = "CALL patientVisitShow('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    // echo 'done';
                     return $result;
                 }
                 else
@@ -1288,4 +1263,128 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
                     return false;
                 }
             } 
- 
+            function   PhysicianCancelVisit($VID){
+                $sql = "CALL   PhysicianCancelVisit('$VID');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+            function   MedicineStrength(){
+                $sql = "CALL   MedicineStrength();";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+            function   MedicineForm(){
+                $sql = "CALL   MedicineForm();";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+            function   MedicineName(){
+                $sql = "CALL   MedicineName();";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+            function GetMedicine($St,$name,$form )
+            {
+                $sql = "CALL GetMedicine('$St' ,'$name' , '$form');";
+                $sql_query = $sql;
+                if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+                    echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            }
+            function UpdateVisitNote($VID, $Note)
+{
+    $sql = "CALL UpdateVisitNote('$VID', '$Note');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        // echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
+function   UpdateToDone($VID){
+                $sql = "CALL   UpdateToDone('$VID');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    // echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+
+            function   GetActvIng($C){
+                $sql = "CALL   GetActvIng('$C');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    // echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+            function   GetNotTaken($C){
+                $sql = "CALL   GetNotTaken('$C');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    // echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+            function   GetMCode($C){
+                $sql = "CALL   GetMCode('$C');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    // echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
