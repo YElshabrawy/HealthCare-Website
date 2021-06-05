@@ -29,8 +29,21 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname">FName</span>
-                    <span class="lname">LName</span>
+                    <?php
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                    $PhyID = 5;
+                    $result1 = ShowPhysicianLastName($PhyID);
+                    if($result1)
+                    {
+                        while($row = mysqli_fetch_assoc($result1)){
+                            $Name1 = $row['FName'];
+                            $Name2 = $row['LName'];
+                        } 
+                    } 
+                    else{echo "Error";}
+                    ?>
+                    <span class="fname"><?php echo $Name1; ?></span>
+                    <span class="lname"><?php echo $Name2; ?></span>
                 </div>
             </div>
         </div>
@@ -71,163 +84,43 @@
             <h3>Phone Number</h3>
             <h3>City</h3>
             <h3>Next Appointment</h3>
-            <h3>Last Appointment</h3>
-            <h3>Register Date</h3>
+            <h3>Time</h3>
+            <!-- <h3>Register Date</h3> -->
         </div>
         <div class="patients-list">
-            <div class="patient" id="p1">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p2">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p3">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p4">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p5">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p6">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p7">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p8">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p9">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p10">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
-            </div>
-            <div class="patient" id="p11">
-                <input type="checkbox" name="p1" id="p1">
-                <a href="./patient_profile.html" class="no-eff"><img class="logo profile-pic" src="/images/default_pic.jpg" alt=""></a>
-                <div class="personal-info">
-                    <h1>Youssef Elshabrawy</h1>
-                    <p>example.example@gmail.com</p>
-                </div>
-                <h2 class="phone">+201234567890</h2>
-                <h2 class="city">Cairo</h2>
-                <h2 class="next-app">Jul 21, 2021 - 13:00</h2>
-                <h2 class="last-app">Jul 11, 2021</h2>
-                <h2 class="reg-date">Dec 21, 2020</h2>
-                <a class="no-eff" href="#"><i class="fa fa-trash delete-me"></i></a>
+            <?php
+            clearStoredResults();
+            $result2 =  PhysicianShowPatients($PhyID);
+            if($result2)
+            {
+                while($row = mysqli_fetch_assoc($result2)){
+                    $PFName = $row['FName'];
+                    $PLName = $row['LName'];
+                    $Date = $row['Dates'];
+                    $ST = $row['StartTime'];
+                    $Email = $row['EmailAddress'];
+                    $Phone = $row['MobilePhone'];
+                    $City = $row['City'];
+                    echo
+                    "
+                    <div class='patient' id='p1'>
+                        <input type='checkbox' name='p1' id='p1'>
+                        <a href='./patient_profile.html' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
+                        <div class='personal-info'>
+                            <h1>$PFName $PLName</h1>
+                            <p>$Email</p>
+                        </div>
+                        <h2 class='phone'>$Phone</h2>
+                        <h2 class='city'>$City</h2>
+                        <h2 class='next-app'>$Date</h2>
+                        <h2 class='last-app'>$ST </h2>
+                        <a class='no-eff' href='#''><i class='fa fa-trash delete-me'></i></a>
+                    </div>
+                    ";
+                } 
+            } 
+            else{echo "Error";}
+            ?>
             </div>
         </div>
     </main>
