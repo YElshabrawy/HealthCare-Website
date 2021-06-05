@@ -7,6 +7,7 @@ $password = $_GET['pass'];
 $ID;
 $pass = false;
 $UserType = 5;
+$Status = 5;
 echo "Hello";
 $result = signIn($email, $password);
 
@@ -16,6 +17,7 @@ if($result)
 {
     while($row = mysqli_fetch_assoc($result)){
         $ID = $row['ID'];
+        $Status = $row['Stat'];
         $pass = true;
     }
    
@@ -25,8 +27,9 @@ else{
 }
 echo $ID;
 session_start();
-$_SESSION['SignInID'] = $ID; 
-$_SESSION['tst'] = $ID; 
+$_SESSION['SignInID'] = $ID;
+
+//$_SESSION['tst'] = $ID; 
 clearStoredResults();
     $result2 = GET_USER_TYPE($ID);
     if($result2)
@@ -42,20 +45,27 @@ clearStoredResults();
     } 
 
 
-if($pass && $UserType == 1) // patient
+if($pass && $UserType == 2) // patient
 {
     header("Location:../../pages/dashboard/patient/dashboard.html");
 }
 elseif($pass && $UserType == 3) //Doctor
 {
-    header("Location:../../pages/dashboard/physician/dashboard.html?ID=$ID");
+    if($Status == 1)
+    {
+        header("Location:../../pages/dashboard/physician/dashboard.html?ID=$ID");
+    }
+    else 
+    {
+        header("Location:../../pages/authentication/sign_in.html?error=Your_acc_still_pending");
+    }
 }
-elseif($pass && $UserType == 2) // admin
+elseif($pass && $UserType == 1) // admin
 {
     header("Location:../../pages/After_Sign_In_Admins.html?ID=$ID");
 }
 else{
-    header("Location:../../pages/autentication/sign_in.html?error=noUser");
+    header("Location:../../pages/authentication/sign_in.html?error=NoUser");
 }
 
 

@@ -30,7 +30,8 @@
                 <div class="username">
                     <?php 
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-                   // $ID = $_SESSION['SignInID'];
+                   //session_start();
+                    // $ID = $_SESSION['SignInID'];
                     $ID = 1;
                     $result = ShowPatientProfile($ID);
                     if($result)

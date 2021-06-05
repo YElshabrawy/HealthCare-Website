@@ -1388,3 +1388,15 @@ function   UpdateToDone($VID){
                     return false;
                 }
             } 
+            function   ShowPhysicanProfile($C){
+                $sql = "CALL   ShowPhysicanProfile('$C');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    // echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 

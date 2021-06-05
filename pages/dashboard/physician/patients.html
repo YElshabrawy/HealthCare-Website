@@ -39,8 +39,9 @@
                 <div class="username">
                     <?php
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-                    $PhyID = 5;
-                    $result1 = ShowPhysicianLastName($PhyID);
+                    session_start();
+                    $PhyID = $_SESSION['SignInID'];
+                    $result1 = ShowPhysicanProfile($PhyID);
                     if($result1)
                     {
                         while($row = mysqli_fetch_assoc($result1)){
@@ -148,10 +149,10 @@
                 }
                 if(isset($_GET["db$i"])){
                     $visit_id = $_GET["q$i"];
-                    // echo "<script>alert(\"Hello There! VID = $visit_id\")</script>";
+                    
                     clearStoredResults();
                     PhysicianCancelVisit($visit_id);
-                    // echo "<script>alert(\"Hello There! Am working fine\")</script>";
+                    
                 }
             }
             ob_end_flush();
