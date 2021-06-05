@@ -49,7 +49,6 @@
                             $date = $row['DateOfBirth'];
                             $Weight = $row['Weights'];
                             $Height = $row['Height'];
-                            
                         } 
                     }
                     else{
@@ -108,12 +107,18 @@
                         <p>Upcoming</p>
                     </div>
                 </div>
-                <a href="../edit_profile.html" class="visit-btn">Edit Profile</a>
+                <a href="../edit_profile.html" class="view-profile-btn">Edit Profile</a>
             </div>
             <div class="personal-info grid-3x3">
                 <div>
                     <h6>Gender</h6>
-                    <h5 class="tst"><?php echo $sex; ?></h5>
+                    <h5 class="tst">
+                        <?php if($sex=="M") 
+                                {echo  "Male";}
+                                else
+                                {echo  "Female";}
+                                 ?>
+                    </h5>
                 </div>
                 <div>
                     <h6>Birthdate</h6>
@@ -132,16 +137,12 @@
                     <h5 class="tst"><?php echo $city; ?></h5>
                 </div>
                 <div>
-                    <h6>Register Date</h6>
-                    <h5 class="tst">12/4/2021</h5>
-                </div>
-                <div>
                     <h6>Weight</h6>
-                    <h5 class="tst"><?php echo $Weight; ?> kg</h5>
+                    <h5 class="tst"><?php echo $Weight; ?> Kg</h5>
                 </div>
                 <div>
                     <h6>Height</h6>
-                    <h5 class="tst"><?php echo $Height; ?> cm</h5>
+                    <h5 class="tst"><?php echo $Height; ?> Cm</h5>
                 </div>
             </div>
             <div class="notes">
@@ -230,96 +231,34 @@
                 </div>
                 <div class="fam-history">
                     <h2 class="smb">Family History</h2>
-                    
-                    <div class="smb" id="m1">
-                        <h3>#1 <span class="fname">
-                            <?php 
-                                clearStoredResults();
-                                $result3 = patientFHistory($ID);
-                                if($result3)
-                                {
-                                    while($row3 = mysqli_fetch_assoc($result3)){
-                                        echo $row3['PersonName'];
-                                    }}
-                                        
-                            ?>
-                    </span> <span class="lname"></span> - <span
-                                class="rel"></span></h3>
-                        <div class="flex jc">
-                            <div class="l3">
-                                <div class="allergies">
-                                    <h2>Allergies: </h2>
-                                    <h4 class="allergies">Smoke - Eyes - Dust</h4>
-                                </div>
-                                <div class="chronic">
-                                    <h2>Chronic Diseases: </h2>
-                                    <h4 class="chronic">Diabetes</h4>
+                    <?php
+                    clearStoredResults(); 
+                    $result1 = patientFHistory($ID);
+                    if($result1)
+                    {
+                        $connter=1;
+                        while($row = mysqli_fetch_assoc($result1)){
+                            $RelName = $row['RelationName'];
+                            $Name = $row['PersonName'];
+                            $TypeName = $row['TypeName'];
+                            echo"
+                            <div class='smb' id='m1'>
+                                <h3>#$connter <span class='fname'>$Name</span> - <span class='rel'>$RelName</span></h3>
+                                <div class='flex jc'>
+                                    <div class='r3'>
+                                        <div class='medicine'>
+                                            <h2>Diseases: </h2>
+                                            <h4 class='medicine'> $TypeName</h4>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="r3">
-                                <div class="medicine">
-                                    <h2>Medicine: </h2>
-                                    <h4 class="medicine">Panadol - Asprin</h4>
-                                </div>
-                                <div class="surgery">
-                                    <h2>Surgerys: </h2>
-                                    <h4 class="surgery">N/A</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="smb" id="m2">
-                        <h3>#2 <span class="fname">Mona</span> <span class="lname">Zaki</span> - <span
-                                class="rel">Daughter</span></h3>
-                        <div class="flex jc">
-                            <div class="l3">
-                                <div class="allergies">
-                                    <h2>Allergies: </h2>
-                                    <h4 class="allergies">Smoke - Eyes - Dust</h4>
-                                </div>
-                                <div class="chronic">
-                                    <h2>Chronic Diseases: </h2>
-                                    <h4 class="chronic">Diabetes</h4>
-                                </div>
-                            </div>
-                            <div class="r3">
-                                <div class="medicine">
-                                    <h2>Medicine: </h2>
-                                    <h4 class="medicine">Panadol - Asprin</h4>
-                                </div>
-                                <div class="surgery">
-                                    <h2>Surgerys: </h2>
-                                    <h4 class="surgery">N/A</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="smb" id="m3">
-                        <h3>#3 <span class="fname">Mona</span> <span class="lname">Zaki</span> - <span
-                                class="rel">Daughter</span></h3>
-                        <div class="flex jc">
-                            <div class="l3">
-                                <div class="allergies">
-                                    <h2>Allergies: </h2>
-                                    <h4 class="allergies">Smoke - Eyes - Dust</h4>
-                                </div>
-                                <div class="chronic">
-                                    <h2>Chronic Diseases: </h2>
-                                    <h4 class="chronic">Diabetes</h4>
-                                </div>
-                            </div>
-                            <div class="r3">
-                                <div class="medicine">
-                                    <h2>Medicine: </h2>
-                                    <h4 class="medicine">Panadol - Asprin</h4>
-                                </div>
-                                <div class="surgery">
-                                    <h2>Surgerys: </h2>
-                                    <h4 class="surgery">N/A</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            ";
+                            $connter=$connter+1;
+                        } 
+                    }
+                    else{echo "Error";} 
+                    ?>
                 </div>
             </div>
         </div>
