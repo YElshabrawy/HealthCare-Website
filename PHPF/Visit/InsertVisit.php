@@ -1,6 +1,9 @@
 <?php
 include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-$VisitID = 1 ;
+// $VisitID = $_GET['vidi'];
+session_start();
+$VisitID = $_SESSION['vidi'];
+// $VisitID = 10;
 
 $IllnessName = $_GET['Symptoms-data'];
 $StartDate =$_GET['SD-data'] ;
@@ -8,7 +11,7 @@ $Duration = $_GET['Duration-data'];
 $Descrip = " "; 
 $ThingsWorsenIllness =$_GET['TTWI-data'];
 
-//$Code;
+$Code = "";
 $Dose = $_GET['dose-data'];
 $Time = $_GET['Time-data'];
 $St= $_GET['Strength-data'];
@@ -25,9 +28,22 @@ if($result)
         $Code = $row['Code'];
     }
 }
-clearStoredResults();
-InsertIllnessInfo($VisitID ,$IllnessName,$StartDate ,$Duration ,$Descrip ,$ThingsWorsenIllness);
-clearStoredResults();
-InsertPrescriptionInfo($VisitID,$Code, $Dose, $Duration);
-UpdateVisitNote($VisitID, $Note);
-header("Location:../../pages/dashboard/physician/patients.html");
+if($Code == ""){
+        header("Location:../../pages/dashboard/physician/patients.html?error=noData");
+}else{
+    echo "<br> ID = $VisitID";
+
+    clearStoredResults();
+    InsertIllnessInfo($VisitID ,$IllnessName,$StartDate ,$Duration ,$Descrip ,$ThingsWorsenIllness);
+
+    clearStoredResults();
+    InsertPrescriptionInfo($VisitID,$Code, $Dose, $Duration);
+
+    clearStoredResults();
+    UpdateVisitNote($VisitID, $Note);
+
+    clearStoredResults();
+    UpdateToDone($VisitID);
+    
+    // header("Location:../../pages/dashboard/physician/patients.html?error=none");
+}

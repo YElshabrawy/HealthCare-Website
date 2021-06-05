@@ -809,3 +809,8 @@ input:focus {
 .mb100 {
   margin-bottom: 100px;
 }
+
+.flex-jc {
+  display: flex !important;
+  justify-content: space-between !important;
+}

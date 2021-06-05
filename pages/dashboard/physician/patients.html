@@ -14,6 +14,14 @@
 </head>
 
 <body>
+    <?php
+    if(isset($_GET['error'])){
+        if($_GET['error'] == "noData"){
+            echo "<script>alert('Error: No Added Data!')</script>";
+        }
+    }
+    ?>
+    
     <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
         <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
@@ -78,6 +86,8 @@
         </ul>
     </aside>
     <main class="container main">
+        <form action="#" method="GET">
+
         <div class="data-titles patient-grid">
             <input type="checkbox" name="select-all" id="select-all">
             <h3 id="long">Basic Info</h3>
@@ -89,11 +99,16 @@
         </div>
         <div class="patients-list">
             <?php
+            ob_start();
             clearStoredResults();
             $result2 =  PhysicianShowPatients($PhyID);
             if($result2)
             {
+                $total =0;
                 while($row = mysqli_fetch_assoc($result2)){
+                    $total++;
+                    $visit_ID = $row['VisitID'];
+                    $Patient_ID = $row['ID'];
                     $PFName = $row['FName'];
                     $PLName = $row['LName'];
                     $Date = $row['Dates'];
@@ -105,7 +120,7 @@
                     "
                     <div class='patient' id='p1'>
                         <input type='checkbox' name='p1' id='p1'>
-                        <a href='./patient_profile.html' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
+                        <a href='#' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
                         <div class='personal-info'>
                             <h1>$PFName $PLName</h1>
                             <p>$Email</p>
@@ -114,15 +129,36 @@
                         <h2 class='city'>$City</h2>
                         <h2 class='next-app'>$Date</h2>
                         <h2 class='last-app'>$ST </h2>
-                        <a class='no-eff' href='#''><i class='fa fa-trash delete-me'></i></a>
+                        <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button>
+                        <button name=\"b$total\"><i class='fa fa-ellipsis-h delete-me'></i></button>
+                        <input type=\"number\" name=\"q$total\" id=\"Pat_ID\" value=\"$visit_ID\" style=\"display: none;\">
                     </div>
                     ";
                 } 
             } 
             else{echo "Error";}
+            //////////////////////////////////////////////////////////////////////////////////////////
+            for($i=1; $i<=$total;$i++){
+                if(isset($_GET["b$i"])){
+                    $visit_id = $_GET["q$i"];
+                    session_start();
+                    $_SESSION['vidi'] = $phys_id;
+                    header("Location:./new_visit.html?vidi=$visit_id");
+                    // echo "<script>alert(\"Hello There! My ID is $visit_id\")</script>";
+                }
+                if(isset($_GET["db$i"])){
+                    $visit_id = $_GET["q$i"];
+                    // echo "<script>alert(\"Hello There! VID = $visit_id\")</script>";
+                    clearStoredResults();
+                    PhysicianCancelVisit($visit_id);
+                    // echo "<script>alert(\"Hello There! Am working fine\")</script>";
+                }
+            }
+            ob_end_flush();
             ?>
             </div>
         </div>
+        </form>
     </main>
 </body>
 
