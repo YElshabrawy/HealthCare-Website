@@ -224,7 +224,6 @@ function GetPhysicianInfo($ID){
     $sql = "CALL GetPhysicianInfo('$ID');";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        //echo 'done';
         return $result;
     }
     else
@@ -1262,5 +1261,4 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
                     return false;
                 }
             } 
-          
-        
+ 
