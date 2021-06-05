@@ -8,31 +8,37 @@
     <link rel="stylesheet" href="auth_up.css">
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
     <script>
-    function Add() {
+        let count = 2;
+        // const counter = document.querySelector("#counter");
+        function Add() {
+        count++;
+        document.querySelector("#counter").value = count;
        let location=document.querySelector(".Time_Table");
         row = `
         <br>
         <div class="tt-from-to">
         <p>From</p>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <p>To</p>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
-        <div class=""><input max="23" min="0" type="number" /></div>
+            <div class=""><input name="f${count}-sun" max="23" min="0" type="time" /></div>
+            <div class=""><input name="f${count}-mon" max="23" min="0" type="time" /></div>
+            <div class=""><input name="f${count}-tue" max="23" min="0" type="time" /></div>
+            <div class=""><input name="f${count}-wed" max="23" min="0" type="time" /></div>
+            <div class=""><input name="f${count}-thur" max="23" min="0" type="time" /></div>
+            <div class=""><input name="f${count}-fri" max="23" min="0" type="time" /></div>
+            <div class=""><input name="f${count}-sat" max="23" min="0" type="time" /></div>
+            <p>To</p>
+            <div class=""><input name="t${count}-sun" max="23" min="0" type="time" /></div>
+            <div class=""><input name="t${count}-mon" max="23" min="0" type="time" /></div>
+            <div class=""><input name="t${count}-tue" max="23" min="0" type="time" /></div>
+            <div class=""><input name="t${count}-wed" max="23" min="0" type="time" /></div>
+            <div class=""><input name="t${count}-thur" max="23" min="0" type="time" /></div>
+            <div class=""><input name="t${count}-fri" max="23" min="0" type="time" /></div>
+            <div class=""><input name="t${count}-sat" max="23" min="0" type="time" /></div>
         </div>`;
         location.insertAdjacentHTML("beforeend", row);   
 }
     function Remove(){
+    count--;
+    document.querySelector("#counter").value = count;
     var All_slots=document.querySelectorAll(".tt-from-to");  
     const MainDiv=document.querySelector(".Time_Table");  
     if(All_slots.length>2)
@@ -46,14 +52,15 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="../../PHPF/SignUp/signUp3Physician.php" method="GET">
+            <form action="../../PHPF/SignUp/signUp3Physician.php" method="POST" enctype="multipart/form-data">
                 <h1>Sign Up</h1>
+                <input style="display: none;" type="number" name="counter" id="counter" value="2">
                 <div class="container2">
                     <div class="row1 jc flex">
                         <div class="r1-CV flex">
                             <label for="file_input">   <img class="logo"  src="/images/i_upload.svg" alt=""></label>
                             <p>Upload CV</p>
-                            <input type="file" accept=".pdf" id="file_input" name="filename"required>
+                            <input type="file" accept=".pdf" id="file_input" name="myfile"required>
                         </div>
                         <div class="r1-Major">
                             <select class="tmp-dropdown" name="major" id="major"required>
@@ -87,54 +94,54 @@
                     <div class="Time_Table">
                     <div class="tt-from-to">
                         <p>From</p>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input name="f1-sun" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f1-mon" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f1-tue" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f1-wed" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f1-thur" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f1-fri" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f1-sat" max="23" min="0" type="time" /></div>
                         <p>To</p>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input name="t1-sun" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="t1-mon" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="t1-tue" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="t1-wed" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="t1-thur" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="t1-fri" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="t1-sat" max="23" min="0" type="time" /></div>
 
                     </div>
                     <br>
                     <div class="tt-from-to">
                         <p>From</p>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input name="f2-sun" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f2-mon" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f2-tue" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f2-wed" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f2-thur" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f2-fri" max="23" min="0" type="time" /></div>
+                        <div class=""><input name="f2-sat" max="23" min="0" type="time" /></div>
                         <p>To</p>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
-                        <div class=""><input max="23" min="0" type="number" /></div>
+                        <div class=""><input name="t2-sun" max=" 23" min="0" type="time" /></div>
+                        <div class=""><input name="t2-mon" max=" 23" min="0" type="time" /></div>
+                        <div class=""><input name="t2-tue" max=" 23" min="0" type="time" /></div>
+                        <div class=""><input name="t2-wed" max=" 23" min="0" type="time" /></div>
+                        <div class=""><input name="t2-thur" max=" 23" min="0" type="time" /></div>
+                        <div class=""><input name="t2-fri" max=" 23" min="0" type="time" /></div>
+                        <div class=""><input name="t2-sat" max=" 23" min="0" type="time" /></div>
 
                     </div>
                     </div>
                     <div class="visit-time flex">
                         <p>Estimated Time of the visit</p>
-                        <input min="0" type="number" placeholder="Minutes"required>
+                        <input name="ES" min="0" type="number" placeholder="Minutes"required>
                         <button class="Add_Slot" type="button" onclick="Add()">Add Slot</a></button>
                         <button class="Remove_Slot" type="button" onclick="Remove()">Delete Slot</a></button>
                     </div>
                     <div class="visit-price jc flex">
-                        <input min="0" type="number" placeholder="Visit price (EGP)"required>
-                        <input min="0" type="number" placeholder="Revisit price (EGP)"required>
-                        <input min="0" type="number" placeholder="Consultation price (EGP)"required>
+                        <input name="VP" min="0" type="number" placeholder="Visit price (EGP)"required>
+                        <input name="RVP" min="0" type="number" placeholder="Revisit price (EGP)"required>
+                        <input name="CP" min="0" type="number" placeholder="Consultation price (EGP)"required>
                     </div>
                 </div>
                 <button type="submit">Finish</button>
@@ -153,5 +160,14 @@
         </div>
     </div>
 </body>
+<?php
+    if(isset($_GET['error'])){
+        switch($_GET['error']){
+            case "noCV":
+                echo '<script>alert("Please upload your CV!")</script>';
+                break;
+        }
+    }
+?>
 <!-- <script type = "text/javascript" src="/js/signup_3_physician.js"></script> -->
 </html>

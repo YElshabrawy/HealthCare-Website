@@ -3,27 +3,52 @@
  session_start();
 $email = $_GET['E_mail'];
 $pass = $_GET['pass'];
+$pass2 = $_GET['pass2'];
 $UserName = $_GET['user'];
-$userType = 1;
+$userType = $_GET['user_type'];
 $ID;
-signUp1($email,$pass,$UserName,$userType);
-$result2 = signIn($email, $pass);
-if($result2)
-{
-    while($row = mysqli_fetch_assoc($result2)){
-        $ID = $row['ID'];
-    }
-}
-$_SESSION['AccID'] = $ID;
+// Validations!
+// 1) Email
+$slquery1 = "SELECT 1 FROM account WHERE EmailAddress = '$email'";
+$selectresult1 = mysqli_query($conn, $slquery1);
 
-if($userType == 1)
-{
-    header("Location:../../pages/authentication/sign_up2.html");
+$slquery2 = "SELECT 1 FROM account WHERE  UserName  = '$UserName'";
+$selectresult2 = mysqli_query($conn, $slquery2);
+if(mysqli_num_rows($selectresult1)>0){
+    // echo '<script>alert("Email Already Exists!")</script>';
+    header("Location:../../pages/authentication/sign_up.html?error=existingMail");
 }
-else if($userType == 2)
-{
-    header("Location:../../pages/authentication/sign_up2.html");   
+elseif(mysqli_num_rows($selectresult2)>0){
+    // echo '<script>alert("Username Already Exists!")</script>';
+    header("Location:../../pages/authentication/sign_up.html?error=existingUsername");
 }
+elseif($pass != $pass2){
+    // echo '<script>alert("Passwords does not match!")</script>';
+    header("Location:../../pages/authentication/sign_up.html?error=noMatchPass");
+
+}
+else{  
+    signUp1($email,$pass,$UserName,$userType);
+    $result2 = signIn($email, $pass);
+    if($result2)
+    {
+        while($row = mysqli_fetch_assoc($result2)){
+            $ID = $row['ID'];
+        }
+    }
+    $_SESSION['AccID'] = $ID;
+    
+    if($userType == 1)
+    {
+        header("Location:../../pages/authentication/sign_up2.html");
+    }
+    else if($userType == 3)
+    {
+        header("Location:../../pages/authentication/sign_up2.html");   
+    }
+
+}
+
 #$status = $_GET['social-st'];
 // signUp1('m@M.com','123','helmy',1);
 // $Country = $_GET['country'];

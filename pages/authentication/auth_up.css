@@ -839,10 +839,18 @@ li {
 .tt-from-to {
   display: grid;
   align-items: center;
-  grid-template-columns: 40px repeat(7, 1fr);
+  grid-template-columns: 70px repeat(7, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+.tt-from-to > div {
+  width: 77px;
+}
+
+.tt-from-to > div > input {
+  padding: 0px;
 }
 
 .tt-days-grid {
