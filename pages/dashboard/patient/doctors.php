@@ -65,6 +65,7 @@
         </ul>
     </aside>
     <main class="container main">
+        <form action="#" method="GET">
         <div class="search-n-filter">
             <div class="flex">
                 <div class="wrap mb">
@@ -83,46 +84,95 @@
 
             $doctors = ShowPhysicianInfo();
             $i = 1;
-            echo "<div class="row-grid">"
+            $total = 0;
+            echo "<div class=\"row-grid\">";
             while($row = $doctors->fetch_assoc()){
-                if()
+                $total++;
                 $ID = $row['ID'];
                 $price = $row['Consultant'];
                 $major = $row['major'];
                 $rating = $row['Rate'];
                 $fname = $row['FName'];
                 $lname = $row['LName'];
+                $city = $row['City'];
 
-                $code = "<div class=\"doctor center\" id=\"d$i\">
+                echo "<div class=\"doctor center\" id=\"d$i\">
                     <div class=\"profile-pic big center smb\">
                         <img src=\"/images/default_pic.jpg\" alt=\"\" class=\"icon\">
                     </div>
                     <h2 class=\"name center\">Dr. <span class=\"fname\">$fname</span> <span class=\"lname\">$lname</span></h2>
-                    <p class=\"smb specialization center\">Dentist</p>
-                    <h3 class=\"adress\">Address: <span class=\"adress weakText\">Cairo</span></h3>
-                    <h3 class=\"price smb\">Price: <span class=\"adress weakText\">EGP 120</span></h3>
-                    <div class=\"rating mb\">
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star checked\"></span>
-                        <span class=\"fa fa-star-half-full checked\"></span>
-                        <span class=\"fa fa-star-o\"></span>
-                    </div>
-                    
-                    <a href=\"./doctor_profile.html\" class=\"view-profile-btn\">View Profile</a>
-                </div>"
-                echo "$ID - $fname - $lname - $price<br>";
+                    <p class=\"smb specialization center\">$major</p>
+                    <h3 class=\"adress\">Address: <span class=\"adress weakText\">$city</span></h3>
+                    <h3 class=\"price smb\">Price: <span class=\"adress weakText\">$price EGP</span></h3>
+                    <div class=\"rating \">";
+                    switch($rating){
+                        case 0:
+                            echo"<span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>";
+                            break;
+                        case 1:
+                            echo "<span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>";
+                            break;
+                        case 2:
+                            echo "<span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>";
+                            break;
+                        case 3:
+                            echo "<span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star-o\"></span>
+                            <span class=\"fa fa-star-o\"></span>";
+                            break;
+                        case 4:
+                            echo "<span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star-o\"></span>";
+                            break;
+                        default:
+                            echo "<span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>
+                            <span class=\"fa fa-star checked\"></span>";
+                            break;
+                    }
+                 echo"</div>
+                 <button name=\"b$total\" class=\"view-profile-btn\">View Profile</button>
+                 <input type=\"number\" name=\"q$total\" id=\"Pat_ID\" value=\"$ID\" style=\"display: none;\">
+                 </div>
+                 ";
+
                 if($i == 4){
                     $i = 1;
+                    echo "</div>
+                    <div class=\"row-grid\">";
                 }
                 else{
                     $i++;
                 }
             }
-            
-            print_r($doctors);
+            //////////////////////////////////////////////////////////////////////////////////////////
+            for($i=1; $i<=$total;$i++){
+                if(isset($_GET["b$i"])){
+                    $phys_id = $_GET["q$i"];
+                    echo "<script>alert(\"Hello There! My ID is $phys_id\")</script>";
+                }
+            }
             ?>
-            <div class="row-grid">
+            <!-- <div class="row-grid">
                 <div class="doctor center" id="d1">
                     <div class="profile-pic big center smb">
                         <img src="/images/default_pic.jpg" alt="" class="icon">
@@ -326,8 +376,9 @@
                     <a href="./doctor_profile.html" class="view-profile-btn">View Profile</a>
                 </div>
 
-            </div>
+            </div> -->
         </div>
+        </form>
     </main>
 </body>
 
