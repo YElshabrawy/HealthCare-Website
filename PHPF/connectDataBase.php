@@ -732,7 +732,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         {
             $sql = "CALL physicianCV('$pID');";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                // echo 'done';
                 return $result;
             }
             else
@@ -800,7 +800,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         function physicianAShow(){
             $sql = "CALL physicianAShow();";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                // echo 'done';
                 return $result;
             }
             else
@@ -889,7 +889,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         function PatientAshow(){
             $sql = "CALL PatientAshow();";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                // echo 'done';
                 return $result;
             }
             else
@@ -1230,7 +1230,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function PatientnumberOFVisits($ID){
                 $sql = "CALL PatientnumberOFVisits('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    // echo 'done';
                     return $result;
                 }
                 else
@@ -1242,7 +1242,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function PhysiciannumberOFVisits($ID){
                 $sql = "CALL PhysiciannumberOFVisits('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    // echo 'done';
                     return $result;
                 }
                 else

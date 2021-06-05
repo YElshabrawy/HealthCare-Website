@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Patients</title>
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="./main_admin.css">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
+    <script type = "text/javascript" src="../Sidebar.js">  </script>  
+</head>
+
+<body>
+    <nav class="container nav-container">
+        <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
+        <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
+        <div class="right">
+            <a href="#" class="notifications-btn active">
+                <img class="logo" src="/images/i_bell.svg" alt="">
+            </a>
+            <a href="#" class="messages-btn active">
+                <img class="logo" src="/images/i_msg.svg" alt="">
+            </a>
+            <div class="personai-info flex">
+                <a href="#" class="profile-pic">
+                    <img src="/images/default_pic.jpg" alt="">
+                </a>
+                <div class="username">
+                    <span class="fname"></span>
+                    <span class="lname"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <ul>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_dashboard.svg" alt="">
+                <a href="./After_Sign_In_Admins.html">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./After_Sign_In_Admins_Patients.html">
+                    <span>patients</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./After_Sign_In_Admins_Physicians.html">
+                    <span>Physicians</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./After_Sign_In_Admins_Physicians_Requests.html">
+                    <span>Physicians Requests</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="container main">
+        <div class="data-titles patient-grid">
+            <input type="checkbox" name="select-all" id="select-all">
+            <h3 id="long">Basic Info</h3>
+            <h3>No. Of Visits</h3>
+            <h3>Warnings</h3>
+        </div>
+        <div class="patients-list">
+            <?php
+            include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+            $result = PatientAshow();
+            if($result)
+            {
+                while($row = mysqli_fetch_assoc($result)){
+                    $FName = $row['FName'];
+                    $LName = $row['LName'];
+                    $ID=$row['ID'];
+                    $WN=$row['WarningsNumber'];
+                    clearStoredResults();
+                    $result1 =  PatientnumberOFVisits($ID);
+                    if($result1)
+                    {               
+                        while($row = mysqli_fetch_assoc($result1)){
+                        $NOV=$row['NumberOfVisits'];}  
+                    }
+                    else{echo "Error";}
+                    echo"
+                    <div class='patient' id='p1'>
+                        <input type='checkbox' name='p1' id='p1'>
+                        <a href='./patient_profile.html' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
+                        <div class='personal-info'>
+                            <h1 style='text-align: left;'>$FName $LName</h1>
+                            <p>Patient ID: $ID</p>
+                        </div>
+                        <h2 class='phone'>$NOV</h2>
+                        <h2 class='city'>$WN</h2>
+                        <a class='no-eff' href='#''><i class='fa fa-trash delete-me'></i></a>
+                    </div>
+                    ";
+                } 
+            } 
+            else{echo "Error";}?>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
