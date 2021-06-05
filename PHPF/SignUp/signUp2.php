@@ -2,7 +2,7 @@
 include_once '../connectDataBase.php';
 session_start();
 
-$userType = 1;
+$userType = $_Session['UT'];
 $AccID = $_SESSION['AccID'];
 #$status = $_GET['social-st'];
 $Country = $_GET['country'];
@@ -15,7 +15,7 @@ $PhoneNum = $_GET['phone'];
 $Job = $_GET['J'];
 $Gender = $_GET['gender'];
 $Date_Birth = $_GET['d'];
-echo "nice";
+//echo "nice";
 signUp2($Country,$City,$Address,$FName,$MName,$LName,$PhoneNum,$Job,$Gender,$Date_Birth,$AccID);
 
 if($userType == 1)
@@ -23,7 +23,7 @@ if($userType == 1)
     Patient_WH(2 ,2 ,$AccID );
     header("Location:../../pages/authentication/sign_up3_patient.html");
 }
-else if($userType == 2)
+else if($userType == 3)
 {
     header("Location:../../pages/authentication/sign_up3_physician.html");   
 }

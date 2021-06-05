@@ -28,8 +28,35 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname">FName</span>
-                    <span class="lname">LName</span>
+                    <?php 
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                   // $ID = $_SESSION['SignInID'];
+                    $ID = 1;
+                    $result = ShowPatientProfile($ID);
+                    if($result)
+                    {
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $FName = $row['FName'];
+                            $LName= $row['LName'];
+                            $email = $row['EmailAddress'];
+                            $sex = $row['Gender'];
+                            $Country = $row['Country'];
+                            $city = $row['City'];
+                            $mobile = $row['MobilePhone'];
+                            $date = $row['DateOfBirth'];
+                            $Weight = $row['Weights'];
+                            $Height = $row['Height'];
+                            $Job = $row['Job'];
+                            $Age =$row['Age'];
+                            $SS =$row['SocialStatus'];
+                        } 
+                    }
+                    else{
+                        echo "Error";
+                    }  ?>
+                    <span class="fname"><?php echo $FName; ?></span>
+                    <span class="lname"><?php echo $LName; ?></span>
                 </div>
             </div>
         </div>
@@ -64,65 +91,164 @@
         </ul>
     </aside>
     <main class="container main">
+        <?php 
+        $VID = 3;
+        clearStoredResults();
+        $result1=VisitInfo($VID);
+        if($result1)
+        {
+            while($row = mysqli_fetch_assoc($result1)){
+                $PhyID = $row['PhysicianID'];
+                $PaID = $row['PatientID'];
+                $StartT = $row['StartTime'];
+                $Diagnosis = $row['Diagnoses'];
+                $Complaints = $row['Complaints'];
+                $Notes = $row['Notes'];
+                $Date = $row['Dates'];
+            } 
+        } 
+        else{echo "Error";}
+        clearStoredResults();
+        $result2 = GetPhysicianInfo($PhyID);
+        if($result2)
+        {
+            while($row = mysqli_fetch_assoc($result2)){
+                $Major = $row['major'];
+                $Title = $row['title'];
+            } 
+        } 
+        else{echo "Error";}
+        clearStoredResults();
+        $result3 = ShowPatientProfile($PaID);
+        if($result3)
+        {
+
+            while($row = mysqli_fetch_assoc($result3)){
+                $FName = $row['FName'];
+                $LName= $row['LName'];
+            } 
+        }
+        else{echo "Error";}
+
+        ?>
+
             <h2 class="title"><a href="./patients.html">Patients</a> > <a href="#"><span class="fname">Youssef</span> <span class="lname">Elshabrawy</span></a> > Add a Visit</h2>
             <div class="visit">
                 <div class="head flex">
                     <div class="l">
-                        <h1>Dr. <span class="fname">Will</span> <span class="lname">Smith</span></h1>
-                        <h3><span class="specialization">General Medicine</span> at <span class="location">Lorem, ipsum.</span></h3>
+                        <h1>Dr.<span class="fname"><?php echo $FName; ?></span> <span class="lname"><?php echo $LName; ?></span></h1>
+                        <h3><span class="specialization"><?php echo $Title; ?></h3>
                     </div>
                     <div class="r">
-                        <h3>Visit ID: <span class="visit-id">182</span></h3>
-                        <h3>Date: <span class="date">16/5/2021</span></h3>
+                        <h3>Visit ID: <span class="visit-id"><?php echo $VID; ?></span></h3>
+                        <h3>Date: <span class="date"><?php echo $Date; ?></span></h3>
                     </div>
                 </div>
                 <div class="summary flex">
                     <div class="l2">
                         <div class="weight flex">
                             <h2>Weight: </h2>
-                            <h4 class="weight">80 kg</h4>
+                            <h4 class="weight"><?php echo $Weight; ?> Kg</h4>
                         </div>
                         <div class="height flex">
                             <h2>Height: </h2>
-                            <h4 class="height">180 cm</h4>
+                            <h4 class="height"><?php echo $Height; ?> Cm</h4>
                         </div>
                         <div class="ss flex">
                             <h2>Social State: </h2>
-                            <h4 class="ss">Married</h4>
+                            <h4 class="ss"><?php echo $SS; ?></h4>
                         </div>
                         <div class="age flex">
                             <h2>Age: </h2>
-                            <h4 class="age">25</h4>
+                            <h4 class="age"><?php echo $Age; ?></h4>
                         </div>
                         <div class="gender flex">
                             <h2>Gender: </h2>
-                            <h4 class="gender">Male</h4>
+                            <h4 class="gender">                        
+                                <?php if($sex=="M") 
+                                {echo  "Male";}
+                                else
+                                {echo  "Female";}
+                                 ?></h4>
                         </div>
                         <div class="job flex">
                             <h2>Job: </h2>
-                            <h4 class="job">Engineer</h4>
+                            <h4 class="job"><?php echo $Job; ?></h4>
                         </div>
                         <div class="city flex">
                             <h2>City: </h2>
-                            <h4 class="city">Giza</h4>
+                            <h4 class="city"><?php echo $city; ?></h4>
                         </div>
                     </div>
                     <div class="r2">
                         <div class="allergies">
                             <h2>Allergies: </h2>
-                            <h4 class="allergies">Smoke - Eyes - Dust</h4>
+                            <h4 class="allergies">
+                                <?php 
+                                clearStoredResults();
+                                $result2 = patientHistory($ID);
+                                if($result2)
+                                {
+                                    while($row2 = mysqli_fetch_assoc($result2)){
+                                        if($row2['HistoryType'] == 1)
+                                        {
+                                            echo $row2['DName'] . " - ";
+                                        }
+                                        }
+                                    }
+                            ?>
+                            </h4>
                         </div>
                         <div class="chronic">
                             <h2>Chronic Diseases: </h2>
-                            <h4 class="chronic">Diabetes</h4>
+                            <h4 class="chronic">
+                                <?php
+                                if($result2)
+                                {
+                                    while($row2 = mysqli_fetch_assoc($result2)){
+                                        if($row2['HistoryType'] == 2)
+                                        {
+                                            echo $row2['DName'] . " - ";
+                                        }
+                                        }
+                                    
+                                }
+                            ?>
+                            </h4>
                         </div>
                         <div class="medicine">
                             <h2>Medicine: </h2>
-                            <h4 class="medicine">Panadol - Asprin</h4>
+                            <h4 class="medicine">
+                                <?php
+                                if($result2)
+                                {
+                                    while($row2 = mysqli_fetch_assoc($result2)){
+                                        if($row2['HistoryType'] == 3)
+                                        {
+                                            echo $row2['DName'] . " - ";
+                                        }
+                                        }
+                                    
+                                }
+                            ?>
+                            </h4>
                         </div>
                         <div class="surgery">
                             <h2>Surgerys: </h2>
-                            <h4 class="surgery">N/A</h4>
+                            <h4 class="surgery">
+                                <?php
+                                if($result2)
+                                {
+                                    while($row2 = mysqli_fetch_assoc($result2)){
+                                        if($row2['HistoryType'] == 4)
+                                        {
+                                            echo $row2['DName'] . " - ";
+                                        }
+                                        }
+                                    
+                                }
+                            ?>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -130,51 +256,40 @@
                     <div class="complaint-block">
                         <h5>Complaint:</h5>
                         <p class="complaint-data">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, ab?
-                        </p>
-                    </div>
-                    <div class="symptoms-block">
-                        <h5>Symptoms:</h5>
-                        <p class="symptoms-data">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, ab?
+                            <?php echo $Complaints; ?>
                         </p>
                     </div>
                     <div class="from-block">
                         <h5>Start Date:</h5>
                         <p class="from-data">
-                            12/3/2021
-                        </p>
-                    </div>
-                    <div class="notes-block">
-                        <h5>Notes:</h5>
-                        <p class="notes-data">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, ducimus rerum. Sequi quas quod facilis dolore adipisci dolorem optio eos cupiditate et reprehenderit, iure aliquam, aperiam accusamus temporibus molestiae excepturi?
+                            <?php echo $StartT; ?>
                         </p>
                     </div>
                 </div>
+            <form action="../../../PHPF/Visit/InsertVisit.php" method="GET">
                 <div class="diagnosis">
                     <div class="flex">
                         <div class="">
                             <div class="diagnosis-block">
                                 <h5>Symptoms:</h5>
-                                <input type="text" name=Symptoms-data"" id="Symptoms-data" class="resizable"spellcheck="true">
+                                <input type="text" name="Symptoms-data" id="Symptoms-data" class="resizable"spellcheck="true">
                             </div>
                             <div class="medicine-block">
                                 <h5>Things That Worsen It:</h5>
-                                <input type="text" name=TTWI-data"" id="TTWI-data" class="resizable"spellcheck="true">
+                                <input type="text" name="TTWI-data" id="TTWI-data" class="resizable"spellcheck="true">
                             </div>
                             <div class="medicine-block">
                                 <h5>End Date:</h5>
-                                <input type="date" name=ED-data"" id="ED-data" class="resizable">
+                                <input type="date" name="ED-data" id="ED-data" class="resizable">
                             </div>
                         </div>
                         <div class="">
                              <div class="notes-block">
                                 <h5>Duration:</h5>
-                            <input type="text" name=Duration-data"" id="Duration-data" class="resizable">
+                            <input type="text" name="Duration-data" id="Duration-data" class="resizable">
                             <div class="dose-block">
                                 <h5>Start Date:</h5>
-                                <input type="date" name=SD-data"" id="SD-data" class="resizable">
+                                <input type="date" name="SD-data" id="SD-data" class="resizable">
                             </div>
                             <div class="notes-block" style="visibility: hidden;">
                                 <h5><br></h5>
@@ -190,33 +305,33 @@
                         <div class="">
                             <div class="diagnosis-block">
                                 <h5>Diagnosis:</h5>
-                                <input type="text" name=diagnosis-data"" id="diagnosis-data" class="resizable"spellcheck="true">
+                                <input type="text" name="diagnosis-data" id="diagnosis-data" class="resizable"spellcheck="true">
                             </div>
                             <div class="medicine-block">
                                 <h5>Medicine:</h5>
-                                <input type="text" name=medicine-data"" id="medicine-data" class="resizable">
+                                <input type="text" name="medicine-data" id="medicine-data" class="resizable">
                             </div>
                             <div class="medicine-block">
                                 <h5>Time:</h5>
-                                <input type="tel" name=Time-data"" id="Time-data" class="resizable"pattern="[0-9]{1}">
+                                <input type="tel" name="Time-data" id="Time-data" class="resizable">
                             </div>
                             <div class="medicine-block">
                                 <h5>Form:</h5>
-                                <input type="text" name=Form-data"" id="Form-data" class="resizable"spellcheck="true">
+                                <input type="text" name="Form-data" id="Form-data" class="resizable"spellcheck="true">
                             </div>
                         </div>
                         <div class="">
                              <div class="notes-block">
                                 <h5>Notes:</h5>
-                            <input type="text" name=notes-data"" id="notes-data" class="resizable">
+                            <input type="text" name="notes-data" id="notes-data" class="resizable">
                             <div class="dose-block">
                                 <h5>Dose:</h5>
-                                <input type="text" name=dose-data"" id="dose-data" class="resizable">
+                                <input type="text" name="dose-data" id="dose-data" class="resizable">
                             </div>
                         </div>
                         <div class="notes-block">
                             <h5>Strength:</h5>
-                        <input type="text" name=Strength-data"" id="Strength-data" class="resizable">
+                        <input type="text" name="Strength-data" id="Strength-data" class="resizable">
                     </div>
                     <div class="notes-block" style="visibility: hidden;">
                         <h5><br></h5>
@@ -224,9 +339,9 @@
                 </div>   
                     </div>
                 </div>
-                    <a href="#" class="send-btn">Send</a>
+                    <button class="send-btn" type="submit">send</button> 
                 </div>
-                
+            </form>
             </div>
     </main>
 </body>
