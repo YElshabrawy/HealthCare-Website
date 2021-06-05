@@ -89,6 +89,24 @@ function Patient_WH($W ,$H ,$AccID )
         }
 
 }
+function Insert_Patient_WH($W ,$H ,$AccID )
+{
+
+        $sql = "CALL Insert_Patient_WH('$W' ,'$H', '$AccID' );";
+
+        echo $sql ;
+        $sql_query = $sql;
+        if(mysqli_query($GLOBALS['conn'],$sql_query)) {
+        echo 'done';
+        return true;
+        }
+        else
+        {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+        }
+
+}
 
 function signUp(
                 $Email ,
@@ -492,6 +510,20 @@ function insertFamilyHistoryPhsychological($PID ,$RelationName ,$PersonName ,$Ty
         return false;
     }
 }
+function insertHistory($PID ,$DName ,$TypeN)
+{
+    $sql = "CALL InsertHistory('$PID' ,'$DName','$TypeN');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        //echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
 
 
 function insertFamilyHistoryUlcer($PID ,$RelationName ,$PersonName ,$TypeName  )
@@ -545,9 +577,9 @@ function insertFamilyHistoryGeneticAbnormalities($PID ,$RelationName ,$PersonNam
 
 
 
-function InsertMedicalTest($PID ,$Picture ,$report ,$Descrip ,$Dates)
+function InsertMedicalTest($ID,$Pic,$rep,$Descr, $Dat)
 {
-    $sql = "CALL InsertMedicalTest('$PID','$Picture' ,'$report' ,'$Descrip' ,'$Dates');";
+    $sql = "CALL InsertMedicalTest ('$ID','$Pic','$rep','$Descr','$Dat');";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';
@@ -563,7 +595,8 @@ function InsertMedicalTest($PID ,$Picture ,$report ,$Descrip ,$Dates)
 
 function insertPhysicianInfo($ID ,$Examination ,$Consultant ,$Revisit ,$Rate ,$major ,$title ,$CV ,$ClinicPhoneNumber ,$EstimatedTime )
 {
-    $sql = "INSERT INTO `physician`(`ID`, `Examination`, `Consultant`, `Revisit`, `Rate`, `major`, `title`, `CV`, `ClinicPhoneNumber`, `EstimatedTime`) VALUES('$ID' ,'$Examination' ,'$Consultant' ,'$Revisit' ,'$Rate' ,'$major' ,'$title' ,'$CV' ,'$ClinicPhoneNumber' ,'$EstimatedTime' );";
+    $sql = "CALL insertPhysicianInfo('$ID' ,'$Examination' ,'$Consultant' ,'$Revisit' ,'$major' ,'$title' ,'$CV' ,'$ClinicPhoneNumber' ,'$EstimatedTime' );";
+    echo $sql;
     $sql_query = $sql;
     echo "hhh";
     
@@ -595,9 +628,9 @@ function InsertRay($PID ,$Picture ,$report ,$Descrip ,$Dates )
 }
 
 
-function InsertSurgery_SignUp($PatientID ,$SurgeryNumber ,$Locationn ,$Dates ,$Surgeryname  )
+function InsertSurgery_SignUp($PatientID ,$Locationn ,$Dates ,$Surgeryname  )
 {
-    $sql = "CALL InsertSurgery_SignUp('$PatientID' ,'$SurgeryNumber' ,'$Locationn' ,'$Dates' ,'$Surgeryname' );";
+    $sql = "CALL InsertSurgery_SignUp('$PatientID','$Locationn' ,'$Dates' ,'$Surgeryname' );";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';

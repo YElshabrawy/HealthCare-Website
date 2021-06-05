@@ -20,6 +20,7 @@ signUp2($Country,$City,$Address,$FName,$MName,$LName,$PhoneNum,$Job,$Gender,$Dat
 
 if($userType == 1)
 {
+    Patient_WH(2 ,2 ,$AccID );
     header("Location:../../pages/authentication/sign_up3_patient.html");
 }
 else if($userType == 2)

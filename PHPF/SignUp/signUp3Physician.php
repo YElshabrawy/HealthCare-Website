@@ -1,8 +1,8 @@
 <?php
 include_once '../connectDataBase.php';
-
-$PID = 9;
-
+session_start();
+//$PID = 13;
+$PID =$_SESSION['AccID'];
 $Major = $_POST['major'];
 // $CV = "";
 $ACDegree = $_POST['degree'];
@@ -15,12 +15,6 @@ if(!file_exists($_FILES['myfile']['tmp_name']) || !is_uploaded_file($_FILES['myf
     exit();
 }
 
-//$Dayss = $_GET[''];
-//$From = $_GET[''];
-//$To = $_GET[''];
-$Dayss= "";
-$From  = "";
-$To = "";
 
 $ESTime = $_POST['ES'];
 
@@ -28,7 +22,7 @@ $VPrice = $_POST['VP'];
 $RevesitPrice = $_POST['RVP'];
 $ConsultationPrice = $_POST['CP'];
 
-insertPhysicianInfo($PID, $VPrice, $ConsultationPrice, $RevesitPrice, 4,$Major, $ACDegree, $cv_data, $ESTime, 12345678999);
+insertPhysicianInfo($PID, $VPrice, $ConsultationPrice, $RevesitPrice,$Major, $ACDegree, "cv_data", 4,$ESTime);
 
 //  ========== TIMETABLE =============== \\
 $slots = $_POST['counter'];
