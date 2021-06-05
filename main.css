@@ -655,24 +655,18 @@ btn.Resend_Code {
   font-weight: bold;
 }
 .List {
-  left: 0px;
-  bottom: 0px;
-  height: inherit;
-  width: 1236px;
-  padding-top: 2.5rem;
+  display: inline-block;
+  display: -moz-inline-box;
+  *display: inline; /* For IE7 */
+  zoom: 1; /* Trigger hasLayout */
+  width: 33%;
+  text-align: center;
 }
-.List ol li span,
-.List ol li a {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  vertical-align: text-bottom;
-  flex-grow: 1;
-}
-.List ol li {
+.List div {
   line-height: 58.44px;
   list-style: none;
-  display: flex;
+  display: inline-block;
+  justify-content: space-evenly;
   width: 1236px;
   color: #000;
   height: 58.44px;
@@ -682,12 +676,11 @@ btn.Resend_Code {
   text-transform: uppercase;
   background-color: #e6455a;
   white-space: nowrap;
-  text-align: left;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 50px;
 }
-.List ol li:hover {
+.List div span{
+  vertical-align: text-bottom;
+}
+.List div:hover {
   opacity: 0.8;
 }
 .Search_Area {

@@ -108,20 +108,6 @@ function Insert_Patient_WH($W ,$H ,$AccID )
 
 }
 
-function GetPhysicianInfo($ID){
-    $sql = "CALL GetPhysicianInfo('$ID');";
-    $sql_query = $sql;
-    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        //echo 'done';
-        return $result;
-    }
-    else
-    {
-        echo("Error description: " . $GLOBALS['conn'] -> error);
-        return false;
-    }
-}
-
 function signUp(
                 $Email ,
                 $Pass ,
@@ -484,21 +470,6 @@ function ShowCommingVisit($PhysicianID )
 
 }
 
-function VisitInfo($VisitID)
-{
-    $sql = "CALL VisitInfo('$VisitID');";
-    $sql_query = $sql;
-    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
-        return $result;
-    }
-    else
-    {
-        echo("Error description: " . $GLOBALS['conn'] -> error);
-        return false;
-    }
-}
-
 function ShowDoneVisit($PhysicianID)
 {
     $sql = "CALL ShowDoneVisit('$PhysicianID');";
@@ -786,7 +757,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         {
             $sql = "CALL physicianCV('$pID');";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                // echo 'done';
                 return $result;
             }
             else
@@ -854,7 +825,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         function physicianAShow(){
             $sql = "CALL physicianAShow();";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                // echo 'done';
                 return $result;
             }
             else
@@ -943,7 +914,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         function PatientAshow(){
             $sql = "CALL PatientAshow();";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                // echo 'done';
                 return $result;
             }
             else
@@ -1284,7 +1255,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function PatientnumberOFVisits($ID){
                 $sql = "CALL PatientnumberOFVisits('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    // echo 'done';
                     return $result;
                 }
                 else
@@ -1296,7 +1267,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
             function PhysiciannumberOFVisits($ID){
                 $sql = "CALL PhysiciannumberOFVisits('$ID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    // echo 'done';
                     return $result;
                 }
                 else
