@@ -3,10 +3,11 @@
 /////////////////////////////////////////////////////////////////
 const USER_TYPE = Object.freeze({
     "PATIENT":1, 
-    "PHYSICIAN":2
+    "PHYSICIAN":3
 });
 
 let User = USER_TYPE.PATIENT; //1
+const userInput = document.querySelector("#userInput");
 
 // Get to change the User
 const patient_btn = document.querySelector("#patient");
@@ -16,6 +17,7 @@ patient_btn.addEventListener('click',(e)=>{
     patient_btn.classList.remove("not-active");
     physician_btn.classList.add("not-active");
     User = USER_TYPE.PATIENT;
+    userInput.value = 1;
     console.log(User);
 })
 
@@ -24,6 +26,7 @@ physician_btn.addEventListener('click',(e)=>{
     patient_btn.classList.add("not-active");
     physician_btn.classList.remove("not-active");
     User = USER_TYPE.PHYSICIAN;
+    userInput.value = 3;
     console.log(User);
 });
 

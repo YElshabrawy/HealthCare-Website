@@ -165,7 +165,21 @@ function ShowPhysicianInfo(){
     $sql = "CALL ShowPhysicianInfo();";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
+        // echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
+
+function ShowPhysicianInfo2(){
+    $sql = "CALL ShowPhysicianInfo2();";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        // echo 'done';
         return $result;
     }
     else
@@ -547,10 +561,12 @@ function InsertMedicalTest($PID ,$Picture ,$report ,$Descrip ,$Dates)
 }
 
 
-function insertPhysicianInfo($ID ,$Examination ,$Consultant ,$Revisit ,$major ,$title ,$CV ,$ClinicPhoneNumber ,$EstimatedTime )
+function insertPhysicianInfo($ID ,$Examination ,$Consultant ,$Revisit ,$Rate ,$major ,$title ,$CV ,$ClinicPhoneNumber ,$EstimatedTime )
 {
-    $sql = "CALL insertPhysicianInfo('$ID' ,'$Examination' ,'$Consultant' ,'$Revisit' ,'$major' ,'$title' ,'$CV' ,'$ClinicPhoneNumber' ,'$EstimatedTime' );";
+    $sql = "INSERT INTO `physician`(`ID`, `Examination`, `Consultant`, `Revisit`, `Rate`, `major`, `title`, `CV`, `ClinicPhoneNumber`, `EstimatedTime`) VALUES('$ID' ,'$Examination' ,'$Consultant' ,'$Revisit' ,'$Rate' ,'$major' ,'$title' ,'$CV' ,'$ClinicPhoneNumber' ,'$EstimatedTime' );";
     $sql_query = $sql;
+    echo "hhh";
+    
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
         echo 'done';
         return $result;
