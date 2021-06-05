@@ -220,7 +220,19 @@ function ShowPatientProfile($ID){
         return false;
     }
 }
-
+function GetPhysicianInfo($ID){
+    $sql = "CALL GetPhysicianInfo('$ID');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        //echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
 function ViewPatientSummary($VisitID)
 {
     $sql = "CALL PatientSummary('$VisitID');";
@@ -303,7 +315,7 @@ function ShowPhysicianLastName($PID)
     $sql = "CALL ShowPhysicianLastName('$PID');";
     $sql_query = $sql;
     if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
-        echo 'done';
+        // echo 'done';
         return $result;
     }
     else
@@ -429,8 +441,22 @@ function ShowCommingVisit($PhysicianID )
 
 }
 
+function VisitInfo($VisitID)
+{
+    $sql = "CALL VisitInfo('$VisitID');";
+    $sql_query = $sql;
+    if($result = mysqli_query($GLOBALS['conn'],$sql_query)) {
+        echo 'done';
+        return $result;
+    }
+    else
+    {
+        echo("Error description: " . $GLOBALS['conn'] -> error);
+        return false;
+    }
+}
 
-function ShowDoneVisit($PhysicianID )
+function ShowDoneVisit($PhysicianID)
 {
     $sql = "CALL ShowDoneVisit('$PhysicianID');";
     $sql_query = $sql;
@@ -1224,4 +1250,17 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
                     return false;
                 }
             } 
+            function   PhysicianShowPatients($PID){
+                $sql = "CALL   PhysicianShowPatients('$PID');";
+                if($result = mysqli_query($GLOBALS['conn'],$sql)) {
+                    // echo 'done';
+                    return $result;
+                }
+                else
+                {
+                    echo("Error description: " . $GLOBALS['conn'] -> error);
+                    return false;
+                }
+            } 
+          
         
