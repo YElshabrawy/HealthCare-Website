@@ -5,23 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Patients</title>
+    <title>Home - Profile</title>
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
     <link rel="stylesheet" href="../dashboard.css">
-    <link rel="stylesheet" href="./main_physician.css">
-    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./main_patient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type = "text/javascript" src="../Sidebar.js">  </script>  
+
 </head>
 
 <body>
-    <?php
-    if(isset($_GET['error'])){
-        if($_GET['error'] == "noData"){
-            echo "<script>alert('Error: No Added Data!')</script>";
-        }
-    }
-    ?>
-    
     <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
         <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
@@ -37,32 +30,69 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <?php
+                <?php 
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
                     session_start();
-                    $PhyID = $_SESSION['SignInID'];
-                    //$PhyID = 15;
-                    
-                    $result1 = ShowPhysicanProfile($PhyID);
-                    if($result1)
+                     $ID = $_SESSION['SignInID'];
+                    //$ID = 1;
+                    $result = ShowPatientProfile($ID);
+                    if($result)
                     {
-                        while($row = mysqli_fetch_assoc($result1)){
-                            $Name1 = $row['FName'];
-                            $Name2 = $row['LName'];
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $FName = $row['FName'];
+                            $LName= $row['LName'];
+                            $email = $row['EmailAddress'];
+                            $sex = $row['Gender'];
+                            $Country = $row['Country'];
+                            $city = $row['City'];
+                            $mobile = $row['MobilePhone'];
+                            $date = $row['DateOfBirth'];
+                            $Weight = $row['Weights'];
+                            $Height = $row['Height'];
                         } 
-                    } 
-                    else{echo "Error";}
-                    ?>
-                    <span class="fname"><?php echo $Name1; ?></span>
-                    <span class="lname"><?php echo $Name2; ?></span>
+                    }
+                    else{
+                        echo "Error";
+                    }  ?>
+                <span class="fname"><?php echo $FName; ?></span>
+                    <span class="lname"><?php echo $LName; ?></span>
                 </div>
             </div>
         </div>
     </nav>
 
-    <?php include'./sidebar.php' ?>
+    
+        <aside class="sidebar">
+            <ul>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_dashboard.svg" alt="">
+                    <a href="./dashboard.html">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="active-sb sidebar-item flex">
+                    <img class="logo" src="/images/i_doctors.svg" alt="">
+                    <a href="./doctors.html">
+                        <span>Doctors</span>
+                    </a>
+                </li>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_calendar.svg" alt="">
+                    <a href="./appointments.html">
+                        <span>Appointment</span>
+                    </a>
+                </li>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_profile.svg" alt="">
+                    <a href="./profile.html">
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
     <main class="container main">
-        <form action="../physician/patients.html" method="GET">
+        <form action="../patient/perscription.html" method="GET">
 
         <div class="data-titles patient-grid">
             <input type="checkbox" name="select-all" id="select-all">
@@ -77,7 +107,7 @@
             <?php
             ob_start();
             clearStoredResults();
-            $result2 =  PhysicianShowPatients($PhyID);
+            $result2 =  PhysicianDoneVisits($PhyID);
             if($result2)
             {
                 $total =0;
@@ -105,7 +135,7 @@
                         <h2 class='city'>$City</h2>
                         <h2 class='next-app'>$Date</h2>
                         <h2 class='last-app'>$ST </h2>
-                        <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button>
+                        <!-- <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button> -->
                         <button name=\"b$total\"><i class='fa fa-ellipsis-h delete-me'></i></button>
                         <input type=\"number\" name=\"q$total\" id=\"Pat_ID\" value=\"$visit_ID\" style=\"display: none;\">
                     </div>
@@ -119,15 +149,8 @@
                     $visit_id = $_GET["q$i"];
                     session_start();
                     $_SESSION['vidi'] = $phys_id;
-                    header("Location:./new_visit.html?vidi=$visit_id");
+                    header("Location:../../dashboard/patient/perscription.html?vidi=$visit_id");
                     // echo "<script>alert(\"Hello There! My ID is $visit_id\")</script>";
-                }
-                if(isset($_GET["db$i"])){
-                    $visit_id = $_GET["q$i"];
-                    // echo "<script>alert(\"Hello There! VID = $visit_id\")</script>";
-                    clearStoredResults();
-                    PhysicianCancelVisit($visit_id);
-                    // echo "<script>alert(\"Hello There! Am working fine\")</script>";
                 }
             }
             ob_end_flush();

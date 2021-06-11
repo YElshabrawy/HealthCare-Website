@@ -44,34 +44,34 @@ for($i = 1; $i <= $slots; $i++){
     $t_fri = $_POST["t$i-fri"];
     $t_sat = $_POST["t$i-sat"];
 
-    if($f_sun != "" && $t_sun != ""){
+  //  if($f_sun != "" && $t_sun != ""){
         $Day = "Sunday";
         insertTimeTable($PID, $Day, $f_sun, $t_sun);
-    }
-    if($f_mon != "" && $t_mon != ""){
+    //}
+   // if($f_mon != "" && $t_mon != ""){
         $Day = "Monday";
         insertTimeTable($PID, $Day, $f_mon, $t_mon);
-    }
-    if($f_tue != "" && $t_tue != ""){
+    //}
+    //if($f_tue != "" && $t_tue != ""){
         $Day = "Tuesday";
         insertTimeTable($PID, $Day, $f_tue, $t_tue);
-    }
-    if($f_wed != "" && $t_wed != ""){
+    //}
+    //if($f_wed != "" && $t_wed != ""){
         $Day = "Wednesday";
         insertTimeTable($PID, $Day, $f_wed, $t_wed);
-    }
-    if($f_thur != "" && $t_thur != ""){
+    //}
+    //if($f_thur != "" && $t_thur != ""){
         $Day = "Thursday";
         insertTimeTable($PID, $Day, $f_thur, $t_thur);
-    }
-    if($f_fri != "" && $t_fri != ""){
+    //}
+    //if($f_fri != "" && $t_fri != ""){
         $Day = "Friday";
         insertTimeTable($PID, $Day, $f_fri, $t_fri);
-    }
-    if($f_sat != "" && $t_sat != ""){
+    //}
+    //if($f_sat != "" && $t_sat != ""){
         $Day = "Saturday";
         insertTimeTable($PID, $Day, $f_sat, $t_sat);
-    }
+    //}
 
 }
 
@@ -86,4 +86,4 @@ for($i = 1; $i <= $slots; $i++){
 //     }
 // }
 
-// header("Location:../../pages/authentication/sign_in.html");
+ header("Location:../../pages/authentication/sign_in.html");

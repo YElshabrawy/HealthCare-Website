@@ -3,7 +3,7 @@
 $ID = 9;
 $Date = date("Y/m/d");
 $LName;
- $result = ShowPhysicianLastName($PID);
+ $result = ShowPhysicianInfo($PID);
     while($row = mysqli_fetch_assoc($result)){
         $LName= $row['LName'];
     }
@@ -11,25 +11,25 @@ $LName;
     /* LName should be changed */
 $result= CancelledVisitN($PID);
 while($row = mysqli_fetch_assoc($result)){
-    $LName= $row['LName'];
+    $CancelledVisitN= $row['CN'];
 }
 $result= DoneAppointmentN($PID);
 while($row = mysqli_fetch_assoc($result)){
-    $LName= $row['LName'];
+    $DoneAppointmentN= $row['DN'];
 }
 $result= UpcommingAppointmentN($PID);
 while($row = mysqli_fetch_assoc($result)){
-    $LName= $row['LName'];
+    $UpcommingAppointmentN= $row['UN'];
 }
 $result= TodayAppointmentsN($PID ,$Date );
 while($row = mysqli_fetch_assoc($result)){
-    $LName= $row['LName'];
+    $TodayAppointmentsN= $row['TAN'];
 }
 $result= SalaryThisMonth($PID ,$Date );
 while($row = mysqli_fetch_assoc($result)){
-    $LName= $row['LName'];
+    $SalaryThisMonth= $row['SM'];
 }
 $result= SalaryAllTime($PID ,$Date );
 while($row = mysqli_fetch_assoc($result)){
-    $LName= $row['LName'];
+    $SalaryAllTime= $row['SAT'];
 }

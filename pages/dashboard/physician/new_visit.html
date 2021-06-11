@@ -30,8 +30,9 @@
                 <div class="username">
                     <?php 
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-                   // $ID = $_SESSION['SignInID'];
-                    $ID = 1;
+                    session_start();
+                    $ID = $_SESSION['SignInID'];
+                    //$ID = 1;
                     $result = ShowPatientProfile($ID);
                     if($result)
                     {
@@ -61,36 +62,9 @@
             </div>
         </div>
     </nav>
-
-    <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_dashboard.svg" alt="">
-                <a href="./dashboard.html">
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="active-sb sidebar-item flex">
-                <img class="logo" src="/images/i_patient2.svg" alt="">
-                <a href="./patients.html">
-                    <span>Patients</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_calendar.svg" alt="">
-                <a href="./appointments.html">
-                    <span>Appointment</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./profile.html">
-                    <span>Profile</span>
-                </a>
-            </li>
-        </ul>
-    </aside>
+    <?php include'./sidebar.php' ?>
     <main class="container main">
+        
         <form action="../../../PHPF/Visit/InsertVisit.php" method="GET">
         <?php 
         $VID = $_GET['vidi'];
@@ -102,15 +76,15 @@
                 $PhyID = $row['PhysicianID'];
                 $PaID = $row['PatientID'];
                 $StartT = $row['StartTime'];
-                $Diagnosis = $row['Diagnoses'];
+               // $Diagnosis = $row['Diagnoses'];
                 $Complaints = $row['Complaints'];
-                $Notes = $row['Notes'];
+                //$Notes = $row['Notes'];
                 $Date = $row['Dates'];
             } 
         } 
         else{echo "Error";}
         clearStoredResults();
-        $result2 = GetPhysicianInfo($PhyID);
+        $result2 = ShowPhysicanProfile($PhyID);
         if($result2)
         {
             while($row = mysqli_fetch_assoc($result2)){
@@ -363,12 +337,14 @@
                                 $data = $row['Strength'];
                                 echo "<option value=\"$data\">$data</option>";
                             }
+                            //session_start();
+                            //$_SESSION['vid'] = $_GET['vidi'];
                         ?>
                         </select>
                     </div>
                     <div class="notes-block" style="visibility: hidden;">
                         <h5><br></h5>
-                    <input type="text"name=""class="resizable">
+                    <?php echo "<input type=\"number\" name=\"vidi\" value = $VID >"; ?>
                 </div>   
                     </div>
                 </div>

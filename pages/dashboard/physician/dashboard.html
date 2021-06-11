@@ -27,55 +27,60 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname">FName</span>
-                    <span class="lname">LName</span>
+                    <?php 
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                    session_start();
+                    $PID = $_SESSION['SignInID'];
+                    
+                    $Date = date("Y/m/d");
+                    $LName;
+                    $result = ShowPhysicanProfile($PID);
+                        while($row = mysqli_fetch_assoc($result)){
+                            $FName= $row['FName'];
+                            $LName= $row['LName'];
+                            echo"<span class=\"fname\">$FName</span>
+                             <span class=\"lname\">$LName</span>";
+                        }
+                    
+                    ?>
                 </div>
             </div>
         </div>
     </nav>
 
-        <aside class="sidebar">
-            <ul>
-                <li class="active-sb sidebar-item flex">
-                    <img class="logo" src="/images/i_dashboard.svg" alt="">
-                    <a href="./dashboard.html">
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="sidebar-item flex">
-                    <img class="logo" src="/images/i_patient2.svg" alt="">
-                    <a href="./patients.html">
-                        <span>Patients</span>
-                    </a>
-                </li>
-                <li class="sidebar-item flex">
-                    <img class="logo" src="/images/i_calendar.svg" alt="">
-                    <a href="./appointments.html">
-                        <span>Appointment</span>
-                    </a>
-                </li>
-                <li class="sidebar-item flex">
-                    <img class="logo" src="/images/i_profile.svg" alt="">
-                    <a href="./profile.html">
-                        <span>Profile</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
+        <?php include'./sidebar.php' ?>
+        
         <main class="container main">
             <div class="up-row">
                 <div class="good-morning-block">
-                    <h1><strong>Good Morning,</strong> Dr <span class="lname">LName</span></h1>
+                    <h1><strong>Good Morning,</strong> Dr <span class="lname"><?php echo $LName ?></span></h1>
                     <h3>Presenting <span class="current-month">May</span>'s Data</h3>
                     <div class="month-data flex">
                         <div class="approved data-block">
-                            <h5>Total Appointments</h5>
-                            <p class="month-accepted-appointments-number">27</p>
+                            <h5>Done Appointments</h5>
+                            <p class="month-accepted-appointments-number">
+                                <?php 
+                                clearStoredResults();
+                                $result= DoneAppointmentN($PID);
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $DoneAppointmentN= $row['DN'];
+                                    echo $DoneAppointmentN;
+                                }
+                                
+                                ?>
+                            </p>
                             <a href="#" class="more-btn">More</a>
                         </div>
                         <div class="canceled data-block">
                             <h5>Canceled Appointments</h5>
-                            <p class="month-canceled-appointments-number">3</p>
+                            <p class="month-canceled-appointments-number">
+                                <?php 
+                                clearStoredResults();
+                                $result= CancelledVisitN($PID);
+                                while($row = mysqli_fetch_assoc($result)){
+                                  $CancelledVisitN= $row['CN'];
+                                  echo $CancelledVisitN;
+                                }?></p>
                             <a href="#" class="more-btn">More</a>
                         </div>
                     </div>
@@ -89,7 +94,14 @@
                         </div>
                         <div class="upcoming data-block">
                             <h5>Upcoming Appointments</h5>
-                            <p class="upcoming-appointments-number">8</p>
+                            <p class="upcoming-appointments-number"><?php 
+                            clearStoredResults();
+                            $result= UpcommingAppointmentN($PID);
+                            while($row = mysqli_fetch_assoc($result)){
+                                $UpcommingAppointmentN= $row['UN'];
+                                echo $UpcommingAppointmentN;
+                            }?>
+                            </p>
                             <a href="#" class="more-btn">More</a>
                         </div>
                     </div>
@@ -119,7 +131,16 @@
                     <div class="data-block">
                         <h5>Today's Appointments</h5>
                         <div class="flex big-card">
-                            <p class="today-appointments-number">3</p>
+                            <p class="today-appointments-number">
+                                <?php 
+                                clearStoredResults();
+                                $result= TodayAppointmentsN($PID ,$Date );
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $TodayAppointmentsN= $row['TAN'];
+                                    echo $TodayAppointmentsN;
+                                }
+                                ?>
+                            </p>
                             <div class="today-appointments-list">
                                 <div id="app1">
                                     <div class="flex card">
@@ -166,9 +187,28 @@
                 <div class="">
                     <div class="data-block">
                         <h5>Salary This Month</h5>
-                        <h1 class="mb">EGP <span class="salary-month">23,000</span></h1>
+                        <h1 class="mb">EGP <span class="salary-month">
+                            <?php 
+                                clearStoredResults();
+                                $result= SalaryThisMonth($PID ,$Date );
+                                while($row = mysqli_fetch_assoc($result)){
+                                    $SalaryThisMonth= $row['SM'];
+                                    echo $SalaryThisMonth;
+                                }
+                            ?>
+                        </span></h1>
                         <h5>Salary All Time</h5>
-                        <h1 class="mb2">EGP <span class="salary-all-time">432,000</span></h1>
+                        <h1 class="mb2">EGP <span class="salary-all-time">
+                            <?php 
+                            clearStoredResults();
+                            $result= SalaryAllTime($PID);
+                            while($row = mysqli_fetch_assoc($result)){
+                                $SalaryAllTime= $row['SAT'];
+                                echo $SalaryAllTime;
+                            }
+                            
+                            ?>
+                            </span></h1>
                         <a href="#" class="more-btn">More</a>
                     </div>
                 </div>

@@ -41,7 +41,7 @@
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
                     session_start();
                     $PhyID = $_SESSION['SignInID'];
-                    //$PhyID = 15;
+                    //$PhyID = 5;
                     
                     $result1 = ShowPhysicanProfile($PhyID);
                     if($result1)
@@ -62,7 +62,7 @@
 
     <?php include'./sidebar.php' ?>
     <main class="container main">
-        <form action="../physician/patients.html" method="GET">
+        <form action="#" method="GET">
 
         <div class="data-titles patient-grid">
             <input type="checkbox" name="select-all" id="select-all">
@@ -77,7 +77,7 @@
             <?php
             ob_start();
             clearStoredResults();
-            $result2 =  PhysicianShowPatients($PhyID);
+            $result2 =  PhysicianDoneVisits($PhyID);
             if($result2)
             {
                 $total =0;
@@ -105,7 +105,7 @@
                         <h2 class='city'>$City</h2>
                         <h2 class='next-app'>$Date</h2>
                         <h2 class='last-app'>$ST </h2>
-                        <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button>
+                        <!-- <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button> -->
                         <button name=\"b$total\"><i class='fa fa-ellipsis-h delete-me'></i></button>
                         <input type=\"number\" name=\"q$total\" id=\"Pat_ID\" value=\"$visit_ID\" style=\"display: none;\">
                     </div>
@@ -119,19 +119,13 @@
                     $visit_id = $_GET["q$i"];
                     session_start();
                     $_SESSION['vidi'] = $phys_id;
-                    header("Location:./new_visit.html?vidi=$visit_id");
+                    header("Location:../physician/prescriptionPhy.html?vidi=$visit_id");
                     // echo "<script>alert(\"Hello There! My ID is $visit_id\")</script>";
-                }
-                if(isset($_GET["db$i"])){
-                    $visit_id = $_GET["q$i"];
-                    // echo "<script>alert(\"Hello There! VID = $visit_id\")</script>";
-                    clearStoredResults();
-                    PhysicianCancelVisit($visit_id);
-                    // echo "<script>alert(\"Hello There! Am working fine\")</script>";
                 }
             }
             ob_end_flush();
             ?>
+            
             </div>
         </div>
         </form>

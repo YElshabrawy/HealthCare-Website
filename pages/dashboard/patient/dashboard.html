@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Dashboard</title>
+    <title>Home - Profile</title>
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
     <link rel="stylesheet" href="../dashboard.css">
     <link rel="stylesheet" href="./main_patient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type = "text/javascript" src="../Sidebar.js">  </script>  
+
 </head>
+
 <body>
     <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
@@ -26,8 +30,33 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname">FName</span>
-                    <span class="lname">LName</span>
+                <?php 
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                    session_start();
+                     $ID = $_SESSION['SignInID'];
+                    //$ID = 1;
+                    $result = ShowPatientProfile($ID);
+                    if($result)
+                    {
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $FName = $row['FName'];
+                            $LName= $row['LName'];
+                            $email = $row['EmailAddress'];
+                            $sex = $row['Gender'];
+                            $Country = $row['Country'];
+                            $city = $row['City'];
+                            $mobile = $row['MobilePhone'];
+                            $date = $row['DateOfBirth'];
+                            $Weight = $row['Weights'];
+                            $Height = $row['Height'];
+                        } 
+                    }
+                    else{
+                        echo "Error";
+                    }  ?>
+                <span class="fname"><?php echo $FName; ?></span>
+                    <span class="lname"><?php echo $LName; ?></span>
                 </div>
             </div>
         </div>

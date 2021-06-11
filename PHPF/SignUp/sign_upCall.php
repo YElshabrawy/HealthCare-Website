@@ -38,7 +38,7 @@ else{
     }
     $_SESSION['AccID'] = $ID;
     
-    if($userType == 1)
+    if($userType == 2)
     {
         header("Location:../../pages/authentication/sign_up2.html");
     }

@@ -4,6 +4,7 @@ $email = $_GET['e_mail'];
 $password = $_GET['pass'];
 #$email = "s-Amr.mohamed@zewailcity.edu.eg";
 #$password = 'Amr1763';
+
 $ID;
 $pass = false;
 $UserType = 5;
@@ -44,28 +45,28 @@ clearStoredResults();
         echo "Error";
     } 
 
-
-if($pass && $UserType == 2) // patient
-{
-    header("Location:../../pages/dashboard/patient/dashboard.html");
-}
-elseif($pass && $UserType == 3) //Doctor
-{
-    if($Status == 1)
+    if($pass && $UserType == 2) // patient
     {
-        header("Location:../../pages/dashboard/physician/dashboard.html?ID=$ID");
+        header("Location:../../pages/dashboard/patient/dashboard.html");
     }
-    else 
+    elseif($pass && $UserType == 3) //Doctor
     {
-        header("Location:../../pages/authentication/sign_in.html?error=Your_acc_still_pending");
+        if($Status == 1)
+        {
+            header("Location:../../pages/dashboard/physician/dashboard.html?ID=$ID");
+        }
+        else 
+        {
+            header("Location:../../pages/authentication/sign_in.html?error=Your_acc_still_pending");
+        }
     }
-}
-elseif($pass && $UserType == 1) // admin
-{
-    header("Location:../../pages/After_Sign_In_Admins.html?ID=$ID");
-}
-else{
-    header("Location:../../pages/authentication/sign_in.html?error=NoUser");
-}
+    elseif($pass && $UserType == 1) // admin
+    {
+        //include_once '../../pages/dashboard/admin/';
+        header("Location:../../pages/dashboard/admin/After_Sign_In_Admins.html?ID=$ID");
+    }
+    else{
+        header("Location:../../pages/authentication/sign_in.html?error=NoUser");
+    }
 
 

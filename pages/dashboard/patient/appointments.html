@@ -16,14 +16,14 @@
 </head>
 
 <body>
-    <nav class="containery nav-container">
+    <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
         <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
         <div class="right">
-            <a href="#" class="notifications-btn activey">
+            <a href="#" class="notifications-btn active">
                 <img class="logo" src="/images/i_bell.svg" alt="">
             </a>
-            <a href="#" class="messages-btn activey">
+            <a href="#" class="messages-btn active">
                 <img class="logo" src="/images/i_msg.svg" alt="">
             </a>
             <div class="personai-info flex">
@@ -31,12 +31,38 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname">FName</span>
-                    <span class="lname">LName</span>
+                <?php 
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                    session_start();
+                     $ID = $_SESSION['SignInID'];
+                    //$ID = 1;
+                    $result = ShowPatientProfile($ID);
+                    if($result)
+                    {
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            $FName = $row['FName'];
+                            $LName= $row['LName'];
+                            $email = $row['EmailAddress'];
+                            $sex = $row['Gender'];
+                            $Country = $row['Country'];
+                            $city = $row['City'];
+                            $mobile = $row['MobilePhone'];
+                            $date = $row['DateOfBirth'];
+                            $Weight = $row['Weights'];
+                            $Height = $row['Height'];
+                        } 
+                    }
+                    else{
+                        echo "Error";
+                    }  ?>
+                <span class="fname"><?php echo $FName; ?></span>
+                    <span class="lname"><?php echo $LName; ?></span>
                 </div>
             </div>
         </div>
     </nav>
+
 
     <aside class="sidebar">
         <ul>

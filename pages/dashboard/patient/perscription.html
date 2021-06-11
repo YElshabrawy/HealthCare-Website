@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - New Visit</title>
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="./main_patient.css">
+    <script type = "text/javascript" src="../Sidebar.js">  </script>  
+</head>
+
+<body>
+    <nav class="container nav-container">
+        <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
+        <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
+        <div class="right">
+            <a href="#" class="notifications-btn active">
+                <img class="logo" src="/images/i_bell.svg" alt="">
+            </a>
+            <a href="#" class="messages-btn active">
+                <img class="logo" src="/images/i_msg.svg" alt="">
+            </a>
+            <div class="personai-info flex">
+                <a href="#" class="profile-pic">
+                    <img src="/images/default_pic.jpg" alt="">
+                </a>
+                <div class="username">
+                    <?php 
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                     session_start();
+                     //$ID = $_SESSION['SignInID'];
+                    $ID = 9;
+                    $VID = $_GET['vidi'];
+                    //$VID = 1;
+
+                    $Code = 1;
+                
+                    $result = ShowPatientProfile($ID);
+                    if($result)
+                    {
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                            $FPName = $row['FName'];
+                            //$MName = $row['MName'];
+                            $LPName = $row['LName'];
+                        }
+                    }
+                    else{echo "Error";}
+            
+                    clearStoredResults();
+                    $result = patientPrescriptionShow($VID);
+                    if($result)
+                    {
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                            $FName = $row['FName'];
+                            $MName = $row['MName'];
+                            $LName = $row['LName'];
+                            $Title = $row['title'];
+                            $Major = $row['major'];
+                            $Date = $row['Dates'];
+                            $Diagnosis = $row['Diagnoses'];
+                            $Notes= $row['Notes'];
+                            $Code = $row['Code'];
+                            $Dose = $row['Dose'];
+                            $Time = $row['Duration'];
+                            
+                        }
+                    }
+                    else{echo "Error";}
+                    clearStoredResults();
+                    $Med = " ";
+                    $Str = " ";
+                    $Form = " ";
+                    if($Code)
+                    {
+                        //$Code =44;
+                        $result = ShowMedicinInfo($Code);
+                        if($result){
+                            while($row = mysqli_fetch_assoc($result)){
+                                $Med = $row['MName'];
+                                $Str = $row['Strength'];
+                                $Form = $row['Form'];
+                
+                            }
+                        }
+                        else{echo "Error";}
+                    }
+
+                    ?>
+
+                    <span class="fname"><?php echo $FPName; ?></span>
+                    <span class="lname"><?php echo $LPName; ?></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <aside class="sidebar">
+        <ul>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_dashboard.svg" alt="">
+                <a href="./dashboard.html">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="active-sb sidebar-item flex">
+                <img class="logo" src="/images/i_patient2.svg" alt="">
+                <a href="./patients.html">
+                    <span>Patients</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_calendar.svg" alt="">
+                <a href="./appointments.html">
+                    <span>Appointment</span>
+                </a>
+            </li>
+            <li class="sidebar-item flex">
+                <img class="logo" src="/images/i_profile.svg" alt="">
+                <a href="./profile.html">
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="container main">
+        <form action="" method="GET">
+        
+            <div class="visit" style="grid-template-rows: 1fr 2fr;">
+                <div class="head flex">
+                    <div class="l">
+                        <h1>Dr.<span class="fname"><?php echo $FName; ?></span> <span class="lname"><?php echo $LName; ?></span></h1>
+                        <h3><span class="specialization"><?php echo $Title; ?></h3>
+                    </div>
+                    <div class="r">
+                        <h3>Visit ID: <span class="visit-id"><?php echo $VID; ?></span></h3>
+                        <h3>Date: <span class="date"><?php echo $Date; ?></span></h3>
+                    </div>
+                </div>
+                
+                <div class="diagnosis">
+                    <!-- <div class="flex"> -->
+                        <div class="">
+                            <div class="diagnosis-block">
+                                <h5>Diagnosis:</h5>
+                                <h4><?php echo $Diagnosis?></h4>
+                            </div>
+                            <div class="medicine-block">
+                                
+                                <?php
+                                clearStoredResults();
+                                $result1 = patientPrescriptionShow($VID);
+                                if($result1)
+                                {
+                                    while($row1 = mysqli_fetch_assoc($result1))
+                                    {
+                                clearStoredResults();
+                                $Code = $row1['Code'];
+                                $Time = $row1['Duration'];
+                                $Dose = $row1['Dose'];     
+                                $result = ShowMedicinInfo($Code);
+                                if($result){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            $Med = $row['MName'];
+                                            $Str = $row['Strength'];
+                                            $Form = $row['Form'];
+                                            echo "<h3>Medicine:</h3>";
+                                            echo "<h4>  $Med </h4>";
+                                            echo "<h5>Strength:</h5>";
+                                            echo " <h4>$Str </h4>";
+                                            echo"<h5>Form:</h5>
+                                            <h4> $Form </h4>";
+                                        }
+                                    echo"<h5>Number of days:</h5>
+                                    <h4> $Time </h4>";
+                                    echo "<h5>Dose:</h5>
+                                    <h4> $Dose </h4>";
+                        
+                                            }
+                                    }
+                                } ?>
+                            </div>
+                        <div class="">
+                             <div class="notes-block">
+                                <h5>Notes:</h5>
+                                <h4><?php echo $Notes ?></h4>
+                            <div class="dose-block">
+                                
+                            </div>
+                        </div>
+                        
+                        
+                    <div class="notes-block" style="visibility: hidden;">
+                        <h5><br></h5>
+                    <!-- <input type="text"name=""class="resizable"> -->
+                </div>   
+                    </div>
+                </div>
+                    <button type="submit" class="send-btn">print</button>
+                </div>
+                
+            </div>
+            </form>
+    </main>
+</body>
+
+</html>

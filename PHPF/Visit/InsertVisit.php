@@ -1,9 +1,10 @@
 <?php
 include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-// $VisitID = $_GET['vidi'];
-session_start();
-$VisitID = $_SESSION['vidi'];
-// $VisitID = 10;
+ $VisitID = $_GET['vidi'];
+//$VisitID = $_SESSION['vid'];
+ //$VisitID = 11;
+$diagnoses = $_GET['diagnosis-data'];
+
 
 $IllnessName = $_GET['Symptoms-data'];
 $StartDate =$_GET['SD-data'] ;
@@ -26,6 +27,7 @@ if($result)
     while($row = mysqli_fetch_assoc($result))
     {
         $Code = $row['Code'];
+        //echo "<br> ID = $Code";
     }
 }
 if($Code == ""){
@@ -34,16 +36,16 @@ if($Code == ""){
     echo "<br> ID = $VisitID";
 
     clearStoredResults();
-    InsertIllnessInfo($VisitID ,$IllnessName,$StartDate ,$Duration ,$Descrip ,$ThingsWorsenIllness);
+    InsertIllnessInfo($VisitID ,$IllnessName,$StartDate ,$Duration ,$Descrip ,$ThingsWorsenIllness); //insert
 
     clearStoredResults();
-    InsertPrescriptionInfo($VisitID,$Code, $Dose, $Duration);
+    InsertPrescriptionInfo($VisitID,$Code, $Dose, $Duration); // insert
 
     clearStoredResults();
-    UpdateVisitNote($VisitID, $Note);
+    UpdateVisit_withPorescriptionInfo($VisitID, $diagnoses, $Note);
 
     clearStoredResults();
     UpdateToDone($VisitID);
     
-    // header("Location:../../pages/dashboard/physician/patients.html?error=none");
+     header("Location:../../pages/dashboard/physician/patients.html?error=none");
 }

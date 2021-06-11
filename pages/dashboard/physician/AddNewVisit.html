@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Appointment</title>
+    <title>Home - Dashboard</title>
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
-    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <link rel="stylesheet" href="../dashboard.css">
     <link rel="stylesheet" href="./main_physician.css">
-    <link rel="stylesheet" href="/node_modules/fullcalendar/main.min.css">
+    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <script type = "text/javascript" src="../Sidebar.js">  </script>  
 </head>
-
 <body>
-    <nav class="containery nav-container">
+    <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
         <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
         <div class="right">
-            <a href="#" class="notifications-btn activey">
+            <a href="#" class="notifications-btn active">
                 <img class="logo" src="/images/i_bell.svg" alt="">
             </a>
-            <a href="#" class="messages-btn activey">
+            <a href="#" class="messages-btn active">
                 <img class="logo" src="/images/i_msg.svg" alt="">
             </a>
             <div class="personai-info flex">
@@ -33,7 +29,9 @@
                 <div class="username">
                     <?php 
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
-                    $PID = 15;
+                    //$PID = 15;
+                    session_start();
+                    $PID = $_SESSION['SignInID'];
                     $Date = date("Y/m/d");
                     $LName;
                     $result = ShowPhysicanProfile($PID);
@@ -41,21 +39,29 @@
                             $FName= $row['FName'];
                             $LName= $row['LName'];
                             echo"<span class=\"fname\">$FName</span>
-                            <span class=\"lname\">$LName</span>";
+                             <span class=\"lname\">$LName</span>";
                         }
                     
                     ?>
-                    
                 </div>
             </div>
         </div>
     </nav>
 
     <?php include'./sidebar.php' ?>
-    <main class="container main">
-        <div id='calendar'></div>
-    </main>
+        <main class="container main">
+            <form action="../../../PHPF/Visit/NewVisit.php" method="GET">
+                <div class="username"></div>
+                <div class="username"></div>
+                <div class="username"></div>
+                 <h1>Enter the patient ID</h1>
+                 <input type="number" name="PID_NewVisit" id="PID_NewVisit" />
+                <button type="submit" class="send-btn">New Visit</button>                
+
+
+            </form>
+
+        </main>
 </body>
-<script src="/node_modules/fullcalendar/main.min.js"></script>
-<script src="/js/calender.js"></script>
+<script src="/js/dashboard.js"></script>
 </html>
