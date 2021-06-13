@@ -46,6 +46,10 @@ else{
     {
         header("Location:../../pages/authentication/sign_up2.html");   
     }
+    else if($userType == 1)
+    {
+        header("Location:../../pages/authentication/sign_up2.html");   
+    }
 
 }
 

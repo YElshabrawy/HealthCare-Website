@@ -27,3 +27,7 @@ else if($userType == 3)
 {
     header("Location:../../pages/authentication/sign_up3_physician.html");   
 }
+else if($userType == 1)
+{
+    header("Location:../../pages/authentication/sign_in.html");
+}
