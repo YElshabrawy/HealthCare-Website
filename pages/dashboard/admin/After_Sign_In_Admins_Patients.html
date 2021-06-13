@@ -29,41 +29,28 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname"></span>
-                    <span class="lname"></span>
+                    <?php
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                    session_start();
+                    $AdminID = $_SESSION['SignInID'];
+                    
+                    $result1 = ShowPhysicianLastName($AdminID);
+                    if($result1)
+                    {
+                        while($row = mysqli_fetch_assoc($result1)){
+                            $Name1 = $row['FName'];
+                            $Name2 = $row['LName'];
+                        } 
+                    } 
+                    else{echo "Error";}
+                    ?>
+                    <span class="fname"><?php echo $Name1; ?></span>
+                    <span class="lname"><?php echo $Name2; ?></span>
                 </div>
             </div>
         </div>
     </nav>
-
-    <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_dashboard.svg" alt="">
-                <a href="./After_Sign_In_Admins.html">
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./After_Sign_In_Admins_Patients.html">
-                    <span>patients</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./After_Sign_In_Admins_Physicians.html">
-                    <span>Physicians</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./After_Sign_In_Admins_Physicians_Requests.html">
-                    <span>Physicians Requests</span>
-                </a>
-            </li>
-        </ul>
-    </aside>
+    <?php include'./sidebar.php' ?>
     <main class="container main">
         <div class="data-titles patient-grid">
             <input type="checkbox" name="select-all" id="select-all">
@@ -71,13 +58,17 @@
             <h3>No. Of Visits</h3>
             <h3>Warnings</h3>
         </div>
+        <form action="./After_Sign_In_Admins_Patients.html" method="GET">
         <div class="patients-list">
             <?php
-            include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+            ob_start();
+            clearStoredResults();
             $result = PatientAshow();
             if($result)
             {
+                $total =0;
                 while($row = mysqli_fetch_assoc($result)){
+                    $total++;
                     $FName = $row['FName'];
                     $LName = $row['LName'];
                     $ID=$row['ID'];
@@ -100,14 +91,27 @@
                         </div>
                         <h2 class='phone'>$NOV</h2>
                         <h2 class='city'>$WN</h2>
-                        <a class='no-eff' href='#''><i class='fa fa-trash delete-me'></i></a>
+                        <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button>
+                        <input type='number' name='q$total' id='patient_ID' value='$ID' style='display: none;'\>
                     </div>
                     ";
                 } 
             } 
-            else{echo "Error";}?>
+            else{echo "Error";}
+            //////////////////////////////////////////////////////////////////////////////////////////
+            for($i=1; $i<=$total;$i++){
+                if(isset($_GET["db$i"])){
+                    $patientID = $_GET["q$i"];
+                    clearStoredResults();
+                    PatientARemove($patientID);
+                    header("Location:./After_Sign_In_Admins_Patients.html");
+                }
+            }
+            ob_end_flush();
+            ?>
             </div>
         </div>
+        </form>
     </main>
 </body>
 </html>

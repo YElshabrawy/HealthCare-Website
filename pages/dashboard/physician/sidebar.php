@@ -34,6 +34,12 @@
                 <li class="sidebar-item flex">
                     <img class="logo" src="/images/i_profile.svg" alt="">
                     <a href="./profile.html">
+                        <span>Change Time Table</span>
+                    </a>
+                </li>
+                <li class="sidebar-item flex">
+                    <img class="logo" src="/images/i_profile.svg" alt="">
+                    <a href="./profile.html">
                         <span>Profile</span>
                     </a>
                 </li>

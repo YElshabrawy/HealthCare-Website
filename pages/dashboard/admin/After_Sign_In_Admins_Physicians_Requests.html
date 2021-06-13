@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Patients</title>
+    <title>Home - Physician Requests</title>
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
     <link rel="stylesheet" href="./main_admin.css">
     <link rel="stylesheet" href="../dashboard.css">
@@ -14,6 +14,13 @@
 </head>
 
 <body>
+    <?php
+    if(isset($_GET['error'])){
+        if($_GET['error'] == "noData"){
+            echo "<script>alert('Error: No Added Data!')</script>";
+        }
+    }
+    ?>
     <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
         <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
@@ -29,41 +36,27 @@
                     <img src="/images/default_pic.jpg" alt="">
                 </a>
                 <div class="username">
-                    <span class="fname"></span>
-                    <span class="lname"></span>
+                    <?php
+                    include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+                    session_start();
+                    $AdminID = $_SESSION['SignInID'];
+                    $result1 = ShowPhysicianLastName($AdminID);
+                    if($result1)
+                    {
+                        while($row = mysqli_fetch_assoc($result1)){
+                            $Name1 = $row['FName'];
+                            $Name2 = $row['LName'];
+                        } 
+                    } 
+                    else{echo "Error";}
+                    ?>
+                    <span class="fname"><?php echo $Name1; ?></span>
+                    <span class="lname"><?php echo $Name2; ?></span>
                 </div>
             </div>
         </div>
     </nav>
-
-    <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_dashboard.svg" alt="">
-                <a href="./After_Sign_In_Admins.html">
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./After_Sign_In_Admins_Patients.html">
-                    <span>patients</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./After_Sign_In_Admins_Physicians.html">
-                    <span>Physicians</span>
-                </a>
-            </li>
-            <li class="sidebar-item flex">
-                <img class="logo" src="/images/i_profile.svg" alt="">
-                <a href="./After_Sign_In_Admins_Physicians_Requests.html">
-                    <span>Physicians Requests</span>
-                </a>
-            </li>
-        </ul>
-    </aside>
+    <?php include'./sidebar.php' ?>
     <main class="container main">
         <div class="data-titles patient-grid">
             <input type="checkbox" name="select-all" id="select-all">
@@ -72,23 +65,27 @@
             <h3>Major</h3>
             <h3>CV</h3>
         </div>
+        <form action="./After_Sign_In_Admins_Physicians_Requests.html" method="GET">
         <div class="patients-list">
             <?php
-            include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
+            ob_start();
+            clearStoredResults();
             $result = physicianRequests();
             if($result)
             {
+                $total =0;
                 while($row = mysqli_fetch_assoc($result)){
+                    $total++;
                     $FName = $row['FName'];
                     $LName = $row['LName'];
                     $Major = $row['major'];
                     $Price = $row['Examination'];
                     $ID=$row['ID'];
                     clearStoredResults();
-                    $result1=physicianCV($ID);
-                    if($result1)
+                    $result2=physicianCV($ID);
+                    if($result2)
                     {
-                        while($row = mysqli_fetch_assoc($result1)){
+                        while($row = mysqli_fetch_assoc($result2)){
                             $CV= $row['CV']; 
                             $CV=base64_encode($CV);
                         }
@@ -99,22 +96,40 @@
                         <a href='' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
                         <div class='personal-info'>
                             <h1 style='text-align: left;'>$FName $LName</h1>
-                            <p>Physician ID: $ID</p>
+                            <p  style='text-align: left;'>Physician ID: $ID</p>
                         </div>
                         <h2 class='phone'>$Price</h2>
                         <h2 class='phone'>$Major</h2>
                         <h2 class='phone'>
                         <a title='Download PDF' download='$FName CV.PDF' href='data:application/pdf;base64,$CV'>Download CV</a>
                         </h2>
-                        <a class='no-eff' href='#''><i class='fa fa-plus'></i></a>
+                        <button name='A$total'><i class='fa fa-plus'></i></button>
+                        <button name='D$total'><i class='fa fa-trash delete-me'></i></button>
+                        <input type='number' name='q$total' id='Phys_ID' value='$ID' style='display: none;'\>
                     </div>
                     ";
                 } 
             } 
             else{echo "Error";}
+            //////////////////////////////////////////////////////////////////////////////////////////
+            for($i=1; $i<=$total;$i++){
+                if(isset($_GET["A$i"])){
+                    $ID = $_GET["q$i"];
+                    clearStoredResults();
+                    physicianapproved($ID);
+                    header("Location:./After_Sign_In_Admins_Physicians_Requests.html");
+                }
+                if(isset($_GET["D$i"])){
+                    $ID = $_GET["q$i"];
+                    clearStoredResults();
+                    physiciandenied($ID);
+                    header("Location:./After_Sign_In_Admins_Physicians_Requests.html");
+                }
+            }
+            ob_end_flush();
             ?>
-            </div>
         </div>
+    </form>
     </main>
 </body>
 </html>

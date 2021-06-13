@@ -76,9 +76,9 @@
   margin-top: 20px;
 }
 
-.big-card {
-  /* justify-content: space-between; */
-}
+/* .big-card {
+  justify-content: space-between;
+} */
 
 .today-appointments-list {
   flex-grow: 1.5;

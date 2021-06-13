@@ -841,16 +841,18 @@ li {
   align-items: center;
   grid-template-columns: 70px repeat(7, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap:3%;
+  grid-row-gap: 20%;
+  margin-top: 3%;
 }
-
+input[type=time]::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
 .tt-from-to > div {
   width: 77px;
 }
-
-.tt-from-to > div > input {
-  padding: 0px;
+.tt-from-to > p{
+align-self: flex-start;
 }
 
 .tt-days-grid {
@@ -861,6 +863,7 @@ li {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
+
 ul {
   padding: 0;
   margin: 0;
@@ -882,7 +885,7 @@ ul {
 }
 
 .tt-days p {
-  margin: 5px 0;
+  margin: 10px 0;
   color: white;
   font-weight: bold;
 }

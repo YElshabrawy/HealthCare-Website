@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Time Table</title>
+    <link rel="stylesheet" href="../../authentication/auth_up.css">
+    <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+    </script>
+    <script>
+        let count = 2;
+        // const counter = document.querySelector("#counter");
+        function Add() {
+        count++;
+        document.querySelector("#counter").value = count;
+       let location=document.querySelector(".Time_Table");
+        row = `
+        <br>
+        <div class="tt-from-to">
+        <p>From</p>
+            <div class=""><input class="time"name="f${count}-sun" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="f${count}-mon" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="f${count}-tue" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="f${count}-wed" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="f${count}-thur" max="23" min="0"type="text" /></div>
+            <div class=""><input class="time"name="f${count}-fri" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="f${count}-sat" max="23" min="0" type="text" /></div>
+            <p>To</p>
+            <div class=""><input class="time"name="t${count}-sun" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="t${count}-mon" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="t${count}-tue" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="t${count}-wed" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="t${count}-thur" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="t${count}-fri" max="23" min="0" type="text" /></div>
+            <div class=""><input class="time"name="t${count}-sat" max="23" min="0" type="text" /></div>
+        </div>`;
+        location.insertAdjacentHTML("beforeend", row);   
+        $('.time').datetimepicker({
+            format: 'HH:mm ',
+        });
+}
+    function Remove(){
+    count--;
+    document.querySelector("#counter").value = count;
+    var All_slots=document.querySelectorAll(".tt-from-to");  
+    const MainDiv=document.querySelector(".Time_Table");  
+    if(All_slots.length>2)
+    {
+    MainDiv.removeChild(MainDiv.lastElementChild);
+    MainDiv.removeChild(MainDiv.lastElementChild);
+    }
+    }
+    </script>
+</head>
+<body>
+    
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="#" id="gform_wrapper1" method="POST" enctype="multipart/form-data">
+                <h1>Time Table</h1>
+                <input style="display: none;" type="number" name="counter" id="counter" value="2">
+                <div class="container2">
+                    <div class="row1 jc flex">
+                    </div>
+                    <div class="tt-days">
+                        <ul class="tt-days-grid">
+                            <div class=""></div>
+                            <li><p>Sun</p></li>
+                            <li><p>Mon</p></li>
+                            <li><p>Tue</p></li>
+                            <li><p>Wed</p></li>
+                            <li><p>Thurs</p></li>
+                            <li><p>Fri</p></li>
+                            <li><p>Sat</p></li>
+                        </ul>
+                    </div>
+                    <div class="Time_Table">
+                    <div class="tt-from-to">
+                        <p>From</p>
+                        <div class=""><input class="time" name="f1-sun" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-mon" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-tue" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-wed" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-thur"max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-fri" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-sat" max="23" min="0" type="text" /></div>
+                        <p>To</p>
+                        <div class=""><input class="time" name="f1-sun" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-mon" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-tue" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-wed" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-thur"max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-fri" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-sat" max="23" min="0" type="text" /></div>
+                    </div>
+                    <br>
+                    <div class="tt-from-to">
+                        <p>From</p>
+                        <div class=""><input class="time" name="f1-sun" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-mon" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-tue" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-wed" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-thur"max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-fri" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-sat" max="23" min="0" type="text" /></div>
+                        <p>To</p>
+                        <div class=""><input class="time" name="f1-sun" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-mon" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-tue" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-wed" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-thur"max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-fri" max="23" min="0" type="text" /></div>
+                        <div class=""><input class="time" name="f1-sat" max="23" min="0" type="text" /></div>
+                    </div>
+                    </div>
+                    <div class="visit-time flex" style="align-items: center; margin-top: 5%;">
+                        <button class="Add_Slot" type="button" onclick="Add()">Add Slot</a></button>
+                        <button class="Add_Slot"style="visibility: hidden;" disabled></button>
+                        <button class="Add_Slot"style="visibility: hidden;" disabled></button>
+                        <button class="Add_Slot"style="visibility: hidden;" disabled></button>
+                        <button class="Remove_Slot" type="button" onclick="Remove()">Delete Slot</a></button>
+                    </div>
+                </div>
+                <button type="submit">Save Changes</button>
+                <div class="back-to-home">
+                    <a href="./profile.html">
+                        <img src="/images/i_back.svg" alt="">
+                        <span>Back to Dashboard</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('.time').datetimepicker({
+            format: 'HH:mm ',
+        });
+    </script>
+</body>
+</html>

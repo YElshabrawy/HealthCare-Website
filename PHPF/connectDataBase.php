@@ -748,7 +748,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         {
             $sql = "CALL physicianapproved('$pID');";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                //echo 'done';
                 return $result;
             }
             else
@@ -775,15 +775,14 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         function physicianARFilterprice(){
             $sql = "CALL physicianARFilterprice();";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                //echo 'done';
                 return $result;
             }
             else
             {
                 echo("Error description: " . $GLOBALS['conn'] -> error);
                 return false;
-            }
-            
+            }   
         }
         function physicianARFiltermajor($major){
             $sql = "CALL physicianARFiltermajor('$major');";
@@ -816,7 +815,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         {
             $sql = "CALL physicianARemove('$pID');";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                //echo 'done';
                 return $result;
             }
             else
@@ -904,7 +903,7 @@ function UpdateAccountInfo( $ID , $Email ,$Pass , $UserName ,
         {
             $sql = "CALL PatientARemove('$pID');";
             if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                echo 'done';
+                //echo 'done';
                 return $result;
             }
             else
@@ -1432,7 +1431,7 @@ function   UpdateToDone($VID){
             {
                 $sql = "CALL AdminShowAdminsRequest;";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                   // echo 'done';
                     return $result;
                 }
                 else
@@ -1444,7 +1443,7 @@ function   UpdateToDone($VID){
             function AdminApproved($AID){
                 $sql = "CALL AdminApproved('$AID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                   // echo 'done';
                     return $result;
                 }
                 else
@@ -1456,7 +1455,7 @@ function   UpdateToDone($VID){
             function AdminDenied($AID){
                 $sql = "CALL AdminApproved('$AID');";
                 if($result = mysqli_query($GLOBALS['conn'],$sql)) {
-                    echo 'done';
+                    //echo 'done';
                     return $result;
                 }
                 else

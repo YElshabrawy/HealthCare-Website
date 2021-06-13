@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Patients</title>
     <link rel="shortcut icon" href="/images/_WEBSITE_ICON.svg">
+    <link rel="stylesheet" href="./main_admin.css">
     <link rel="stylesheet" href="../dashboard.css">
-    <link rel="stylesheet" href="./main_physician.css">
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <script type = "text/javascript" src="../Sidebar.js">  </script>  
 </head>
@@ -21,7 +21,6 @@
         }
     }
     ?>
-    
     <nav class="container nav-container">
         <div class="Menu-Btn" onclick="Sidebar_Action()">☰</div>
         <a class="nav-logo" href="#"><img src="/images/nav-logo.svg" alt="HealthCare"></a>
@@ -40,8 +39,9 @@
                     <?php
                     include_once 'C:\xampp\htdocs\HealthCare\PHPF\connectDataBase.php';
                     session_start();
-                    $PhyID = $_SESSION['SignInID'];
-                    $result1 = ShowPhysicanProfile($PhyID);
+                    $AdminID = $_SESSION['SignInID'];
+                    
+                    $result1 = ShowPhysicianLastName($AdminID);
                     if($result1)
                     {
                         while($row = mysqli_fetch_assoc($result1)){
@@ -57,79 +57,73 @@
             </div>
         </div>
     </nav>
-
     <?php include'./sidebar.php' ?>
     <main class="container main">
-        <form action="../physician/patients.html" method="GET">
         <div class="data-titles patient-grid">
             <input type="checkbox" name="select-all" id="select-all">
             <h3 id="long">Basic Info</h3>
-            <h3>Phone Number</h3>
+            <h3>Phone no.</h3>
+            <h3>Country</h3>
             <h3>City</h3>
-            <h3>Next Appointment</h3>
-            <h3>Time</h3>
-            <!-- <h3>Register Date</h3> -->
         </div>
+        <form action="./After_Sign_In_Admins_Admin_Requests.html" method="GET">
         <div class="patients-list">
             <?php
             ob_start();
             clearStoredResults();
-            $result2 =  PhysicianShowPatients($PhyID);
-            if($result2)
+            $result = AdminShowAdminsRequest();
+            if($result)
             {
                 $total =0;
-                while($row = mysqli_fetch_assoc($result2)){
+                while($row = mysqli_fetch_assoc($result)){
                     $total++;
-                    $visit_ID = $row['VisitID'];
-                    $Patient_ID = $row['ID'];
-                    $PFName = $row['FName'];
-                    $PLName = $row['LName'];
-                    $Date = $row['Dates'];
-                    $ST = $row['StartTime'];
-                    $Email = $row['EmailAddress'];
-                    $Phone = $row['MobilePhone'];
+                    $FName = $row['FName'];
+                    $LName = $row['LName'];
+                    $ID=$row['ID'];
+                    $Country = $row['Country'];
                     $City = $row['City'];
-                    echo
-                    "
-                    <div class='patient' id='p1'>
-                        <input type='checkbox' name='p1' id='p1'>
-                        <a href='#' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
-                        <div class='personal-info'>
-                            <h1>$PFName $PLName</h1>
-                            <p>$Email</p>
+                    $Pno=$row['MobilePhone'];
+                    clearStoredResults();
+                      echo"
+                      <div class='patient' id='p1'>
+                          <input type='checkbox' name='p1' id='p1'>
+                          <a href='./patient_profile.html' class='no-eff'><img class='logo profile-pic' src='/images/default_pic.jpg' alt=''></a>
+                          <div class='personal-info'>
+                            <h1 style='text-align: left;'>$FName $LName</h1>
+                            <p  style='text-align: left;'>Admin ID: $ID</p>
+                          </div>
+                          <h2 class='city'>$Pno</h2>
+                          <h2 class='city'>$Country</h2>
+                          <h2 class='city'>$City</h2>
+                          <h2 class='city'></h2>
+                          <button name='A$total'><i class='fa fa-plus'></i></button>
+                          <button name='D$total'><i class='fa fa-trash delete-me'></i></button>
+                          <input type='number' name='q$total' id='Admin_ID' value='$ID' style='display: none;'\>
                         </div>
-                        <h2 class='phone'>$Phone</h2>
-                        <h2 class='city'>$City</h2>
-                        <h2 class='next-app'>$Date</h2>
-                        <h2 class='last-app'>$ST </h2>
-                        <button name='db$total' class='no-eff'><i class='fa fa-trash delete-me'></i></button>
-                        <!-- <button name=\"b$total\"><i class='fa fa-ellipsis-h delete-me'></i></button> -->
-                        <input type='number' name='q$total' id='Pat_ID' value='$visit_ID' style='display: none;'\>
-                    </div>
-                    ";
+                      ";
                 } 
             } 
             else{echo "Error";}
             //////////////////////////////////////////////////////////////////////////////////////////
             for($i=1; $i<=$total;$i++){
-               // if(isset($_GET["b$i"])){
-               //     $visit_id = $_GET["q$i"];
-               //     session_start();
-              //      $_SESSION['vidi'] = $phys_id;
-                //    header("Location:./new_visit.html?vidi=$visit_id");
-              //  }
-                if(isset($_GET["db$i"])){
-                    $visit_id = $_GET["q$i"];
+                if(isset($_GET["A$i"])){
+                    $AID = $_GET["q$i"];
                     clearStoredResults();
-                    PhysicianCancelVisit($visit_id);
-                    header("Location:./patients.html");
+                    AdminApproved($AID);
+                    header("Location:./After_Sign_In_Admins_Admin_Requests.html");
+                }
+                if(isset($_GET["D$i"])){
+                    $AID = $_GET["q$i"];
+                    clearStoredResults();
+                    AdminDenied($AID);
+                    header("Location:./After_Sign_In_Admins_Admin_Requests.html");
                 }
             }
             ob_end_flush();
             ?>
             </div>
         </div>
-        </form>
+    </form>
     </main>
 </body>
 </html>
